@@ -1,0 +1,13 @@
+<%= simple_form_for @feedstock, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name, required: true  %>
+  <%= f.input :description, wrapper_html: { size: 10 } %>
+  <%= f.input :med %>
+  <%= f.input :min_stock, as: :string %>
+  <%= f.input :critic_stock, as: :string %>
+  <%= f.input :quantity, as: :string %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                feedstocks_path, :class => 'btn' %>
+  </div>
+<% end %>

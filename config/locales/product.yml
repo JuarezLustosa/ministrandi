@@ -1,0 +1,18 @@
+# encoding: utf-8
+pt-BR:
+  activerecord:
+    models:
+      product:
+        one: "Produto"
+        other: "Produtos"
+
+    attributes:
+      product:
+        id: "Código"
+        name: "Nome"
+        unit: "Medida" 
+        valid_date: "Data de Validade"
+        retail_price: "Preço Varejo"
+        wholesale: "Preço Atacado"
+        barcode: "Código de Barras"
+

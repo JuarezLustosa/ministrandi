@@ -1,0 +1,14 @@
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name, required: true, input_html: { class: "labellarge" }   %>
+  <%= f.input :unit, wrapper_html: { size: 10 } %>
+  <%= f.input :barcode %>
+  <%= f.input :valid_date %>
+  <%= f.input :retail_price %>
+  <%= f.input :wholesale %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
+  </div>
+<% end %>

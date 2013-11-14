@@ -1,0 +1,35 @@
+development:
+  adapter: postgresql
+  database: ministrandi_development
+  encoding: unicode
+  reconnect: true
+  min_messages: warning
+  pool: 15
+  timeout: 5000
+  username: solucao_social
+  password: solucao_social
+
+test: &test
+  adapter: postgresql
+  database: ministrandi_test
+  encoding: unicode
+  reconnect: true
+  min_messages: warning
+  pool: 15
+  timeout: 5000
+  username: solucao_social
+  password: solucao_social
+
+production:
+  adapter: postgresql
+  database: ministrandi_production
+  encoding: unicode
+  reconnect: true
+  min_messages: warning
+  pool: 15
+  timeout: 5000
+  username: solucao_social
+  password: solucao_social
+
+cucumber:
+  <<: *test

@@ -1,0 +1,17 @@
+# encoding: utf-8
+pt-BR:
+  activerecord:
+    models:
+      feedstock:
+        one: "Matéria-prima"
+        other: "Matérias-primas"
+
+    attributes:
+      feedstock:
+        id: "Código"
+        name: "Nome"
+        quantity: "Quantidade"
+        critic_stock: "Estoque crítico"
+        description: "Descrição"
+        med: "Medida" 
+        min_stock: "Estoque minímo"

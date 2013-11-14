@@ -1,0 +1,19 @@
+<%= simple_form_for @stock, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :product, 
+    as: :string, 
+    input_html: {class: 'search-query', 
+      autofocus: true} 
+  %>
+  <%= f.input :product_id,  as: :hidden %>
+  <%= f.input :quantity, as: :string %>
+  <%= f.input :local,
+              :as => :select,
+              :collection => StockLocations.to_a %>
+  
+    
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stocks_path, :class => 'btn' %>
+  </div>
+<% end %>

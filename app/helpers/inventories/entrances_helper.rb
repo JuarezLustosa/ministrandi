@@ -1,0 +1,2 @@
+module Inventories::EntrancesHelper
+end

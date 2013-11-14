@@ -1,0 +1,44 @@
+<%- model_class = Feedstock -%>
+<div class="page-header">
+  <h1>Matérias-Primas</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:cod) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:med) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:min_stock) %></th>
+      <th><%= model_class.human_attribute_name(:critic_stock) %></th>
+      <th><%= "Ações" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @feedstocks.each do |feedstock| %>
+      <tr>
+        <td><%= link_to feedstock.id, feedstock_path(feedstock) %></td>
+        <td><%= feedstock.cod %></td>
+        <td><%= feedstock.description %></td>
+        <td><%= feedstock.med %></td>
+        <td><%= feedstock.quantity %></td>
+        <td><%= feedstock.min_stock %></td>
+        <td><%= feedstock.critic_stock %></td>
+        <td>
+          <%= link_to "Editar",
+                      edit_feedstock_path(feedstock), :class => 'btn btn-mini' %>
+          <%= link_to "Apagar",
+                      feedstock_path(feedstock),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo",
+            new_feedstock_path,
+            :class => 'btn btn-primary' %>
