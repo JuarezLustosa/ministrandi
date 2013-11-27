@@ -1,5 +1,5 @@
 jQuery ->
-  $('.search-query').autocomplete
+  $('#stock_product').autocomplete
     source: "/search_suggestions"
     select: (event, ui) ->
         event.preventDefault()
