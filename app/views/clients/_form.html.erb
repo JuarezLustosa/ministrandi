@@ -3,16 +3,28 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :cnpj %>
-    <%= f.input :cpf %>
+    <%= f.input :cnpj, as: :string %>
+    <%= f.input :cpf, as: :string %>
     <%= f.input :social_reason %>
     <%= f.input :contact %>
-    <%= f.input :email %>
-    <%= f.input :phone1 %>
-    <%= f.input :phone2 %>
+    <%= f.input :email, as: :email %>
+    <%= f.input :phone1, as: :string %>
+    <%= f.input :phone2, as: :string %>
+    <%= f.simple_fields_for :address do |address_form| %>
+      <%= address_form.input :cep %>
+      <%= address_form.input :street_type %>
+      <%= address_form.input :street %>
+      <%= address_form.input :number, as: :string %>
+      <%= address_form.input :complement %>
+      <%= address_form.input :neighborhood %>
+      <%= address_form.input :city %>
+      <%= address_form.input :state %>
+    <% end %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                clients_path, :class => 'btn' %>
   </div>
 <% end %>

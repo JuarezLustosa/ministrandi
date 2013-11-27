@@ -11,7 +11,8 @@ describe "clients/index" do
         :contact => "Contact",
         :email => "Email",
         :phone1 => 3,
-        :phone2 => 4
+        :phone2 => 4,
+        :address => nil
       ),
       stub_model(Client,
         :name => "Name",
@@ -21,7 +22,8 @@ describe "clients/index" do
         :contact => "Contact",
         :email => "Email",
         :phone1 => 3,
-        :phone2 => 4
+        :phone2 => 4,
+        :address => nil
       )
     ])
   end
@@ -37,5 +39,6 @@ describe "clients/index" do
     assert_select "tr>td", :text => "Email".to_s, :count => 2
     assert_select "tr>td", :text => 3.to_s, :count => 2
     assert_select "tr>td", :text => 4.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

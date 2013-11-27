@@ -10,7 +10,8 @@ describe "clients/show" do
       :contact => "Contact",
       :email => "Email",
       :phone1 => 3,
-      :phone2 => 4
+      :phone2 => 4,
+      :address => nil
     ))
   end
 
@@ -25,5 +26,6 @@ describe "clients/show" do
     rendered.should match(/Email/)
     rendered.should match(/3/)
     rendered.should match(/4/)
+    rendered.should match(//)
   end
 end

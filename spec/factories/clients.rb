@@ -10,5 +10,6 @@ FactoryGirl.define do
     email "MyString"
     phone1 1
     phone2 1
+    address nil
   end
 end

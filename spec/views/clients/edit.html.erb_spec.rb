@@ -10,7 +10,8 @@ describe "clients/edit" do
       :contact => "MyString",
       :email => "MyString",
       :phone1 => 1,
-      :phone2 => 1
+      :phone2 => 1,
+      :address => nil
     ))
   end
 
@@ -27,6 +28,7 @@ describe "clients/edit" do
       assert_select "input#client_email[name=?]", "client[email]"
       assert_select "input#client_phone1[name=?]", "client[phone1]"
       assert_select "input#client_phone2[name=?]", "client[phone2]"
+      assert_select "input#client_address[name=?]", "client[address]"
     end
   end
 end

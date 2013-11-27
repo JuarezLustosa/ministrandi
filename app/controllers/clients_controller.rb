@@ -12,6 +12,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
+    @client.build_address
     respond_with(@client)
   end
 
@@ -40,6 +41,6 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-      params.require(:client).permit(:name, :cnpj, :cpf, :social_reason, :contact, :email, :phone1, :phone2)
+      params.require(:client).permit(:name, :cnpj, :cpf, :social_reason, :contact, :email, :phone1, :phone2, :address_id)
     end
 end

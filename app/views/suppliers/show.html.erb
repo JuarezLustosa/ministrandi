@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supplier.name %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @supplier.cnpj %>
+</p>
+
+<p>
+  <strong>Fantasy:</strong>
+  <%= @supplier.fantasy %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @supplier.contact %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @supplier.email %>
+</p>
+
+<p>
+  <strong>Phone1:</strong>
+  <%= @supplier.phone1 %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @supplier.phone2 %>
+</p>
+
+<p>
+  <strong>State scription:</strong>
+  <%= @supplier.state_scription %>
+</p>
+
+<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<%= link_to 'Back', suppliers_path %>
