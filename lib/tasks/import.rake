@@ -9,6 +9,7 @@ namespace :import do
         neighborhood = neighborhood.strip if neighborhood
         street = street.strip if street
         cep = cep.strip if cep
+        street_type = street_type.strip if street_type
         
         PostalCode.create(
           :city => city,

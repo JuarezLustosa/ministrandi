@@ -16,8 +16,13 @@ private
   def result(postal_codes)
     resultset = postal_codes.map do |postal_code|
       {
-        :id       => postal_code.id,
-        :label    => postal_code.street
+        :id           => postal_code.id,
+        :label        => postal_code.cep,
+        :street       => postal_code.street,
+        :street_type  => postal_code.street_type,
+        :neighborhood => postal_code.neighborhood,
+        :city         => postal_code.city,
+        :state        => postal_code.state
       }
     end
     resultset

@@ -6,6 +6,7 @@ class CreatePostalCodes < ActiveRecord::Migration
       t.integer :street_type
       t.string :street
       t.string :cep
+      t.integer :state
 
       t.timestamps
     end
