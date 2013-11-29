@@ -10,13 +10,24 @@ namespace :import do
         street = street.strip if street
         cep = cep.strip if cep
         street_type = street_type.strip if street_type
+        state_minas = 0
         
         PostalCode.create(
           :city => city,
           :neighborhood => neighborhood,
           :street_type => find_street_type(street_type),
           :street => street,
-          :cep => cep)
+          :cep => cep,
+          :state => state_minas)
+      end
+    end
+  end  
+
+  desc 'Import City '
+  task :city => :environment do
+    City.transaction do
+      CSV.foreach("#{Rails.root}/lib/import/cidades.csv", :col_sep => '|') do |x, y, name|
+        City.create(:name => name)
       end
     end
   end

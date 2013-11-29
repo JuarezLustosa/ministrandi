@@ -1,6 +1,7 @@
 Ministrandi::Application.routes.draw do
   namespace :autocompletes do
     resources :search_postal_codes, only: :index
+    resources :search_cities, only: :index
   end
   resources :suppliers
 

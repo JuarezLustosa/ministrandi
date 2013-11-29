@@ -7,7 +7,7 @@ class CreateAddresses < ActiveRecord::Migration
       t.integer :number
       t.string :complement
       t.string :neighborhood
-      t.integer :city
+      t.references :city
       t.integer :state
       t.references :client, index: true
       t.references :supplier, index: true

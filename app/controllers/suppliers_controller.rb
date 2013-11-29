@@ -22,6 +22,7 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(supplier_params)
+    require "pry"; binding.pry
     @supplier.save
     respond_with(@supplier)
   end
@@ -44,6 +45,6 @@ class SuppliersController < ApplicationController
     def supplier_params
       params.require(:supplier).permit(
         :name, :cnpj, :fantasy, :contact, :email, :phone1, :phone2, :state_scription,
-        address_attributes: [:cep, :number, :street_type, :street, :complement, :neighborhood, :city, :state])
+        address_attributes: [:cep, :number, :street_type, :street, :complement, :neighborhood, :city_id, :state])
     end
 end
