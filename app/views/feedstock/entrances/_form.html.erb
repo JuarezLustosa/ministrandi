@@ -1,0 +1,12 @@
+<%= simple_form_for @feedstock_entrance, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :supplier, as: :string, input_html: { class: 'search-query' }, required: true  %>
+  <%= f.input :supplier_id, as: :hidden  %>
+  <%= f.input :freight_price, as: :string  %>
+  <%= f.input :nf_number, as: :string  %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                feedstock_entrances_path, :class => 'btn' %>
+  </div>
+<% end %>

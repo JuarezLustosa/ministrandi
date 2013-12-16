@@ -1,7 +1,22 @@
 Ministrandi::Application.routes.draw do
+  
+  namespace :feedstock do
+    resources :outputs do
+      resource :finish, controller: 'outputs/finish',  only: :update
+      resources :items, controller: 'outputs/items'
+    end
+    
+    resources :entrances do
+      resource :finish, controller: 'entrances/finish',  only: :update
+      resources :items, controller: 'entrances/items'
+    end
+  end
+
   namespace :autocompletes do
     resources :search_postal_codes, only: :index
     resources :search_cities, only: :index
+    resources :suppliers, only: :index
+    resources :feedstocks, only: :index
   end
   resources :suppliers
 

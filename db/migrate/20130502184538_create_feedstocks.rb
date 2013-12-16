@@ -4,7 +4,8 @@ class CreateFeedstocks < ActiveRecord::Migration
       t.string :name, :null => false, :uniq => true
       t.text :description
       t.string :med
-      t.integer :quantity
+      t.decimal :weight
+      t.integer :quantity, :default => 0
       t.integer :min_stock
       t.integer :critic_stock
 

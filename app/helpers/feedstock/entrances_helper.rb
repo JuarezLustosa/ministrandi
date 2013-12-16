@@ -1,0 +1,2 @@
+module Feedstock::EntrancesHelper
+end

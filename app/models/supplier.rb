@@ -5,4 +5,6 @@ class Supplier < ActiveRecord::Base
   delegate :city, to: :address, prefix: true, allow_nil: true 
   
   accepts_nested_attributes_for :address
+  
+  scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
 end

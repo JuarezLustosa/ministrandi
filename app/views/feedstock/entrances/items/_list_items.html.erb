@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Itens </h1>
+</div>
+
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Matéria-Prima</th>
+        <th>Unidade</th>
+        <th>Peso em KG</th>
+        <th>Preço</th>
+        <th>Quant.</th> 
+        <th>Ação</th>
+      </tr>
+    </thead>
+    
+    <% if items.any? %>
+      <tbody>
+        <% items.each do |item| %>
+          <tr>
+            <td><%= item.feedstock_name %></td>
+            <td><%= item.feedstock_med %></td>
+            <td><%= item.feedstock_weight %></td>
+            <td><%= item.price_unit %></td>
+            <td><%= item.quantity %></td>
+            <td>
+              <%= link_to "Apagar",
+                          feedstock_entrance_item_path(@feedstock_entrance, item),
+                          :method => :delete,
+                          :remote => true,
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>

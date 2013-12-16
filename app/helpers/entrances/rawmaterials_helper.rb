@@ -1,0 +1,2 @@
+module Entrances::RawmaterialsHelper
+end

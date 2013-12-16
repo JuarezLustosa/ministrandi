@@ -1,0 +1,39 @@
+<%- model_class = Feedstock::Output -%>
+<div class="page-header">
+  <h1>Saídas de Matérias Primas </h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:employee) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= "Ações" %></th>
+    </tr>
+  </thead>
+  <%= %>
+  <tbody>
+    <% @feedstock_outputs.each do |feedstock_output| %>
+      <tr>
+        <td><%= link_to feedstock_output.id, feedstock_output_path(feedstock_output) %></td>
+        <td><%= feedstock_output.date %></td>
+        <td><%= feedstock_output.employee %></td>
+        <td><%= feedstock_output.status %></td>
+        <td>
+          <%= link_to "Editar",
+                      edit_feedstock_output_path(feedstock_output), :class => 'btn btn-mini' %>
+          <%= link_to "Apagar",
+                      feedstock_output_path(feedstock_output),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo",
+            new_feedstock_output_path,
+            :class => 'btn btn-primary' %>

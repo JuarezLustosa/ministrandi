@@ -22,7 +22,6 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(supplier_params)
-    require "pry"; binding.pry
     @supplier.save
     respond_with(@supplier)
   end

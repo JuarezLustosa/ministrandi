@@ -1,0 +1,2 @@
+module Feedstock::OutputsHelper
+end
