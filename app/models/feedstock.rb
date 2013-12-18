@@ -5,4 +5,13 @@ class Feedstock < ActiveRecord::Base
   validates_uniqueness_of :name
 
   scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
+  
+  
+  def min_stock?
+    quantity <= min_stock
+  end
+  
+  def critic_stock?
+    quantity <= critic_stock    
+  end
 end

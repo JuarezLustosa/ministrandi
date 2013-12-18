@@ -45,6 +45,6 @@ class Feedstock::EntrancesController < ApplicationController
     end
 
     def entrance_params
-      params.require(:feedstock_entrance).permit(:supplier_id )
+      params.require(:feedstock_entrance).permit(:supplier_id, :nf_number, :freight_price)
     end
 end

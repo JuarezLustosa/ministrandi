@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:nf_number) %></th>
       <th><%= model_class.human_attribute_name(:supllier) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Ações" %></th>
     </tr>
   </thead>
@@ -17,8 +18,9 @@
       <tr>
         <td><%= link_to feedstock_entrance.id, feedstock_entrance_path(feedstock_entrance) %></td>
         <td><%= feedstock_entrance.nf_number %></td>
-        <td><%= feedstock_entrance.supplier %></td>
-        <td><%= feedstock_entrance.date %></td>
+        <td><%= feedstock_entrance.supplier_name %></td>
+        <td><%= I18n.l(feedstock_entrance.created_at) %></td>
+        <td><%= feedstock_entrance.status %></td>
         <td>
           <%= link_to "Editar",
                       edit_feedstock_entrance_path(feedstock_entrance), :class => 'btn btn-mini' %>
