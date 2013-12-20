@@ -7,5 +7,7 @@ class Address < ActiveRecord::Base
   belongs_to :supplier, :class_name => "Supplier", :foreign_key => "supplier_id"
   belongs_to :city, :class_name => "City", :foreign_key => "city_id"
   
+  delegate :name, :to => :city, allow_blanck: true, prefix: true
+  
   validates_presence_of :street, :number, :neighborhood, :city, :state, :cep
 end
