@@ -22,5 +22,6 @@ jQuery ->
         $('#supplier_address_attributes_city_id').val ui.item.id
   
   $("#supplier_cnpj").mask("99.999.999/9999-99");
+  $("#supplier_phone1").mask("() 9999-9999");
   $("#supplier_address_attributes_cep").mask("99999-999");
     
