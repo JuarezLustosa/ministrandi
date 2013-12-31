@@ -3,6 +3,7 @@ class States < EnumerateIt::Base
                    :SP              => 1,
                    :RS              => 2,
                    :RJ              => 3,
-                   :SC              => 4
+                   :SC              => 4,
+                   :GO              => 5
                    
 end
