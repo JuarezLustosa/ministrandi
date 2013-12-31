@@ -14,7 +14,7 @@
       <legend>Endereço</legend>
         <div class="form-inline">
           <%= f.simple_fields_for :address do |address_form| %>
-            <%= address_form.input :cep, as: :string, input_html: { class: 'search-query' }  %>
+            <%= address_form.input :cep, as: :string, input_html: { class: 'search-query' } %>
             <%= address_form.input :street %>
             <%= address_form.input :number , input_html: { class: 'input-mini' }  %>
             <%= address_form.input :street_type, input_html: { class: 'input-mini' }  %>

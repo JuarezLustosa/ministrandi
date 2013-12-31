@@ -17,7 +17,7 @@ class SuppliersController < ApplicationController
   end
 
   def edit
-    @supplier.build_address
+    @supplier.build_address unless @supplier.address
   end
 
   def create
