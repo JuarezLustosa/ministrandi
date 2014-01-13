@@ -1,4 +1,4 @@
-class Feedstock::Entrances::FinishController < ApplicationController
+class Feedstocks::Entrances::FinishController < ApplicationController
   def update
     @feedstock_entrance = Feedstock::Entrance.find(params[:entrance_id])
     @feedstock_entrance.finish
@@ -9,6 +9,6 @@ class Feedstock::Entrances::FinishController < ApplicationController
   private
   
   def diferente_location feedstock_entrance
-    respond_with feedstock_entrance, :location => feedstock_entrances_path
+    respond_with feedstock_entrance, :location => feedstocks_entrances_path
   end
 end

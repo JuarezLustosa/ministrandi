@@ -1,4 +1,4 @@
-class Feedstock::Outputs::ItemsController < ApplicationController
+class Feedstocks::Outputs::ItemsController < ApplicationController
   respond_to :js
   before_filter :items, :only => [:index]
   

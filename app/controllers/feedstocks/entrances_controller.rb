@@ -1,4 +1,4 @@
-class Feedstock::EntrancesController < ApplicationController
+class Feedstocks::EntrancesController < ApplicationController
   before_action :set_entrance, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,7 +26,7 @@ class Feedstock::EntrancesController < ApplicationController
 
   def update
     @feedstock_entrance.update(entrance_params)
-    respond_with_different_location(@feedstock_entrance)
+    respond_with_different_location @feedstock_entrance 
   end
 
   def destroy
@@ -37,7 +37,7 @@ class Feedstock::EntrancesController < ApplicationController
   private
     def respond_with_different_location(feedstock_entrance)
       respond_with feedstock_entrance,
-        :location => feedstock_entrance_items_path(feedstock_entrance)
+        :location => feedstocks_entrance_items_path(feedstock_entrance)
     end
     
     def set_entrance

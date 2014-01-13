@@ -1,4 +1,4 @@
-class Feedstock::Outputs::FinishController < ApplicationController
+class Feedstocks::Outputs::FinishController < ApplicationController
   def update
     @feedstock_output = Feedstock::Output.find(params[:output_id])
     @feedstock_output.finish

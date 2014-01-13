@@ -1,13 +1,13 @@
 Ministrandi::Application.routes.draw do
   
-  namespace :feedstock do
+  namespace :feedstocks do
     resources :outputs do
       resource :finish, controller: 'outputs/finish',  only: :update
       resources :items, controller: 'outputs/items'
     end
     
     resources :entrances do
-      resource :finish, controller: 'entrances/finish',  only: :update
+      resource :finish, controller: 'finish',  only: :update
       resources :items, controller: 'entrances/items'
     end
   end
@@ -18,16 +18,14 @@ Ministrandi::Application.routes.draw do
     resources :suppliers, only: :index
     resources :feedstocks, only: :index
   end
+  
   resources :suppliers
-
   resources :clients
-
   resources :addresses
-
   resources :search_suggestions
-
   resources :feedstocks
   resources :products
+
   resources :stocks do
     collection do
       get :change

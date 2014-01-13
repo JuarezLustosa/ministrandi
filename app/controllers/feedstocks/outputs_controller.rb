@@ -1,4 +1,4 @@
-class Feedstock::OutputsController < ApplicationController
+class Feedstocks::OutputsController < ApplicationController
   before_action :set_output, only: [:show, :edit, :update, :destroy]
 
   def index

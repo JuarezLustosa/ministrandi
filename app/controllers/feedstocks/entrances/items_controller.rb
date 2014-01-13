@@ -1,8 +1,8 @@
-class Feedstock::Entrances::ItemsController < ApplicationController
+class Feedstocks::Entrances::ItemsController < ApplicationController
   respond_to :js
   before_filter :items, :only => [:index]
-  
-  def destroy
+    
+  def delete
     @item = Feedstock::Entrance::Item.find(params[:id])
     @item.destroy
     respond_with @item 
