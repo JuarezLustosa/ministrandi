@@ -7,7 +7,7 @@ Ministrandi::Application.routes.draw do
     end
     
     resources :entrances do
-      resource :finish, controller: 'finish',  only: :update
+      resource :finish, controller: 'entrances/finish',  only: :update
       resources :items, controller: 'entrances/items'
     end
   end
