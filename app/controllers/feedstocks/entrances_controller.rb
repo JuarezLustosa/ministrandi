@@ -12,10 +12,7 @@ class Feedstocks::EntrancesController < ApplicationController
 
   def new
     @feedstock_entrance = Feedstock::Entrance.new
-    respond_with(@feedstock_entrance)
-  end
-
-  def edit
+    respond_with(@feedstocks_entrance)
   end
 
   def create
@@ -47,4 +44,13 @@ class Feedstocks::EntrancesController < ApplicationController
     def entrance_params
       params.require(:feedstock_entrance).permit(:supplier_id, :nf_number, :freight_price)
     end
+    
+    def form_path
+      @feedstock_entrance.persisted? ? 
+        feedstocks_entrance_path(@feedstock_entrance) : 
+        feedstocks_entrances_path
+    end
+
+    helper_method :form_path
+    
 end
