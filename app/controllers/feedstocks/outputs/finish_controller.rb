@@ -9,6 +9,6 @@ class Feedstocks::Outputs::FinishController < ApplicationController
   private
   
   def diferente_location feedstock_output
-    respond_with feedstock_output, :location => feedstock_outputs_path
+    respond_with feedstock_output, :location => feedstocks_outputs_path
   end
 end

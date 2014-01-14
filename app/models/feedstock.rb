@@ -3,10 +3,10 @@ class Feedstock < ActiveRecord::Base
   
   validates_presence_of :name, :med, :critic_stock, :min_stock, :quantity
   validates_uniqueness_of :name
+  validates :quantity, numericality: { greater_than_or_equal_to: 0}
 
   scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
-  
-  
+    
   def min_stock?
     quantity <= min_stock
   end

@@ -34,7 +34,7 @@ class Feedstocks::OutputsController < ApplicationController
   private
     def respond_with_different_location(feedstock_output)
       respond_with feedstock_output,
-        :location => feedstock_output_items_path(feedstock_output)
+        :location => feedstocks_output_items_path(feedstock_output)
     end
     
     def set_output
@@ -44,4 +44,12 @@ class Feedstocks::OutputsController < ApplicationController
     def output_params
       params.require(:feedstock_output).permit(:date, :employee)
     end
+    
+    def form_path
+      @feedstock_output.persisted? ? 
+        feedstocks_output_path(@feedstock_output) : 
+        feedstocks_outputs_path
+    end
+    helper_method :form_path
+
 end

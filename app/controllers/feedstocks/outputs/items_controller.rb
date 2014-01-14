@@ -22,7 +22,7 @@ class Feedstocks::Outputs::ItemsController < ApplicationController
   def items
     feedstock_output.items
   end
-
+    
   def feedstock_output
     @feedstock_output ||= Feedstock::Output.find(params[:output_id])
   end

@@ -1,3 +1,6 @@
 <% if @item.persisted? %>
-  $('#list_items').html("<%= escape_javascript(render :partial => 'feedstock/outputs/items/list_items', :locals =>{ :items => items}) %>");
+  $('#list_items').html("<%= escape_javascript(render :partial => 'feedstocks/outputs/items/list_items', :locals =>{ :items => items}) %>");
+  <% if @item.negative? %>
+    $('tr').addClass('error')
+  <% end %>
 <% end %>

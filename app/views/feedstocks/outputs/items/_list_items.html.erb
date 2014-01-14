@@ -9,7 +9,8 @@
         <th>Matéria-Prima</th>
         <th>Unidade</th>
         <th>Peso em KG</th>
-        <th>Quant.</th> 
+        <th>Estoque</th>
+        <th>Saindo</th> 
         <th>Ação</th>
       </tr>
     </thead>
@@ -17,20 +18,19 @@
     <% if items.any? %>
       <tbody>
         <% items.each do |item| %>
-          <tr>
+          <%= change_color_tr(item) %>
             <td><%= item.feedstock_name %></td>
             <td><%= item.feedstock_med %></td>
             <td><%= item.feedstock_weight %></td>
+            <td><%= item.feedstock_quantity %></td>
             <td><%= item.quantity %></td>
             <td>
               <%= link_to "Apagar",
-                          feedstock_output_item_path(@feedstock_output, item),
+                          feedstocks_output_item_path(@feedstock_output, item),
                           :method => :delete,
                           :remote => true,
                           :class => 'btn btn-mini btn-danger' %>
             </td>
-            
-          </tr>
         <% end %>
       </tbody>
     <% end %>

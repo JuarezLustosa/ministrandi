@@ -1,4 +1,5 @@
 <%= simple_form_for @feedstock, :html => { :class => 'form-horizontal' } do |f| %>
+
   <%= f.input :name, required: true  %>
   <%= f.input :weight, as: :string %> 
   <%= f.input :description, wrapper_html: { size: 10 } %>

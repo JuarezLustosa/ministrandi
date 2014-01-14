@@ -1,28 +1,29 @@
 class ChangeStock
-  def initialize(stock, entrance, out)
-    @stock = stock
-    @entrance = entrance.to_i 
-    @out =  out.to_i
+  def initialize(item, item_changer)
+    @item = item
+    @item_changer = item_changer
+  end
+    
+  def add!
+    @quantity = @item.quantity + @item_changer.quantity
+    call_active_record
   end
   
-  def change
-    add if @entrance.present?
-    deduct if @out.present?
+  def deduct!
+    @quantity = @item.quantity - @item_changer.quantity
+    call_active_record
   end
   
-  def add
-    quantity_changed = @stock.quantity + @entrance
-    update_stock(quantity_changed)
+  def call_active_record
+    begin
+      save!
+    end  
+    @item.errors.present? ? @item : @item_changer
   end
-  
-  def deduct
-    quantity_changed = @stock.quantity - @out
-    update_stock(quantity_changed)
-  end
-  
-  private
-  
-  def update_stock(quantity)
-    @stock.update_attribute(:quantity, quantity)
+
+  def save!
+    ActiveRecord::Base.transaction do
+      @item.update_attribute(:quantity, @quantity) 
+    end
   end
 end

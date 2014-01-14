@@ -2,14 +2,14 @@ class Feedstock::Output < ActiveRecord::Base
   attr_accessible :date, :status, :employee
 
   has_many :items, :class_name => "Feedstock::Output::Item", :dependent => :destroy  
-  accepts_nested_attributes_for :items, :allow_destroy => true    
-  
+  accepts_nested_attributes_for :items, :allow_destroy => true
+    
   def finish
-    items.each  do |item|
-      feedstock = item.feedstock
-      quantity = feedstock.quantity - item.quantity
-      feedstock.update_attributes(quantity: quantity)
+    transaction do
+      items.each  do |item|
+        ChangeStock.new(item.feedstock, item).deduct!
+      end
+      update_attributes status: "FINISHED"
     end
-    self.update_attributes(status: "FINISHED")
   end
 end
