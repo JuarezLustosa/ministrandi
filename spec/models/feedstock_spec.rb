@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Feedstock do
-  let(:feedstock) { Feedstock.new(:name => 'Mel') }
+  let(:feedstock) { Feedstock.new(:name => 'Mel', med: '25', critic_stock: '10', min_stock: '20', quantity: '30') }
   context "validations" do
     it "should be valid" do
       feedstock.save

@@ -15,4 +15,5 @@ pt-BR:
         retail_price: "Preço Varejo"
         wholesale: "Preço Atacado"
         barcode: "Código de Barras"
+        cost_price: "Preço de Custo"
 
