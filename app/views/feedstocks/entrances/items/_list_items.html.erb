@@ -26,7 +26,7 @@
             <td><%= item.quantity %></td>
             <td>
               <%= link_to "Apagar",
-                          feedstocks_entrance_item_path(@feedstock_entrance, item),
+                          feedstocks_entrance_item_path(feedstock_entrance, item),
                           :method => :delete,
                           :remote => true,
                           :class => 'btn btn-mini btn-danger' %>
