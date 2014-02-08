@@ -1,3 +1,6 @@
 <% if @item.persisted? %>
   $('#list_items').html("<%= escape_javascript(render :partial => 'feedstocks/entrances/items/list_items', :locals =>{ :items => items}) %>");
 <% end %>
+$('#autocomplete_feedstock').val('').focus()
+$('#price_unit').val('')
+$('#quantity').val('')
