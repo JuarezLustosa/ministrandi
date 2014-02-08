@@ -10,22 +10,7 @@
     <%= f.input :phone1, as: :string %>
     <%= f.input :phone2, as: :string %>
     <%= f.input :state_scription %>
-    <fieldset>
-      <legend>Endereço</legend>
-        <div class="form-inline">
-          <%= f.simple_fields_for :address do |address_form| %>
-            <%= address_form.input :cep, as: :string, input_html: { class: 'search-query' } %>
-            <%= address_form.input :street %>
-            <%= address_form.input :number , input_html: { class: 'input-mini' }  %>
-            <%= address_form.input :street_type, input_html: { class: 'input-mini' }  %>
-            <%= address_form.input :neighborhood %>
-            <%= address_form.input :complement %>
-            <%= address_form.input :city, as: :string, input_html: { class: 'search-query' } %>
-            <%= address_form.input :city_id,  as: :hidden %>
-            <%= address_form.input :state, :as => :select, :collection => States.to_a %>
-          <% end %>
-        </div>
-    </fieldset>
+    <%= render 'addresses/address_fields_for', :f => f %>
   </div>
 
   <div class="form-actions">
