@@ -1,20 +1,19 @@
-<h1>Listing clients</h1>
-
-<table>
+<%- model_class = Client -%>
+<div class="page-header">
+  <h1>Clientes</h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Cnpj</th>
-      <th>Cpf</th>
-      <th>Social reason</th>
-      <th>Contact</th>
-      <th>Email</th>
-      <th>Phone1</th>
-      <th>Phone2</th>
-      <th>Address</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name (:name)%></th>
+      <th><%= model_class.human_attribute_name (:cnpj)%></th>
+      <th><%= model_class.human_attribute_name (:cpf)%></th>
+      <th><%= model_class.human_attribute_name (:company)%></th>
+      <th><%= model_class.human_attribute_name (:contact)%></th>
+      <th><%= model_class.human_attribute_name (:email)%></th>
+      <th><%= model_class.human_attribute_name (:phone1)%></th>
+      <th><%= model_class.human_attribute_name (:phone2)%></th>
+      <th>Ações</th>
     </tr>
   </thead>
 
@@ -24,14 +23,17 @@
         <td><%= client.name %></td>
         <td><%= client.cnpj %></td>
         <td><%= client.cpf %></td>
-        <td><%= client.social_reason %></td>
+        <td><%= client.company %></td>
         <td><%= client.contact %></td>
         <td><%= client.email %></td>
         <td><%= client.phone1 %></td>
         <td><%= client.phone2 %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_client_path(client), :class => 'btn btn-mini' %>
+            <%= link_to 'Destroy', client, 
+            method: :delete, 
+            data: { confirm: 'Are you sure?' },
+            :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'Novo', new_client_path, :class => 'btn btn-primary' %>
