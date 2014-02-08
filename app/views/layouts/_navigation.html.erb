@@ -1,19 +1,24 @@
-<div class="btn-group">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Matéria Prima
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu">
-    <li><%= link_to "Cadastro", feedstocks_path %></li>
-    <li><%= link_to "Entrada", feedstocks_entrances_path %></li>
-    <li><%= link_to "Saida", feedstocks_outputs_path %></li>
-    <li><%= link_to "Fornecedores", suppliers_path %></li>
-  </ul>
-</div>
-
 <ul class="nav">
   <li><%= link_to "Price List" %></li>
   <li><%= link_to "Estoque", stocks_path %></li>
   <li><%= link_to "Produtos", products_path %></li>
-  <li><%= link_to ""%></li>
+  <li><%= link_to "Clientes", clients_path %></li>
+
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      Matéria Prima
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Cadastro", feedstocks_path %></li>
+      <li><%= link_to "Entrada", feedstocks_entrances_path %></li>
+      <li><%= link_to "Saida", feedstocks_outputs_path %></li>
+      <li><%= link_to "Fornecedores", suppliers_path %></li>
+    </ul>
+  </div>
+
+  <% if user_signed_in? %>
+    <li><%= link_to "Sing Out", destroy_user_session_path, :method=>'delete' %></li>
+  <% end %>  
 </ul>
+
