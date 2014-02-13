@@ -1,6 +1,6 @@
 class FeedstocksController < ApplicationController
   def index
-    @feedstocks = Feedstock.all
+    @feedstocks = Feedstock.ordered
     respond_with(@feedstocks)
   end
 
