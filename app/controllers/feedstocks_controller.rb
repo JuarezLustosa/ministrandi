@@ -35,4 +35,9 @@ class FeedstocksController < ApplicationController
     @feedstock.destroy
     respond_with(@feedstock)
   end
+  
+  def print_inventory
+    @feedstocks = Feedstock.all
+    render :print_inventory, :layout => "report"
+  end
 end

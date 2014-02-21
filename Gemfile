@@ -14,6 +14,8 @@ gem 'twitter-bootstrap-rails'
 gem 'protected_attributes'
 gem 'rails-observers'
 gem 'coffee-rails'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'rspec'

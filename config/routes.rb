@@ -1,6 +1,8 @@
 Ministrandi::Application.routes.draw do
   
   namespace :feedstocks do
+    get :print_inventory
+
     resources :outputs do
       resource :finish, controller: 'outputs/finish',  only: :update
       resources :items, controller: 'outputs/items'

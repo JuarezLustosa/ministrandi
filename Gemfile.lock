@@ -78,6 +78,7 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
+    pdfkit (0.6.1)
     pg (0.17.1)
     polyglot (0.3.3)
     protected_attributes (1.0.3)
@@ -153,6 +154,7 @@ GEM
     tzinfo (0.3.38)
     warden (1.2.3)
       rack (>= 1.0)
+    wkhtmltopdf-binary (0.9.9.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -168,6 +170,7 @@ DEPENDENCIES
   enumerate_it
   factory_girl_rails
   jquery-rails (~> 2.3.0)
+  pdfkit
   pg
   protected_attributes
   pry
@@ -179,3 +182,4 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   twitter-bootstrap-rails
+  wkhtmltopdf-binary
