@@ -1,0 +1,52 @@
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1 class="text-center">Pedido Número - <%= @order.id %></h1>
+  <h3 class="text-center"> Status  <kbd><%=  @order.human_state_name %></kbd></h3>
+  <h5 class="text-center"> <%= link_to "Voltar", orders_path%></h3>
+</div>
+
+<dl class="dl-horizontal page-header">
+  <dt><strong><%= model_class.human_attribute_name(:client) %>:</strong></dt>
+  <dd><%= @order.client_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
+  <dd><%= @order.vendor_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= l @order.date %></dd>
+</dl>
+
+
+<h3 class="text-center">Produtos</h3>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.items.each do |item| %>
+      <tr>
+        <td><%= item.product_name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <p class="lead text-right">Total <%= number_to_currency(@order.total_valor)%></p>
+</div>
+
+<div class="pull-left">
+  
+  <dl class="dl-horizontal page-header">
+    <dt><strong>Conferido por:</strong></dt>
+    <dd>______________________________</dd>
+    <dt><strong>Data:  </strong></dt>
+    <dd>____/____/_______</dd>
+  </dl>
+</div>
+

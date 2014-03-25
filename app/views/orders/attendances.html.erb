@@ -1,0 +1,70 @@
+<%- model_class = Order -%>
+<div class="page-header">
+  <h2>Pedidos a serem atendidos</h2>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name (:client)%></th>
+      <th><%= model_class.human_attribute_name (:vendor)%></th>
+      <th><%= model_class.human_attribute_name (:date)%></th>
+      <th><%= model_class.human_attribute_name (:total)%></th>
+      <th><%= model_class.human_attribute_name (:priority)%></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.client_name %></td>
+        <td><%= order.vendor_name %></td>
+        <td><%= l (order.date) %></td>
+        <td><%= order.total %></td>
+        <td><%= order.priority %></td>
+                
+        <td><%= link_to 'Atender', order_attending_path(order), 
+                :class => 'btn btn-mini btn-primary', 
+                :method => :put,
+                :data => { :confirm => t('.confirm', 
+                           :default => t("helpers.links.confirm", 
+                           :default => 'Tem certeza?')) }
+         %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="page-header">
+  <h3>Pedidos em atendimento</h3>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name (:client)%></th>
+      <th><%= model_class.human_attribute_name (:vendor)%></th>
+      <th><%= model_class.human_attribute_name (:date)%></th>
+      <th><%= model_class.human_attribute_name (:total)%></th>
+      <th><%= model_class.human_attribute_name (:priority)%></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders_attend.each do |order| %>
+      <tr>
+        <td><%= order.client_name %></td>
+        <td><%= order.vendor_name %></td>
+        <td><%= l (order.date) %></td>
+        <td><%= order.total %></td>
+        <td><%= order.priority %></td>
+                
+        <td><%= link_to 'Continuar Antendimento', order_items_path(order), 
+                :class => 'btn btn-mini btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

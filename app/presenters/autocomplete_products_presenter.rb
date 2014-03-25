@@ -16,8 +16,9 @@ private
   def result(products)
     resultset = products.map do |product|
       {
-        :id       => product.id,
-        :label    => product.name
+        :id         => product.id,
+        :label      => product.name,
+        :wholesale => product.wholesale
       }
     end
     resultset

@@ -3,14 +3,12 @@
 
   <div class="form-inputs">
     <%= f.input :person %>
-    
+    <%= f.input :name %>
     <div id="person" class="hide">
-      <%= f.input :name %>
       <%= f.input :cpf, as: :string %>
     </div>
 
     <div id="company">
-      <%= f.input :company %>
       <%= f.input :fantasy_name %>
       <%= f.input :cnpj %>
       <%= f.input :state_inscription %>

@@ -2,7 +2,8 @@ class StocksController < ApplicationController
   respond_to :js
   def change
     @stock = Stock.find(params[:stock_id])
-    ChangeStock.new(@stock, params[:in], params[:out]).change
+    ChangeStock.new(@stock, params[:in].to_i).add! if params[:in]
+    ChangeStock.new(@stock, params[:out].to_i).deduct! if params[:out]
     respond_with_diferent_location
   end
   

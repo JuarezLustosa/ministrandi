@@ -1,0 +1,41 @@
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1>Pedidos</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name (:client)%></th>
+      <th><%= model_class.human_attribute_name (:vendor)%></th>
+      <th><%= model_class.human_attribute_name (:priority)%></th>
+      <th><%= model_class.human_attribute_name (:date)%></th>
+      <th><%= model_class.human_attribute_name (:total)%></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.client_name %></td>
+        <td><%= order.vendor_name %></td>
+        <td><%= order.total %></td>
+        <td><%= order.priority %></td>
+        <td><%= order.total %></td>
+        
+        <td><%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-mini' %>
+            <%= link_to 'Destroy', order, 
+            method: :delete, 
+            data: { confirm: 'Are you sure?' },
+            :class => 'btn btn-mini btn-danger' %>
+            <%= link_to "Imprimr", print_order_path(order) %>  
+            
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo', new_order_path, :class => 'btn btn-primary btn-lg', :role => "button"  %>

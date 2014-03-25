@@ -15,7 +15,8 @@ gem 'protected_attributes'
 gem 'rails-observers'
 gem 'coffee-rails'
 gem 'pdfkit'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary';
+gem 'state_machine'
 
 group :development, :test do
   gem 'rspec'

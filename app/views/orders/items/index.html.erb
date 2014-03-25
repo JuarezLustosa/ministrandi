@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Pedido <%= order.id %> </h1>
+</div>
+
+<%= render 'orders/items/form_tag' %>
+
+<div id="list_items">
+  <%= render 'orders/items/list_items' %>
+</div>
+
+<div id="total_items">
+  <%= render 'orders/items/total_items' %>
+</div>
+
+<div class="form-actions">
+  <%= link_to "Enviar para produção", 
+    order_attendance_path(@order), 
+    :method => :put,
+    :class => 'btn btn-small btn-danger',
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) }  %>
+
+  <%= link_to "Pedido Pronto", 
+    order_ready_path(@order), 
+    :method => :put,
+    :class => 'btn btn-small btn-info',
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) }  %>    
+</div>
+

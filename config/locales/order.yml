@@ -1,0 +1,18 @@
+# encoding: utf-8
+pt-BR:
+  activerecord:
+    models:
+      order:
+        one: "Pedido"
+        other: "Pedidos"
+
+    attributes:
+      order:
+        id: "Código"
+        vendor: "Vendedor"
+        client: "Cliente" 
+        state: "Status"
+        total: "Total"
+        payment: "Forma de Pagamento"
+        priority: "Prioridade"
+        date: "Data da venda"

@@ -19,6 +19,23 @@ Ministrandi::Application.routes.draw do
     resources :search_cities, only: :index
     resources :suppliers, only: :index
     resources :feedstocks, only: :index
+    resources :vendors, only: :index
+    resources :clients, only: :index
+    resources :products, only: :index
+  end
+  
+  resources :orders do
+    resource :attendance, controller: 'orders/attendance',  only: :update
+    resource :attending,  controller: 'orders/attending',   only: :update
+    resource :ready,      controller: 'orders/ready',       only: :update
+    
+    get :print, :on => :member
+    get :print_done, :on => :member
+    get :attendances, :on => :collection
+
+    resources :items, controller: 'orders/items' do
+      get :attendances, :on => :collection
+    end
   end
   
   resources :suppliers

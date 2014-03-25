@@ -5,7 +5,6 @@ class CreateClients < ActiveRecord::Migration
       t.boolean :person
       t.string :cnpj
       t.string :cpf
-      t.string :company
       t.string :fantasy_name
       t.string :state_inscription
       t.string :city_inscription

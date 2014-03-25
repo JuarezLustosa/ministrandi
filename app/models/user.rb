@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, 
+                  :remember_me, :name, :admin, :vendor, :percent
   # attr_accessible :title, :body
+  
+  scope :vendor, -> { where(vendor: true) } 
+  scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
 end

@@ -50,7 +50,5 @@ class Feedstocks::EntrancesController < ApplicationController
         feedstocks_entrance_path(@feedstock_entrance) : 
         feedstocks_entrances_path
     end
-
     helper_method :form_path
-    
 end

@@ -5,8 +5,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :unit
       t.integer :barcode
       t.integer :valid_date
-      t.decimal :retail_price
-      t.decimal :wholesale
+      t.decimal :retail_price, :precision => 8, :scale => 2
+      t.decimal :wholesale, :precision => 8, :scale => 2
 
       t.timestamps
     end

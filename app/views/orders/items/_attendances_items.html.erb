@@ -1,0 +1,30 @@
+<h3> Itens do Pedido </h3>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Preço Unitário</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  
+  <% if items.any? %>
+    <tbody>
+      <% items.each do |item| %>
+        <tr>
+          <td><%= item.product_name %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.unit_price %></td>
+          <td>
+            <%= link_to "Apagar",
+                        order_item_path(order, item),
+                        :method => :delete,
+                        :remote => true,
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

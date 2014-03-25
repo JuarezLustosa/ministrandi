@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    state_machines:
+      state:
+        states:
+          open: 'aberto'
+          attending: 'em atendimento'
+          ready: "pronto"
