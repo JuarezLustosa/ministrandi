@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      center_cost:
+        one: "Centro de Custo"
+        other: "Centros de Custo"
+
+    attributes:
+      center_cost:
+        id: "Código"
+        name: "Nome"
+        parent_id: "Pai"
+        parent: "Pai"

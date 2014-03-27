@@ -1,0 +1,32 @@
+<%- model_class = CenterCost -%>
+<div class="page-header">
+  <h1>Centros de Custos</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name (:name)%></th>
+      <th><%= model_class.human_attribute_name (:parent)%></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @center_costs.each do |center_cost| %>
+      <tr>
+        <td><%= center_cost.name %></td>
+        <td><%= center_cost.parent %></td>
+        <td><%= link_to 'Edit', edit_center_cost_path(center_cost), :class => 'btn btn-mini' %>
+            <%= link_to 'Destroy', center_cost, 
+            method: :delete, 
+            data: { confirm: 'Tem certeza que deja deletar?' },
+            :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo', new_center_cost_path, :class => 'btn btn-primary' %>

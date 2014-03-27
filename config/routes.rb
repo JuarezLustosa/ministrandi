@@ -38,6 +38,7 @@ Ministrandi::Application.routes.draw do
     end
   end
   
+  resources :center_costs
   resources :suppliers
   resources :clients
   resources :addresses

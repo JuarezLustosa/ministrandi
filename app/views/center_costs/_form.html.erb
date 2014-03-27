@@ -1,0 +1,17 @@
+<%= simple_form_for(@center_cost) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :parent_id, 
+        :as => :select, 
+        :collection => nested_options(CenterCost.all, @center_cost), 
+        :input_html => { :autofocus => true } %>
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                clients_path, :class => 'btn' %>
+  </div>
+<% end %>
