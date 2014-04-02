@@ -6,6 +6,7 @@ class Feedstock::Entrance < ActiveRecord::Base
   accepts_nested_attributes_for :items, :allow_destroy => true  
   delegate :name, :to => :supplier, :allow_nil => true, :prefix => true
   
+  validates_presence_of :supplier
   
   def finish
     items.each  do |item|
