@@ -11,3 +11,4 @@ pt-BR:
         supplier: "Fornecedor"
         freight_price: "Valor do frete"
         nf_number: "Número da nota"
+        date: "Data"
