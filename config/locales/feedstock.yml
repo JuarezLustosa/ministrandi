@@ -1,4 +1,3 @@
-# encoding: utf-8
 pt-BR:
   activerecord:
     models:
@@ -15,3 +14,4 @@ pt-BR:
         description: "Descrição"
         med: "Medida" 
         min_stock: "Estoque minímo"
+        weight: "Peso"

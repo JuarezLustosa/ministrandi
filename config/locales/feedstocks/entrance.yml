@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      feedstock/entrance:
+        one: "Entranda de Matérias-primas"
+        other: "Entradas de Matérias-primas"
+
+    attributes:
+      feedstock/entrance:
+        id: "Código"
+        supplier: "Fornecedor"
+        freight_price: "Valor do frete"
+        nf_number: "Número da nota"
