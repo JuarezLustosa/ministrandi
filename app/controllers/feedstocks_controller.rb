@@ -40,4 +40,9 @@ class FeedstocksController < ApplicationController
     @feedstocks = Feedstock.ordered
     render :print_inventory, :layout => "report"
   end
+  
+  def list_critic_stock
+    @feedstocks = Feedstock.order_by_critic_stock
+    respond_with(@feedstocks)
+  end
 end
