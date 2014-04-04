@@ -6,8 +6,8 @@ class Feedstock < ActiveRecord::Base
   validates :quantity, numericality: { greater_than_or_equal_to: 0}
 
   scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
-  scope :order_by_critic_stock, lambda { where(:critic_stock.lteq => :quantity) }
-  scope :ordered, order:(:name)
+  scope :ordered, order(:name)
+  scope :order_by_critic_stock, where(self.arel_table[:critic_stock].eq(self.arel_table[:quantity]))
     
   def min_stock?
     quantity <= min_stock

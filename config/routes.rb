@@ -2,6 +2,7 @@ Ministrandi::Application.routes.draw do
   
   namespace :feedstocks do
     get :print_inventory
+    get :list_critic_stock
 
     resources :outputs do
       resource :finish, controller: 'outputs/finish',  only: :update
