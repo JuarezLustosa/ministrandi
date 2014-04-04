@@ -17,7 +17,7 @@
     <% @feedstock_outputs.each do |feedstock_output| %>
       <tr>
         <td><%= link_to feedstock_output.id, feedstocks_output_path(feedstock_output) %></td>
-        <td><%= l (feedstock_output.date) %></td>
+        <td><%= date_translation feedstock_output.date %></td>
         <td><%= feedstock_output.employee %></td>
         <td><%= feedstock_output.status %></td>
         <td>

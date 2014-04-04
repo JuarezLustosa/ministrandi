@@ -5,6 +5,7 @@
 <%= form_tag feedstocks_entrance_items_path, :method => :post, :remote => true do %>
   <%= text_field_tag :autocomplete_feedstock, (""),
                      :class => "search-query",
+                     placeholder: "Pesquisar Item",
                      "data-source" => autocompletes_feedstocks_path %>
   <%= hidden_field_tag :feedstock_id %>
 

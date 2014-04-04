@@ -7,6 +7,7 @@ class Feedstock::Entrance < ActiveRecord::Base
   delegate :name, :to => :supplier, :allow_nil => true, :prefix => true
   
   validates_presence_of :supplier
+  validates_uniqueness_of :nf_number
   
   def finish
     items.each  do |item|

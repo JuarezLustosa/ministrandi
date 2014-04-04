@@ -6,3 +6,5 @@ jQuery ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#feedstock_id').val ui.item.id
+
+    $('#price_unit').maskMoney();

@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      feedstock/output:
+        one: "Saída de Matéria-prima"
+        other: "Saídas Matérias-primas"
+
+    attributes:
+      feedstock/output:
+        id: "Código"
+        name: "Nome"
+        date: "Data"
+        critic_stock: "Estoque crítico"
+        description: "Descrição"
+        med: "Medida" 
+        min_stock: "Estoque minímo"
+        weight: "Peso"
