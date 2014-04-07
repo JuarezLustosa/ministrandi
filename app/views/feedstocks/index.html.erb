@@ -24,6 +24,9 @@
         <td><%= feedstock.min_stock %></td>
         <td><%= feedstock.critic_stock %></td>
         <td>
+          <%= link_to "Preço de Custo",
+                      feedstock_path(feedstock), :class => 'btn btn-mini' %>
+          
           <%= link_to "Editar",
                       edit_feedstock_path(feedstock), :class => 'btn btn-mini' %>
           <%= link_to "Apagar",

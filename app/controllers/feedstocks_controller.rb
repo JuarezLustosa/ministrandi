@@ -6,6 +6,7 @@ class FeedstocksController < ApplicationController
 
   def show
     @feedstock = Feedstock.find(params[:id])
+    @feedstock_entrance_items = @feedstock.entrances_items
     respond_with(@feedstock)
   end
 

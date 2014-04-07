@@ -1,6 +1,8 @@
 class Feedstock < ActiveRecord::Base
   attr_accessible :id, :name, :weight, :critic_stock, :description, :med, :min_stock, :quantity
   
+  has_many :entrances_items, :class_name => "Feedstock::Entrance::Item"
+  
   validates_presence_of :name, :med, :critic_stock, :min_stock, :quantity
   validates_uniqueness_of :name
   validates :quantity, numericality: { greater_than_or_equal_to: 0}
