@@ -9,7 +9,7 @@ class Feedstock < ActiveRecord::Base
 
   scope :search_by_name, lambda { |term| order(:name).where("name like ?", "#{term}%") }
   scope :ordered, -> { order(:name) }
-  scope :order_by_critic_stock, where(self.arel_table[:quantity].lteq(self.arel_table[:critic_stock]))
+  scope :order_by_critic_stock, -> { where(Feedstock.arel_table[:quantity].lteq(Feedstock.arel_table[:critic_stock])) }
     
   def min_stock?
     quantity <= min_stock
