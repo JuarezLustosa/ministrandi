@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      stock:
+        one: "Estoque manufaturado"
+        other: "Estoque manufaturados"
+
+    attributes:
+      stock:
+        id: "Código"
+        product: "Produto"
+        quantity: "Quantidade" 
+        local: "Localização"

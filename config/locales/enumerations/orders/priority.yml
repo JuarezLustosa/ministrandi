@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    orders/priority:
+      high: 'Alta'
+      medium: 'Média'
+      low: "Baixa"
+          

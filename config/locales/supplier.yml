@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      suppplier:
+        one: "Fornecedor"
+        other: "Fornecedores"
+
+    attributes:
+      supplier:
+        id: "Código"
+        name: "Nome"
+        cnpj: "CNPJ" 
+        fantasy: "Nome Fantasia"
+        contact: "Contato"
+        email: "Email"
+        phone1: "Telefone 1"
+        phone2: "Telefone 2"
+        state_scription: "Inscrição Estadual"
+        

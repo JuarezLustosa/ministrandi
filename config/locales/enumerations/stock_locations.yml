@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    stock_locations:
+      manufacture: "Indústria"
+      store: "Loja"
