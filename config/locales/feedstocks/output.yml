@@ -10,6 +10,7 @@ pt-BR:
         id: "Código"
         name: "Nome"
         date: "Data"
+        employee: "Funcionário"
         critic_stock: "Estoque crítico"
         description: "Descrição"
         med: "Medida" 
