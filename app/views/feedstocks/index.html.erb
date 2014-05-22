@@ -17,7 +17,7 @@
   <tbody>
     <% @feedstocks.each do |feedstock| %>
       <%= color_tr(feedstock) %>
-        <td><%= link_to feedstock.id, feedstock_path(feedstock) %></td>
+        <td><%= feedstock.id %></td>
         <td><%= feedstock.name %></td>
         <td><%= feedstock.med %></td>
         <td><%= feedstock.quantity %></td>

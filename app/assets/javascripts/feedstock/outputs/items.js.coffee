@@ -6,3 +6,7 @@ jQuery ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#feedstock_id').val ui.item.id
+        
+jQuery ->
+  $('#autocomplete_feedstock').focus()
+  
