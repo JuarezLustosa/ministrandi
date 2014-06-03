@@ -27,13 +27,13 @@ class CenterCostsController < ApplicationController
   end
   
   private
-  
   def respond_with_diferent_location center_cost
     respond_with center_cost, :location => new_center_cost_path
   end
   
   def build_new
-    @center_cost = CenterCost.new(params[:center_cost])
+    @center_cost = CenterCost.new
+    @center_cost = CenterCost.new(params[:center_cost]) if params[:center_cost].present?
   end
   
   def find_center_cost

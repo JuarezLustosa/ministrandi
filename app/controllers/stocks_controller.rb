@@ -21,6 +21,12 @@ class StocksController < ApplicationController
     @stocks = Stock.all.ordered_by_product_name
   end
   
+  def destroy
+    @stock = Stock.find(params[:id])
+    @stock.destroy
+    respond_with_diferent_location
+  end
+  
   private
     
   def stock_params

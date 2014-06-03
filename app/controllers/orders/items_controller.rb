@@ -1,6 +1,6 @@
 class Orders::ItemsController < ApplicationController
   respond_to :js
-  before_filter :items, :only => [:index]
+  before_filter :items, :exchange_items, :only => [:index]
   
   def attendances
     order.items
@@ -15,7 +15,7 @@ class Orders::ItemsController < ApplicationController
   def create
     @item = Order::Item.create!(
               order_id: params[:order_id],
-              product_id: params[:product_id],
+              product_id: params[:product_id] || params[:exchange_product_id],
               quantity: params[:quantity], 
               unit_price: params[:unit_price],
               descount: params[:descount],
@@ -29,9 +29,13 @@ class Orders::ItemsController < ApplicationController
   def items
     order.items
   end
+  
+  def exchange_items
+    order.exchange_items
+  end
 
   def order
     @order ||= Order.find(params[:order_id])
   end
-  helper_method :order, :items
+  helper_method :order, :items, :exchange_items
 end

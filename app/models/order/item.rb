@@ -8,7 +8,7 @@ class Order::Item < ActiveRecord::Base
   delegate :name, to: :product, allow_nil: true, prefix: true
   delegate :stock, to: :product, allow_nil: true, prefix: true
   
-  validates_presence_of :product, :product_id, :unit_price
+  validates_presence_of :product, :product_id, :unit_price, :quantity
   
   def calculate_percent_of(number) # refatorar
     percent = number / 100

@@ -15,3 +15,5 @@ pt-BR:
         payment: "Forma de Pagamento"
         priority: "Prioridade"
         date: "Data da venda"
+        nf: "Nota fiscal ?"
+        city: "Cidade"

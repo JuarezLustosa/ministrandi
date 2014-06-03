@@ -2,7 +2,7 @@
   <h1>Itens da Entrada</h1>
 </div>
 
-<%= form_tag feedstocks_entrance_items_path, :method => :post, :remote => true do %>
+<%= form_tag feedstocks_entrance_items_path, :method => :post, :remote => true, class: "form-inline" do %>
   <%= text_field_tag :autocomplete_feedstock, (""),
                      :class => "search-query",
                      placeholder: "Pesquisar Item",
@@ -11,10 +11,7 @@
 
   <%= text_field_tag :price_unit, (""), placeholder: "Preço Unitário", size: 10  %>
   <%= text_field_tag :quantity, (""), placeholder: "Quantidade", size: 10  %>
-
-  <div class="form-actions">
-    <%= submit_tag 'Adicionar' %>
-  </div>
+  <%= submit_tag 'Adicionar', class: "btn btn-primary" %>
 <% end %>
 
 <div id="list_items">

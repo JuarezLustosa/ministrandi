@@ -21,11 +21,11 @@
     
     <%= render 'addresses/address_fields_for', :f => f %>
   </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                clients_path, :class => 'btn' %>
+    <%= link_to 'Voltar para listagem', clients_path, :class => 'btn' %>
+  </div>
 <% end %>
-
-<div class="form-actions">
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-              clients_path, :class => 'btn' %>
-  <%= link_to 'Voltar para listagem', center_costs_path, :class => 'btn' %>
-</div>

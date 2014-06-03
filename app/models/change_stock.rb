@@ -5,12 +5,12 @@ class ChangeStock
   end
     
   def add!
-    @quantity = @item.quantity + @item_changer.quantity
+    @quantity = @item.quantity + @item_changer
     call_active_record
   end
   
   def deduct!
-    @quantity = @item.quantity - @item_changer.quantity
+    @quantity = @item.quantity - @item_changer
     call_active_record
   end
   

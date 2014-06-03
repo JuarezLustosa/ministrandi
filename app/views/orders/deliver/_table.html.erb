@@ -1,0 +1,43 @@
+<% if ready_orders.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Data da Compra</th>
+      <th>Data Saída</th>
+      <th>Cidade</th>
+      <th>Total</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% ready_orders.each do |order| %>
+      <tr>
+        <td><%= order.client_name %></td>
+        <td><%= l order.date %></td>
+        <td><%= l order.updated_at %></td>
+        <td><%= order.client_city_name %></td>
+        <td><%= number_to_currency order.total_valor %></td>
+
+        <td>
+          <%= link_to 'Entregue', order_deliver_path(order), 
+            remote: true, 
+            method: :put, 
+            :class => 'btn btn-mini' %> 
+            
+          <%= link_to 'Cancelar', order_cancel_path(order), 
+            remote: true, 
+            method: :put, 
+            data: { confirm: 'Are you sure?' }, 
+            :class => 'btn btn-mini btn-danger' %>
+
+          <%= link_to "Imprimir", print_done_order_path(order) %>  
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p class="bg-success">Não há pedidos prontos para serem entregues.<p>
+<%end%>

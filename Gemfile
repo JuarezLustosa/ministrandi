@@ -18,6 +18,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'state_machine'
 gem 'ancestry'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 group :development, :test do
   gem 'rspec'

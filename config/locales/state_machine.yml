@@ -3,6 +3,9 @@ pt-BR:
     state_machines:
       state:
         states:
-          open: 'aberto'
-          attending: 'em atendimento'
-          ready: "pronto"
+          open: 'Aberto'
+          attending: 'Em Atendimento'
+          ready: "Pronto"
+          incomplete: "Incompleto"
+          cancel: "Cancelado"
+          delivered: "Entregue"

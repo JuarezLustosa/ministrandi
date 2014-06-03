@@ -1,14 +1,16 @@
-<%= form_tag order_items_path, :method => :post, :remote => true, class: "form-inline"  do %>
-  <label class="sr-only" for="exampleInputEmail2">Produto</label>
-  <%= text_field_tag :autocomplete_product, (""),
-                     :class => "search-query form_controll",
-                     "data-source" => autocompletes_products_path,
-                     autofocus: true %>
-  <%= hidden_field_tag :product_id %>
+<%= form_tag order_items_path, :method => :post, :remote => true, class: "form-inline"  do %>  
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail2">Produto</label>
+    <%= text_field_tag :autocomplete_product, (""),
+                       :class => "search-query form_controll",
+                       "data-source" => autocompletes_stock_industries_path,
+                       autofocus: true %>
+    <%= hidden_field_tag :product_id %>
+  
+    <%= text_field_tag :unit_price, (""), placeholder: "Preço", size: 10,  :class => "form_controll"  %>
+    <%= text_field_tag :descount, (""), placeholder: "Desconto", size: 2,  :class => "form_controll"  %>
+    <%= text_field_tag :quantity,(""), placeholder: "Quantidade", size: 10, :class => "form_controll"   %>
 
-  <%= text_field_tag :unit_price, (""), placeholder: "Preço", size: 10,  :class => "form_controll"  %>
-  <%= text_field_tag :descount, (""), placeholder: "Desconto", size: 2,  :class => "form_controll"  %>
-  <%= text_field_tag :quantity,(""), placeholder: "Quantidade", size: 10, :class => "form_controll"   %>
-
-  <%= submit_tag 'Adicionar', class: "btn btn-default" %>
+    <%= submit_tag 'Adicionar', class: "btn btn-default" %>
+  </div>
 <% end %>

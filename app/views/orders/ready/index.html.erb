@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1>Pedidos</h1>
 </div>
-<table class="table table-striped" id="orders_table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name (:client)%></th>
@@ -31,7 +31,7 @@
           
             <%= link_to 'Apagar', order, 
               method: :delete, 
-              data: { confirm: 'Tem certeza que deseja excluir?' },
+              data: { confirm: 'Are you sure?' },
               :class => 'btn btn-mini btn-danger' %>
 
             <%= link_to "Imprimr", print_order_path(order) %>  
@@ -47,5 +47,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Novo', new_order_path, :class => 'btn btn-primary btn-lg', :role => "button"  %>

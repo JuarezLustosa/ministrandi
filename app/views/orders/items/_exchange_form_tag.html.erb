@@ -1,0 +1,23 @@
+<fieldset>
+  <%= button_tag "Adicionar Troca", class: "btn btn-default icon-plus", :id => "button_exchange"  %>
+</fieldset>
+
+<div id="exchangeitems">
+  <legend>Insira os produtos que serão trocados</legend>
+  <%= form_tag order_exchange_items_path, :method => :post, :remote => true, class: "form-inline"  do %>  
+    <div class="form-group">    
+      <label class="sr-only" for="exampleInputEmail2">Produto</label>
+      <%= text_field_tag :autocomplete_exchange_product, (""),
+        :class => "search-query form_controll",
+        "data-source" => autocompletes_products_path,
+        autofocus: true %> 
+      
+      <%= hidden_field_tag :exchange_product_id %>
+      <%= hidden_field_tag :unit_price, value: 0 %>
+      
+      <%= text_field_tag :exchange_quantity,(""), placeholder: "Quantidade", :class => "form_controll" %>
+
+      <%= submit_tag 'Adicionar', class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>

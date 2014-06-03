@@ -32,6 +32,11 @@ class OrdersController < ApplicationController
     respond_with(@order)
   end
   
+  def list_delivers
+    @orders = ready_orders
+    respond_with @orders
+  end
+  
   def print
     @orders = Order.all
     render :print, :layout => "report"
@@ -41,7 +46,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     render :print_done, :layout => "report"
   end
-  
   
   private
   def respond_with_different_location(order)
@@ -54,10 +58,15 @@ class OrdersController < ApplicationController
   end
   
   def set_orders
-    @orders = Order.incompletes
+    @orders = Order.all
   end
   
+  def ready_orders
+    Order.ready
+  end
+  helper_method :ready_orders
+  
   def order_params
-    params.require(:order).permit(:client_id, :user_id, :date)
+    params.require(:order).permit(:client_id, :user_id, :date, :priority, :nf)
   end
 end

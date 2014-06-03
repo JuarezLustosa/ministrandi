@@ -23,16 +23,22 @@ Ministrandi::Application.routes.draw do
     resources :vendors, only: :index
     resources :clients, only: :index
     resources :products, only: :index
+    resources :stock_industries, only: :index
   end
   
   resources :orders do
     resource :attendance, controller: 'orders/attendance',  only: :update
     resource :attending,  controller: 'orders/attending',   only: :update
     resource :ready,      controller: 'orders/ready',       only: :update
+    resource :deliver,    controller: 'orders/deliver',     only: :update
+    resource :cancel,     controller: 'orders/cancel',      only: :update
     
     get :print, :on => :member
     get :print_done, :on => :member
     get :attendances, :on => :collection
+    get :list_delivers, :on => :collection
+    
+    resources :exchange_items, controller: 'orders/exchange_items', only: [:create, :destroy]
 
     resources :items, controller: 'orders/items' do
       get :attendances, :on => :collection

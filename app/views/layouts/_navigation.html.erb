@@ -2,7 +2,6 @@
   <li><%= link_to "Price List" %></li>
   <li><%= link_to "Estoque", stocks_path %></li>
   <li><%= link_to "Produtos", products_path %></li>
-  <li><%= link_to "Clientes", clients_path %></li>
   <li><%#= link_to "Vendedor", users_path %></li>
 
   <div class="btn-group">
@@ -22,14 +21,25 @@
   
   <div class="btn-group">
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      Contabilidade
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Centro de Custo", center_costs_path %></li>
+    </ul>
+  </div>
+  
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
       Pedidos
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
       <li><%= link_to "Lançar Pedidos", new_order_path %></li>
-      <li><%= link_to "Pedidos Incompletos", orders_path %></li>
-      <li><%= link_to "Pedidos em Atendimento", attendances_orders_path %></li>
-      <li><%= link_to "Fornecedores", suppliers_path %></li>
+      <li><%= link_to "Listagem de Pedidos", orders_path %></li>
+      <li><%= link_to "Atendimento", attendances_orders_path %></li>
+      <li><%= link_to "Entregas", list_delivers_orders_path %></li>
+      <li><%= link_to "Clientes", clients_path %></li>
     </ul>
   </div>
   

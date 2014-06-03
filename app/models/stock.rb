@@ -5,5 +5,7 @@ class Stock < ActiveRecord::Base
   validates_presence_of :product
   delegate  :name, :to => :product, :allow_blank => true, :prefix => true
   
+  validates_presence_of :product, :quantity, :local
+  
   scope :ordered_by_product_name, -> { order("products.name ASC").joins(:product) }
 end

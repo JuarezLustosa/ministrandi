@@ -7,7 +7,7 @@ class Feedstock::Output < ActiveRecord::Base
   def finish
     transaction do
       items.each  do |item|
-        ChangeStock.new(item.feedstock, item).deduct!
+        ChangeStock.new(item.feedstock, item.quantity).deduct!
       end
       update_attributes status: "FINISHED"
     end
