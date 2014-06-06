@@ -10,4 +10,6 @@ class Address < ActiveRecord::Base
   delegate :name, :to => :city, allow_blanck: true, prefix: true
   
   validates_presence_of :street, :number, :neighborhood, :city, :state, :cep
+  
+  scope :search_by_street, lambda { |term| order(:street).where("street like ?", "#{term}%") }
 end

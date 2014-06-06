@@ -24,6 +24,7 @@ Ministrandi::Application.routes.draw do
     resources :clients, only: :index
     resources :products, only: :index
     resources :stock_industries, only: :index
+    resources :addresses, only: :index
   end
   
   resources :orders do

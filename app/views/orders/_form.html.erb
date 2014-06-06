@@ -5,7 +5,7 @@
       as: :string, 
       input_html: { class: 'search-query', autofocus: true, value: @order.client.try(:name) || ""}, 
       required: true %>
-      
+                  
     <%= f.input :client_id, as: :hidden %>
     <%= f.input :vendor, 
       as: :string, 

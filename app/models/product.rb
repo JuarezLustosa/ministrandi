@@ -2,7 +2,8 @@ class Product < ActiveRecord::Base
   
   attr_accessible :id, :name, 
                   :unit, :barcode, :valid_date, 
-                  :retail_price, :wholesale
+                  :retail_price, :wholesale,
+                  :cod
                   
   validates_presence_of :name, :retail_price, :wholesale
   has_one :stock, :class_name => "Stock"

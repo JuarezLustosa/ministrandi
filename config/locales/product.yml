@@ -7,7 +7,7 @@ pt-BR:
 
     attributes:
       product:
-        id: "Código"
+        cod: "Código"
         name: "Nome"
         unit: "Medida" 
         valid_date: "Data de Validade"
