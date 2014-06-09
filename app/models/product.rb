@@ -1,9 +1,10 @@
 class Product < ActiveRecord::Base  
+  has_enumeration_for :measurement_unit, :with => Products::MeasurementUnits
   
   attr_accessible :id, :name, 
                   :unit, :barcode, :valid_date, 
                   :retail_price, :wholesale,
-                  :cod
+                  :cod, :measurement_unit
                   
   validates_presence_of :name, :retail_price, :wholesale
   validates_uniqueness_of :barcode
