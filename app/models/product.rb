@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
                   :cod
                   
   validates_presence_of :name, :retail_price, :wholesale
+  validates_uniqueness_of :barcode
+  
   has_one :stock, :class_name => "Stock"
   
   scope :search_by_name, lambda { |term| 
