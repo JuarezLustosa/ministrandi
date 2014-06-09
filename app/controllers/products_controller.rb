@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    respond_with(@product)
+    respond_with_diferent_location(@product)
   end
 
   def update
@@ -37,6 +37,10 @@ class ProductsController < ApplicationController
   private
     def set_product
       @product = Product.find(params[:id])
+    end
+    
+    def respond_with_diferent_location product
+      respond_with product, :location => new_product_path
     end
 
     def product_params
