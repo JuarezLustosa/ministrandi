@@ -1,4 +1,6 @@
 require 'csv'
+require 'roo'
+require 'extend_string'
 
 namespace :import do
   desc 'Import postal code'
@@ -22,6 +24,41 @@ namespace :import do
       end
     end
   end  
+  
+  desc 'Import clients'
+  task :clients => :environment do
+    Client.transaction do
+      spreadsheet = Roo::Excel.new("#{Rails.root}/lib/import/clientes.xls")
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        create_client(row)
+      end      
+    end
+  end 
+  
+  desc 'Remove clients accents'
+  task :remove_accents_clients => :environment do
+    Client.transaction do
+      Client.all.each do |client|
+        name = client.name.removeaccents.upcase.strip if client.name.present?
+        fantasy_name = client.fantasy_name.removeaccents.upcase.strip if client.fantasy_name.present?
+        contact = client.contact.removeaccents.upcase.strip if client.contact.present?
+        client.update_attributes(name: name, fantasy_name: fantasy_name, contact: contact)
+      end
+    end
+  end  
+  
+  desc 'Remove address accents'
+  task :remove_accents_address => :environment do
+    Address.transaction do
+      Address.all.each do |address|
+        street = address.street.removeaccents.upcase.strip if address.street.present?
+        neighborhood = address.neighborhood.removeaccents.upcase.strip if address.neighborhood.present?
+        address.update_attributes(street: street, neighborhood: neighborhood)
+      end
+    end
+  end  
 
   desc 'Import City '
   task :city => :environment do
@@ -31,6 +68,33 @@ namespace :import do
       end
     end
   end
+end
+
+def create_client row
+  ddd = row["DDD Com."].to_s[0..1]
+  
+  Client.create(
+      :name => row["Nome"],
+      :cnpj => row["CNPJ"],
+      :fantasy_name => row["Fantasia"],
+      :state_inscription => row["Ins. Estadual"],
+      :contact => row["Contato"],
+      :email => row["e-mail"],
+      :phone1 => "#{ddd} #{row["Fone Com."]}",
+      :address_attributes => {
+        :cep => row["CEP"],
+        :street_type => 0,
+        :street => row["Logradouro"],
+        :number => row["Nº"],
+        :complement => row["Complemento"],
+        :neighborhood => row["Bairro"],
+        :city => search_city(row["Cidade"]),
+        :state => 0,
+      })
+end
+
+def search_city city
+  City.search_by_name(city).first
 end
 
 def find_street_type(street_type)

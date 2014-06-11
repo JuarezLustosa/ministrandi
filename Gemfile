@@ -8,6 +8,7 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'responders'
 gem "enumerate_it"
+gem 'roo'
 
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'

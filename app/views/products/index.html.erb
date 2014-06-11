@@ -23,8 +23,8 @@
         <td><%= product.unit %></td>
         <td><%= product.barcode %></td>
         <td><%= product.valid_date %></td>
-        <td><%= product.retail_price %></td>
-        <td><%= product.wholesale %></td>
+        <td><%= number_to_currency product.retail_price %></td>
+        <td><%= number_to_currency product.wholesale %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-mini' %>

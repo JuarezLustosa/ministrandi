@@ -5,12 +5,18 @@
         <%= address_form.input :cep, as: :string, input_html: { class: 'search-query' } %>
         <%= address_form.input :street %>
         <%= address_form.input :number , input_html: { class: 'input-mini' }  %>
-        <%= address_form.input :street_type, input_html: { class: 'input-mini' }  %>
+        <%= address_form.input :street_type,
+          :as => :select, 
+          :collection => StreetType.to_a, 
+          :selected => StreetType::RUA  %>
         <%= address_form.input :neighborhood %>
         <%= address_form.input :complement %>
         <%= address_form.input :city, as: :string, input_html: { class: 'search-query' } %>
         <%= address_form.input :city_id,  as: :hidden %>
-        <%= address_form.input :state, :as => :select, :collection => States.to_a %>
+        <%= address_form.input :state, 
+          :as => :select, 
+          :collection => States.to_a, 
+          :selected => States::MG  %>
       <% end %>
     </div>
 </fieldset>

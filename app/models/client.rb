@@ -12,5 +12,5 @@ class Client < ActiveRecord::Base
   
   delegate :city_name, :to => :address, allow_nil: true
 
-  scope :search_by_name, lambda { |term| order(:name).where('name like ?', "#{term}%") }
+  scope :search_by_name, lambda { |term| order(:name).where('name ILIKE ?', "#{term}%") }
 end
