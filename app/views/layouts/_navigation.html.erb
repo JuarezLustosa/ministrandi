@@ -44,8 +44,16 @@
   </div>
   
   <% if user_signed_in? %>
-    <li><%= link_to "#{current_user.name}", edit_user_registration_path(current_user) %></li>
-    <li><%= link_to "Sing Out", destroy_user_session_path, :method=>'delete' %></li>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= current_user.name %>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Editar", edit_user_registration_path(current_user) %></li>
+        <li><%= link_to "Deslogar", destroy_user_session_path, :method=>'delete' %></li>
+      </ul>
+    </div>
   <% end %>  
 </ul>
 
