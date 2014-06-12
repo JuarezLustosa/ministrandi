@@ -58,7 +58,19 @@ namespace :import do
         address.update_attributes(street: street, neighborhood: neighborhood)
       end
     end
-  end  
+  end
+  
+  desc 'Correction City '
+  task :correction_city => :environment do
+    Client.transaction do
+      spreadsheet = Roo::Excel.new("#{Rails.root}/lib/import/clientes.xls")
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        update_client(row)
+      end
+    end
+  end 
 
   desc 'Import City '
   task :city => :environment do
@@ -67,6 +79,20 @@ namespace :import do
         City.create(:name => name)
       end
     end
+  end
+end
+
+def update_client row
+  name = row["Nome"].removeaccents.upcase.strip if row["Nome"].present?
+  cidade = row["Município"].removeaccents.upcase.strip if row["Município"].present?
+  client = Client.find_by_name(name)
+  city = search_city(cidade)
+  if client.present? 
+    client.address.city_id = city.id if client.address.present?
+    client.save if client.present?
+    puts "#{client.name}"
+  else
+    puts "Cliente #{row["Nome"]} não encontrado"
   end
 end
 
