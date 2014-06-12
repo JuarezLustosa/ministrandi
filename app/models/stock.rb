@@ -6,6 +6,7 @@ class Stock < ActiveRecord::Base
   delegate  :name, :to => :product, :allow_blank => true, :prefix => true
   
   validates_presence_of :product, :quantity, :local
+  validates_uniqueness_of :product, scope: :local
   
   scope :ordered_by_product_name, -> { order("products.name ASC").joins(:product) }
 end
