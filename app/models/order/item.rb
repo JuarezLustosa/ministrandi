@@ -6,7 +6,7 @@ class Order::Item < ActiveRecord::Base
   attr_accessible :order_id, :product, :product_id, :quantity, :unit_price, :total_price, :descount
   
   delegate :name, to: :product, allow_nil: true, prefix: true
-  delegate :stock, to: :product, allow_nil: true, prefix: true
+  delegate :stock, :cod, to: :product, allow_nil: true, prefix: true
   
   validates_presence_of :product, :product_id, :unit_price, :quantity
   validates_uniqueness_of :product, :scope =>  :order_id
