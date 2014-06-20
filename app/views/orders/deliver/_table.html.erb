@@ -2,6 +2,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Pedido</th>
       <th>Cliente</th>
       <th>Data da Compra</th>
       <th>Data Saída</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% ready_orders.each do |order| %>
       <tr>
+        <td><%= order.id %></td>
         <td><%= order.client_name %></td>
         <td><%= l order.date %></td>
         <td><%= l order.updated_at %></td>

@@ -5,6 +5,7 @@
 <table class="table table-striped" id="orders_table">
   <thead>
     <tr>
+      <th>Pedido</th>
       <th><%= model_class.human_attribute_name (:client)%></th>
       <th><%= model_class.human_attribute_name (:vendor)%></th>
       <th><%= model_class.human_attribute_name (:priority)%></th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.id %></td>
         <td><%= order.client_name %></td>
         <td><%= order.vendor_name %></td>
         <td><%= order.priority_humanize %></td>
