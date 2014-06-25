@@ -1,0 +1,30 @@
+<% if @comissions.any? %>
+
+<div class="page-header">
+  <h1>Vendas do mês</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Data</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comissions.each do |comission| %>
+      <tr>
+        <td><%= comission.client_name %></td>
+        <td><%= l comission.date %></td>
+        <td><%= number_to_currency comission.total_valor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="well">
+  <p class="lead text-right">Total <%= number_to_currency @comissions.total %></p>
+</div>
+<% else %>
+  Não foi encontrado nenhum registro desse vendedor no mês informado.
+<% end %>

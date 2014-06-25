@@ -43,6 +43,16 @@
     </ul>
   </div>
   
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      Relatórios
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Vendas por vendedor", reports_comissions_path %></li>
+    </ul>
+  </div>
+  
   <% if user_signed_in? %>
     <div class="btn-group">
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

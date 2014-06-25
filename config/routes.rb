@@ -14,6 +14,10 @@ Ministrandi::Application.routes.draw do
       resources :items, controller: 'entrances/items'
     end
   end
+  
+  namespace :reports do
+    resources :comissions, only: :index
+  end
 
   namespace :autocompletes do
     resources :search_postal_codes, only: :index
