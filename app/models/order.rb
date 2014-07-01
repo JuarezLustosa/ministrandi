@@ -12,9 +12,9 @@ class Order < ActiveRecord::Base
   scope :attend, -> { with_state(:attending) }
   scope :ready, -> { with_state(:ready) }
 
-  scope :comission, lambda { |vendor| joins(:vendor).where(:users => {:id => vendor}).not_canceled}
+  scope :comission, lambda { |vendor| joins(:vendor).where(:users => {:id => vendor})}
   scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }
-  scope :not_canceled, -> {where('state NOT IN (?)','cancel')}
+  scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {joins(:items).sum(:total_price)}
     
   attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state
