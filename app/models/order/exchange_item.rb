@@ -7,5 +7,5 @@ class Order::ExchangeItem < ActiveRecord::Base
   
   delegate :name, to: :product, allow_nil: true, prefix: true
   delegate :stock, to: :product, allow_nil: true, prefix: true
-  
+  validates_uniqueness_of :product, :scope =>  :order_id
 end
