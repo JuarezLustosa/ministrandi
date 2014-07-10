@@ -20,7 +20,7 @@
         <td><%= l order.date %></td>
         <td><%= l order.updated_at %></td>
         <td><%= order.client_city_name %></td>
-        <td><%= number_to_currency order.total_valor %></td>
+        <td><%= number_to_currency order.total %></td>
 
         <td>
           <%= link_to 'Entregue', order_deliver_path(order), 
