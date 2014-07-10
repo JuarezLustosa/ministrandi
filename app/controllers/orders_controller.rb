@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
   
   def print
     @orders = Order.all
-    respond_with @orders
+    respond_with @orders, :layout => "report"
   end
   
   def print_done
