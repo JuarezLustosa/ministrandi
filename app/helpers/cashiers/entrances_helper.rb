@@ -1,0 +1,2 @@
+module Cashiers::EntrancesHelper
+end

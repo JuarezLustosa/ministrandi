@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      cashier/entrance:
+        one: "Caixa"
+        other: "Caixas"
+
+    attributes:
+      cashier/entrance:
+        money: "Dinheiro"
+        user: "Funcionário"

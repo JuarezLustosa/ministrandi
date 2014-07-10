@@ -1,0 +1,23 @@
+<%= simple_form_for @cashier, :url  => cashiers_path do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.simple_fields_for :entrances do |ent| %>
+      <%= ent.input :user_id, as: :hidden, input_html: { class: 'hidden-user_id' } %>
+      
+      <%= ent.input :user,
+        as: :string,
+        input_html: { class: 'search-query', value: ent.object.user.try(:name) || "" }, 
+        required: true %>
+    
+      <%= ent.input :money, as: :string, required: true, input_html: { id: 'money' } %>
+    <% end %>
+    
+    <%= f.input :location, :as => :select, :collection => Cashiers::Locations.to_a, :selected => Cashiers::Locations::STORE  %>    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Abrir Caixa", :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn' %>
+  </div>
+<% end %>

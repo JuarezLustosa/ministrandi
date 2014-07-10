@@ -15,6 +15,12 @@ Ministrandi::Application.routes.draw do
     end
   end
   
+  resources :cashiers, only: [:create, :new]
+  
+  namespace :cashiers do
+    resources :entrances
+  end
+  
   namespace :reports do
     resources :comissions, only: :index
   end

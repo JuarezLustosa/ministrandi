@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      cashier:
+        one: "Caixa"
+        other: "Caixas"
+
+    attributes:
+      cashier:
+        location: "Tipo de caixa"
+        state: "Status"

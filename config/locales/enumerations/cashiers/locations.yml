@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    cashiers/locations:
+      manufacture: 'Atacado'
+      store: 'Varejo'

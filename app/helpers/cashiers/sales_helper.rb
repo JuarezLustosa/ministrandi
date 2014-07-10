@@ -1,0 +1,2 @@
+module Cashiers::SalesHelper
+end
