@@ -1,7 +1,3 @@
-<fieldset>
-  <%= button_tag "Adicionar Troca", class: "btn btn-default icon-plus", :id => "button_exchange"  %>
-</fieldset>
-
 <div id="exchangeitems">
   <legend>Insira os produtos que serão trocados</legend>
   <%= form_tag order_exchange_items_path, :method => :post, :remote => true, class: "form-inline"  do %>  

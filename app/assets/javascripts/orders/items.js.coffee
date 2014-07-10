@@ -20,6 +20,13 @@ jQuery ->
 
 jQuery ->
   $('#button_exchange').click ->
-    $('#exchangeitems').show "fold", 1000 
+    $('#exchangeitems').show "fold", 1000
+    $('#descount_form').hide()
+
+  $('#button_descount').click ->
+    $('#descount_form').show "fold", 1000 
+    $('#exchangeitems').hide()
+    $('#descount_total').focus()
   
-  
+  $('#descount_total').maskMoney()
+  $('#unit_price').maskMoney()

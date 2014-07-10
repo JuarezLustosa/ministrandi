@@ -1,0 +1,10 @@
+<div id="descount_form">
+  <legend>Realizar o descounto em dinheiro</legend>
+  <%= form_tag @order, :method => :put, :remote => true, :html => { class: "form-inline", id: "form-descount" } do |f| %>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputEmail2">Desconto</label>
+      <%= text_field_tag :descount, (""), :id => 'descount_total', :onchange => "$(this).parent('form').submit();" %>
+    </div>
+  <% end %>
+</div>
+

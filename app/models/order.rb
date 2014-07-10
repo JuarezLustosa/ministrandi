@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   has_enumeration_for :priority, :with => Orders::Priority
+  before_save :save_total
   
   has_many :items, :class_name => "Order::Item"
   has_many :exchange_items, :class_name => "Order::ExchangeItem"
@@ -17,7 +18,7 @@ class Order < ActiveRecord::Base
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {joins(:items).sum(:total_price)}
     
-  attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state
+  attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state, :descount
   
   delegate :name,  :to => :vendor, allow_nil: true, prefix: true
   delegate :name, :city_name,  :to => :client, allow_nil: true, prefix: true
@@ -57,14 +58,22 @@ class Order < ActiveRecord::Base
   end
   
   #TODO inserir em uma querry  
-  def total_valor
+  def total_valor_items
     items.sum(:total_price)
+  end
+  
+  def save_total
+    self.total = total_valor_items - descount
   end
   
   def add collection
     collection.each do |item|
       ChangeStock.new(item.product_stock, item.quantity).add!
     end
+  end
+  
+  def has_descount?
+    descount > 0
   end
   
   def deduct collection

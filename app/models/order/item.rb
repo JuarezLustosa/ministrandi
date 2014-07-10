@@ -1,5 +1,7 @@
 class Order::Item < ActiveRecord::Base
   before_save :sun_tatal_item
+  after_save :touch_order #to update total order
+  after_destroy :touch_order
   belongs_to :product
   belongs_to :order, :class_name => "Order", :foreign_key => "order_id"
   
@@ -19,6 +21,10 @@ class Order::Item < ActiveRecord::Base
   protected
   def sun_tatal_item #refatora isso
     self.total_price = quantity * unit_price
-    self.total_price =  calculate_percent_of(descount) if descount
+    self.total_price = calculate_percent_of(descount) if descount
+  end
+  
+  def touch_order
+    order.save
   end
 end

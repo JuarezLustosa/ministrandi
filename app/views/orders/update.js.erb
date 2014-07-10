@@ -1,0 +1,2 @@
+$('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_items', :locals =>{ :order => @order}) %>");
+$('#total_descount').html("<%= escape_javascript(render :partial => 'orders/items/total_descounts', :locals =>{ :order => @order}) %>");

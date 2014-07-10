@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :js
   before_action :set_order, only: [:show, :edit, :update, :destroy, :print]
   before_action :set_orders, only: [:index]
   
@@ -23,7 +24,8 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.update(order_params)
+    @order.update(order_params) if order_params.present? 
+    @order.update_attributes(descount: params[:descount]) if params[:descount].present? 
     respond_with_different_location(@order)
   end
 
@@ -39,7 +41,7 @@ class OrdersController < ApplicationController
   
   def print
     @orders = Order.all
-    render :print, :layout => "report"
+    respond_with @orders
   end
   
   def print_done
@@ -67,6 +69,6 @@ class OrdersController < ApplicationController
   helper_method :ready_orders
   
   def order_params
-    params.require(:order).permit(:client_id, :user_id, :date, :priority, :nf)
+    params.require(:order).permit(:client_id, :user_id, :date, :priority, :nf, :descount) if params[:order].present?
   end
 end
