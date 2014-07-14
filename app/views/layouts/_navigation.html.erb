@@ -1,8 +1,18 @@
 <ul class="nav">
   <li><%= link_to "Price List" %></li>
   <li><%= link_to "Estoque", stocks_path %></li>
-  <li><%= link_to "Produtos", products_path %></li>
-  <li><%#= link_to "Vendedor", users_path %></li>
+  
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      Produtos
+      <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu">
+      <li><%= link_to "Listagem de Produtos", products_path %></li>
+      <li><%= link_to "Imprimir Preços Atacado", print_industry_price_products_path %></li>
+    </ul>
+  </div>
 
   <div class="btn-group">
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
