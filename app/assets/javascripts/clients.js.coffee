@@ -35,3 +35,28 @@ jQuery ->
   $("#client_cnpj").mask("99.999.999/9999-99");
   $("#client_phone1").mask("(99) 9999-9999");
   $("#client_address_attributes_cep").mask("99999-999");
+  
+  
+jQuery ->
+  $('#clients_table').dataTable oLanguage:
+    sEmptyTable: "Nenhum registro encontrado na tabela"
+    sInfo: "Mostrar _START_ até _END_ do _TOTAL_ registros"
+    sInfoEmpty: "Mostrar 0 até 0 de 0 Registros"
+    sInfoFiltered: "(Filtrar de _MAX_ total registros)"
+    sInfoPostFix: ""
+    sInfoThousands: "."
+    sLengthMenu: "Mostrar _MENU_ registros por pagina"
+    sLoadingRecords: "Carregando..."
+    sProcessing: "Processando..."
+    sZeroRecords: "Nenhum registro encontrado"
+    sSearch: "Pesquisar"
+    oPaginate:
+      sNext: "Proximo"
+      sPrevious: "Anterior"
+      sFirst: "Primeiro"
+      sLast: "Ultimo"
+
+    oAria:
+      sSortAscending: ": Ordenar colunas de forma ascendente"
+      sSortDescending: ": Ordenar colunas de forma descendente"
+
