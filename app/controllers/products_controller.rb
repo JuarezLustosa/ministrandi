@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
   
   def print_industry_price
-    @products = Product.all
+    @products = Product.ordered
     render :print_industry_price, :layout => "report"
   end
 

@@ -11,8 +11,9 @@ class Product < ActiveRecord::Base
   
   has_one :stock, :class_name => "Stock"
   
-  scope :search_by_name, lambda { |term| 
-    query = where("name like ?", "#{term}%")}
+  scope :ordered, -> { order(:name) }
+  
+  scope :search_by_name, lambda { |term| query = where("name like ?", "#{term}%")}
   
   scope :search_by_name_in_industry, lambda { |term| 
     query = joins(:stock).where("name like ?", "#{term}%")
