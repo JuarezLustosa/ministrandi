@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th>Cliente</th>
+      <th>Cidade</th>
       <th>Data</th>
       <th>Valor</th>
     </tr>
@@ -15,6 +16,7 @@
     <% @comissions.each do |comission| %>
       <tr>
         <td><%= comission.client_name %></td>
+        <td><%= comission.client_city_name %></td>
         <td><%= l comission.date %></td>
         <td><%= number_to_currency comission.total %></td>
       </tr>
