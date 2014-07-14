@@ -33,19 +33,24 @@ class ProductsController < ApplicationController
     @product.destroy
     respond_with(@product)
   end
+  
+  def print_industry_price
+    @products = Product.all
+    render :print_industry_price, :layout => "report"
+  end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
     
-    def respond_with_diferent_location product
-      respond_with product, :location => new_product_path
-    end
+  def respond_with_diferent_location product
+    respond_with product, :location => new_product_path
+  end
 
-    def product_params
-      params.require(:product).permit(:name, 
-      :unit, :barcode, :stock, :stock_minim, :stock_critic, :valid_date, :retail_price, :wholesale, :cod,
-      :measurement_unit)
-    end
+  def product_params
+    params.require(:product).permit(:name, 
+    :unit, :barcode, :stock, :stock_minim, :stock_critic, :valid_date, :retail_price, :wholesale, :cod,
+    :measurement_unit)
+  end
 end
