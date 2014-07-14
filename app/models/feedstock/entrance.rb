@@ -1,5 +1,5 @@
 class Feedstock::Entrance < ActiveRecord::Base
-  attr_accessible :supplier_id, :date, :supplier, :status, :nf_number, :freight_price
+  attr_accessible :supplier_id, :date, :supplier, :status, :nf_number, :freight_price, :nf_key_access
   
 
   belongs_to :supplier, :class_name => "Supplier", :foreign_key => "supplier_id"

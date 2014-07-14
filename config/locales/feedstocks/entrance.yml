@@ -12,3 +12,4 @@ pt-BR:
         freight_price: "Valor do frete"
         nf_number: "Número da nota"
         date: "Data"
+        nf_key_access: "Chave de acesso NF"
