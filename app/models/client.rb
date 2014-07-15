@@ -9,6 +9,7 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :address
   
   validates_presence_of :address, :name, :cnpj
+  validates_uniqueness_of :cnpj
   
   delegate :city_name, :to => :address, allow_nil: true
 
