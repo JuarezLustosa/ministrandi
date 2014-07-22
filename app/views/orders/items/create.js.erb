@@ -1,6 +1,7 @@
 <% if @item.persisted? %>
   $('#list_items').html("<%= escape_javascript(render :partial => 'orders/items/list_items', :locals =>{ :items => items}) %>");
-  $('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
+  $('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_valor') %>");
+  $('#total_valor').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
   $('#autocomplete_product').val('').focus()
   $('#unit_price').val('')
   $('#quantity').val('')
