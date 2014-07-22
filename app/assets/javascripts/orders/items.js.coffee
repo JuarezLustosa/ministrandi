@@ -17,11 +17,13 @@ jQuery ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#exchange_product_id').val ui.item.id
+        $('#exchange_quantity').focus()
 
 jQuery ->
   $('#button_exchange').click ->
     $('#exchangeitems').show "fold", 1000
     $('#descount_form').hide()
+    $('#autocomplete_exchange_product').focus()
 
   $('#button_descount').click ->
     $('#descount_form').show "fold", 1000 
