@@ -8,10 +8,10 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'responders'
 gem "enumerate_it"
-gem 'roo'
+gem 'roo'# para importar tabelas em excell
 
-gem 'simple_form'
-gem 'twitter-bootstrap-rails'
+gem 'simple_form', :git => 'https://github.com/plataformatec/simple_form', :tag => "v3.1.0.rc2"
+gem 'twitter-bootstrap-rails', :git => 'https://github.com/JuarezLustosa/twitter-bootstrap-rails.git', :branch => "bootstrap3"
 gem 'protected_attributes'
 gem 'rails-observers'
 gem 'coffee-rails'
