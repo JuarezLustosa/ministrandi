@@ -12,6 +12,8 @@ class Client < ActiveRecord::Base
   validates_uniqueness_of :cnpj
   
   delegate :city_name, :to => :address, allow_nil: true
+  delegate :city_name, :complete, :to => :address, allow_nil: true, prefix: true
 
   scope :search_by_name, lambda { |term| order(:name).where('name ILIKE ? OR fantasy_name ILIKE ?', "#{term}%", "#{term}%") }
+  
 end

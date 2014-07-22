@@ -21,7 +21,7 @@ class Order < ActiveRecord::Base
   attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state, :descount
   
   delegate :name,  :to => :vendor, allow_nil: true, prefix: true
-  delegate :name, :city_name,  :to => :client, allow_nil: true, prefix: true
+  delegate :name, :city_name, :fantasy_name, :address_complete, :to => :client, allow_nil: true, prefix: true
   
   validates_presence_of :vendor, :client, :date
     

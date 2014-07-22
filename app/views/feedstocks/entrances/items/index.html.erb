@@ -4,13 +4,14 @@
 
 <%= form_tag feedstocks_entrance_items_path, :method => :post, :remote => true, class: "form-inline" do %>
   <%= text_field_tag :autocomplete_feedstock, (""),
-                     :class => "search-query",
-                     placeholder: "Pesquisar Item",
+                     :class => "form-control",
+                     placeholder: "Pesquisar",
+                     size: 50,
                      "data-source" => autocompletes_feedstocks_path %>
   <%= hidden_field_tag :feedstock_id %>
 
-  <%= text_field_tag :price_unit, (""), placeholder: "Preço Unitário", size: 10  %>
-  <%= text_field_tag :quantity, (""), placeholder: "Quantidade", size: 10  %>
+  <%= text_field_tag :price_unit, (""), placeholder: "Preço Unitário", size: 10, class: "form-control"  %>
+  <%= text_field_tag :quantity, (""), placeholder: "Quantidade", size: 10, class: "form-control"  %>
   <%= submit_tag 'Adicionar', class: "btn btn-primary" %>
 <% end %>
 
@@ -23,6 +24,6 @@
     feedstocks_entrance_finish_path(@feedstock_entrance), 
     :method => :put,
     :class => 'btn btn-small btn-danger',
-    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }  %>
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem Certeza que deseja finalizar essa nota?')) }  %>
 </div>
 

@@ -41,12 +41,12 @@ class OrdersController < ApplicationController
   
   def print
     @orders = Order.all
-    respond_with @orders, :layout => "report"
+    respond_with @orders# , :layout => "pdf"
   end
   
   def print_done
     @order = Order.find(params[:id])
-    render :print_done, :layout => "report"
+    render :print_done# , :layout => "report"
   end
   
   private

@@ -1,19 +1,16 @@
-<%= simple_form_for @stock, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :product, 
-    as: :string, 
-    input_html: {class: 'search-query', 
-      autofocus: true} 
-  %>
-  <%= f.input :product_id,  as: :hidden %>
-  <%= f.input :quantity, as: :string %>
-  <%= f.input :local,
-              :as => :select,
-              :collection => StockLocations.to_a %>
+<div class="page-header">
+  <h1>Inserir matéria-prima no estoque</h1>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <%= simple_form_for @stock, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+      <%= f.input :product, as: :search, input_html: {class: 'search', autofocus: true, placeholder: "Pesquise pelo produto"} %>
+      <%= f.input :product_id,  as: :hidden %>
+      <%= f.input :quantity, as: :string %>
+      <%= f.input :local, :as => :select, :collection => StockLocations.to_a %>
   
-    
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                stocks_path, :class => 'btn' %>
+      <%= f.button :submit, "Salvar", :class => 'btn btn-primary btn-lg btn-block' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), stocks_path, :class => 'btn btn-default btn-block' %>
+    <% end %>
   </div>
-<% end %>
+</div>

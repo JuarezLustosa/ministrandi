@@ -1,91 +1,111 @@
-<%- model_class = Order -%>
-<div class="page-header">
-  <h3 class="text-center">Pedido Número - <%= @order.id %></h1>
-  <h4 class="text-center"> Status  <kbd><%=  @order.human_state_name %></kbd></h3>
-  <h5 class="text-center hidden-print"> <%= link_to "Voltar", orders_path%></h3>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h1>
+        <img src="/assets/logo.png">    
+      </h1>
+    </div>
+    <div class="span6 text-right">
+      <h3 class="text-center">Pedido Número - <%= @order.id %></h1>
+      <h4 class="text-center hidden-print"> Status  <kbd><%=  @order.human_state_name %></kbd></h3>
+      <h5 class="text-center hidden-print"> <%= link_to "Voltar", orders_path%></h3>        
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>
+              <small><strong>Razão Social:</strong> <%= @order.client_name %>  <br></small>
+              <small><strong>Fantasia:</strong> <%= @order.client_fantasy_name %> <br></small>
+              <small><strong>Cidade:</strong> <%= @order.client_city_name %><br></small>
+              <small><strong>Endereço:</strong> <%= @order.client_address_complete %></small><br>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<dl class="dl-horizontal page-header">
-  <dt><strong><%= model_class.human_attribute_name(:client) %>:</strong></dt>
-  <dd><%= @order.client_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
-  <dd><%= @order.vendor_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= l @order.date %></dd>
-</dl>
-
-
-<h4 class="text-center">Produtos</h3>
-<table class="table table-striped table-bordered table-condensed">
-  <thead>
-    <tr>
-      <th>Código</th>
-      <th>Produto</th>
-      <th>Quantidade</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @order.items.each do |item| %>
-      <tr>
-        <td><%= item.product_cod %></td>
-        <td><%= item.product_name %></td>
-        <td><%= item.quantity %></td>
-        <td><%= number_to_currency item.total_price %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if @order.exchange_items.any? %>
-  <h3 class="text-center">Trocas</h3>
-  <table class="table table-striped table-bordered table-condensed">
+  <%- model_class = Order -%>
+  <h4 class="text-center">Produtos</h3>
+  <table class="table table-striped table-bordered table-condensed table-print">
     <thead>
       <tr>
+        <th>Código</th>
         <th>Produto</th>
         <th>Quantidade</th>
+        <th>Valor</th>
       </tr>
     </thead>
 
     <tbody>
-      <% @order.exchange_items.each do |item| %>
+      <% @order.items.each do |item| %>
         <tr>
+          <td><%= item.product_cod %></td>
           <td><%= item.product_name %></td>
           <td><%= item.quantity %></td>
+          <td><%= number_to_currency item.total_price %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-<% end %>
 
-<div class="well">
-  <dl class="dl-horizontal">
-  <dt><strong><p class="lead text-left">TOTAL:</p></strong></dt>
-  <dd><p class="lead text-right"><%= number_to_currency(@order.total)%></p></dd>
-</div>
+  <div class="row text-right">
+    <div class="col-xs-2 col-xs-offset-8">
+      <p>
+        <strong>
+          <% if @order.has_descount?%>
+            Sub Total :  <br>
+            Desconto :  <br> 
+          <%end%>
+          Total :   <br>
+        </strong>
+      </p>
+    </div>
+    <div class="col-xs-2">
+      <strong>
+        <% if @order.has_descount?%>
+          <%= number_to_currency @order.total_valor_items %> <br>
+          <%= number_to_currency @order.descount%> <br> 
+        <%end%>
+          
+        <%= number_to_currency @order.total%> <br>
+      </strong>
+    </div>
+  </div>
 
-<h4 class="text-center">Chegada no cliente</h3>
-<h5 class="text-center">Favor conferir mercadoria no ato da entrega</h5>
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-    </thead>
-    <tbody>
-      <tr>
-        <td> Nome:_______________ </td>
-        <td> RG:___________________ </td>
-        <td> Data : ____/____/_____ </td>
-        <td> Hora: ____ : _______ </td>
-        <td> Ass:___________________ </td>
-      </tr>
-    <tbody>  
-  </table>
-</div>
+  <% if @order.exchange_items.any? %>
+    <div class="exchange-table-print">
+        <table class="table table-striped table-bordered table-condensed">
+          <h4 class="text-center">Trocas</h4>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+            </tr>
+          </thead>
 
-<div class="pull-left">
-  <dl class="dl-horizontal page-header">
-    <dt><strong>Conferido pelo funcionário:</strong></dt>
-    <dt><strong>Data:  </strong></dt>
-  </dl>
+          <tbody>
+            <% @order.exchange_items.each do |item| %>
+              <tr>
+                <td><%= item.product_name %></td>
+                <td><%= item.quantity %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  <% end %>
+  
+    <div class="well">
+      <h5 class="text-center">Chegada no cliente - Pedido <kbd><%= @order.id%></kbd></h5>
+      <h6 class="text-center"><b>Favor conferir mercadoria no ato da entrega</b></h6>
+        <p>
+          Nome:__________
+          Data : __/__/___
+          Hora: __:__ 
+          Ass:_______________
+        <p>
+    </div>
 </div>

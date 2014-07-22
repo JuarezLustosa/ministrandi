@@ -1,18 +1,16 @@
-<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
   <%= f.input :name, required: true, input_html: { class: "labellarge" } %>
   <%= f.input :cod, :as => :string, input_html: { class: "labelsmall" } %>
   <%= f.input :measurement_unit, 
     :as => :select, 
     :collection => Products::MeasurementUnits.to_a %>  
-  <%= f.input :unit, :as => :string, wrapper_html: { size: 10 } %>
+  <%= f.input :unit, :as => :string %>
   <%= f.input :barcode, :as => :string %>
   <%= f.input :retail_price, :as => :string %>
   <%= f.input :wholesale, :as => :string %>
   <%= f.input :inactive %>
   
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                products_path, :class => 'btn' %>
-  </div>
+  <%= f.button :submit, "Salvar", :class => 'btn btn-primary btn-lg btn-block' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default btn-block' %>
+  
 <% end %>

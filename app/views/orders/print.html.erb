@@ -1,21 +1,29 @@
 <%- model_class = Order -%>
-<div class="page-header">
-  <h3 class="text-center">Pedido Número - <%= @order.id %></h3>
-  <h4 class="text-center"> Status  <kbd><%=  @order.human_state_name %></kbd></h3>
-  <h5 class="text-center hidden-print"> <%= link_to "Voltar", orders_path%></h3>
-</div>
 
-<dl class="dl-horizontal page-header">
-  <dt><strong>Cliente:</strong></dt>
-  <dd><%= @order.client_name %></dd>
-  <dt><strong>Cidade:</strong></dt>
-  <dd><%= @order.client_city_name %></dd>
-  
-  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
-  <dd><%= @order.vendor_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= l @order.date %></dd>
-</dl>
+<div class="row">
+    <div class="col-xs-12 text-center">
+		  <h3 class="text-center">Pedido Número - <%= @order.id %></h3>
+		  <h4 class="text-center"><small> Status  <kbd><%=  @order.human_state_name %></kbd> </small></h4>
+		  <h4 class="text-center"><small> Data da Venda  <kbd><%= l @order.date %></kbd> </small></h4>
+	    <h5 class="text-center hidden-print"> <%= link_to "Voltar", orders_path%></h3>
+		</div>
+</div>  
+
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <p>
+          <strong>Razão Social:</strong> <%= @order.client_name %>  <br>
+          <strong>Fantasia:</strong> <%= @order.client_fantasy_name %> <br>
+          <strong>Cidade:</strong> <%= @order.client_city_name %><br>
+          <small><strong>Endereço:</strong> <%= @order.client_address_complete %></small><br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h4 class="text-center">Produtos</h4>
   <table class="table table-striped table-bordered table-condensed">
@@ -71,11 +79,3 @@
     </div>
   </div>
 <% end %>
-
-<div class="pull-left">
-  <dl class="dl-horizontal page-header">
-    <dt><strong>Atendido por:</strong></dt>
-    <dt><strong>Data:  </strong></dt>
-  </dl>
-</div>
-

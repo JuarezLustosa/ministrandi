@@ -8,12 +8,9 @@
   <%= render 'orders/items/list_items' %>
 </div>
 
-<div id="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <%= button_tag " Adicionar Troca", class: "btn btn-default icon-plus", :id => "button_exchange"  %>
-    </div>
-  </div>
+<div class="well well-sm">
+  <%= button_tag "Adicionar Troca", class: "btn btn-default", :id => "button_exchange"  %>
+  <%= button_tag " Adicionar Desconto", class: "btn btn-default", :id => "button_descount"  %>
 </div>
 
 <div id="exchange">
@@ -24,28 +21,24 @@
   <%= render 'orders/items/exchange_list_items' %>
 </div>
 
-<div id="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <%= button_tag " Adicionar Desconto", class: "btn btn-default icon-plus", :id => "button_descount"  %>
-    </div>
-  </div>
-</div>
-
 <div id="descount">
   <%= render 'orders/descount', :order => @order %>
 </div>
 
-<div id="container-fluid">
-  <div class="row-fluid">       
-    <div class="span6" id="total_descount">
-      <%= render 'orders/items/total_descounts' %>
-    </div>
-      <div class="span6" id="total_items">
-        <%= render 'orders/items/total_items' %>
-      </div>
+<div class="row">       
+  <div class="col-md-4">
+    <%= render 'orders/items/total_items' %>
+  </div>
+  
+  <div class="col-md-4" id="total_descount">
+    <%= render 'orders/items/total_descounts' %>
+  </div>
+  
+  <div class="col-md-4" id="total_valor">
+    <%= render 'orders/items/total_valor' %>
   </div>
 </div>
+
 
 <div class="form-actions">
   <% if @order.attending? %>

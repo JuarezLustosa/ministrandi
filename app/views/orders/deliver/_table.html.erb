@@ -26,15 +26,15 @@
           <%= link_to 'Entregue', order_deliver_path(order), 
             remote: true, 
             method: :put, 
-            :class => 'btn btn-mini' %> 
+            :class => 'btn btn-primary btn-xs' %> 
             
           <%= link_to 'Cancelar', order_cancel_path(order), 
             remote: true, 
             method: :put, 
-            data: { confirm: 'Are you sure?' }, 
-            :class => 'btn btn-mini btn-danger' %>
-
-          <%= link_to "Imprimir", print_done_order_path(order) %>  
+            data: { confirm: 'Tem certeza?' }, 
+            :class => 'btn btn-xs btn-danger' %>
+          
+          <%= link_to " Imprimir", print_done_order_path(order), :class => 'btn btn-sm btn-default fa fa-print fa-sm' %>  
         </td>
       </tr>
     <% end %>

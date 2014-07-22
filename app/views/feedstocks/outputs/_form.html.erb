@@ -1,14 +1,12 @@
-<%= simple_form_for @feedstock_output, 
-  :url  => form_path,
-  :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @feedstock_output,  
+  :url  => form_path,  
+  :html => { :class => 'form-horizontal' },  
+  wrapper: :horizontal_form do |f| %>
 
   <%= error_messages_for @feedstock_output %>
   <%= f.input :date, as: :string, input_html: { class: 'date', value: date_translation(@feedstock_output.date) }  %>
   <%= f.input :employee, as: :string  %>
   
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                feedstocks_outputs_path, :class => 'btn' %>
-  </div>
+  <%= f.button :submit, "Salvar e lançar itens", :class => 'btn btn-primary btn-lg btn-block' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), feedstocks_outputs_path, :class => 'btn btn-default btn-block' %>
 <% end %>

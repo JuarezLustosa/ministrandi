@@ -1,31 +1,47 @@
-<%= simple_form_for(@client) do |f| %>
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' },  
+wrapper: :horizontal_form  do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :person %>
-    <%= f.input :name %>
-    <div id="person" class="hide">
-      <%= f.input :cpf, as: :string %>
-    </div>
-
-    <div id="company">
-      <%= f.input :fantasy_name %>
-      <%= f.input :cnpj %>
-      <%= f.input :state_inscription %>
-      <%= f.input :city_inscription %>
-    </div>
-
-    <%= f.input :email, as: :email %>
-    <%= f.input :phone1, as: :string %>
-    <%= f.input :phone2, as: :string %>
-    
-    <%= render 'addresses/address_fields_for', :f => f %>
-  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Dados Gerais</h4>
+        </div>
+        <div class="panel-body">
   
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                clients_path, :class => 'btn' %>
-    <%= link_to 'Voltar para listagem', clients_path, :class => 'btn' %>
+          <div class="form-inputs">
+            <%= f.input :person %>
+            <%= f.input :name %>
+            <div id="person" class="hide">
+              <%= f.input :cpf, as: :string %>
+            </div>
+
+            <div id="company">
+              <%= f.input :fantasy_name %>
+              <%= f.input :cnpj %>
+              <%= f.input :state_inscription %>
+              <%= f.input :city_inscription %>
+            </div>
+
+            <%= f.input :email, as: :email %>
+            <%= f.input :phone1, as: :string %>
+            <%= f.input :phone2, as: :string %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Endereço</h4>
+        </div>
+        <div class="panel-body">  
+          <%= render 'addresses/address_fields_for', :f => f %>
+        </div>
+      </div>
+    </div>
   </div>
+    <%= f.button :submit, :class => 'btn btn-primary btn-lg btn-block' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), clients_path, :class => 'btn btn-default btn-block' %>
 <% end %>

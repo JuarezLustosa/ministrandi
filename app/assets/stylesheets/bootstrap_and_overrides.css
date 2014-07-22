@@ -8,3 +8,15 @@
   
 body { padding-top: 60px; }
 h3 { color: #325B7F; }
+
+.navbar {
+  background-color: #FFF8DC;
+}
+
+@fontAwesomeEotPath: "/assets/fontawesome-webfont.eot";
+@fontAwesomeEotPath_iefix: "/assets/fontawesome-webfont.eot?#iefix";
+@fontAwesomeWoffPath: "/assets/fontawesome-webfont.woff";
+@fontAwesomeTtfPath: "/assets/fontawesome-webfont.ttf";
+@fontAwesomeSvgPath: "/assets/fontawesome-webfont.svg#fontawesomeregular";
+@import "fontawesome";
+

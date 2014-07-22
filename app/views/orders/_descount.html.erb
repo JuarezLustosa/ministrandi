@@ -1,10 +1,16 @@
 <div id="descount_form">
-  <legend>Realizar o descounto em dinheiro</legend>
-  <%= form_tag @order, :method => :put, :remote => true, :html => { class: "form-inline", id: "form-descount" } do |f| %>
-    <div class="form-group">
-      <label class="sr-only" for="exampleInputEmail2">Desconto</label>
-      <%= text_field_tag :descount, (""), :id => 'descount_total', :onchange => "$(this).parent('form').submit();" %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Realizar o descounto em dinheiro</h4>
     </div>
-  <% end %>
+    <div class="panel-body">    
+      <%= form_tag @order, :method => :put, :remote => true, :html => { class: "form-inline", id: "form-descount" } do |f| %>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail2">Desconto</label>
+          <%= text_field_tag :descount, (""), :id => 'descount_total', :onchange => "$(this).parent('form').submit();", size: 10 %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 

@@ -1,14 +1,14 @@
-<%= form_tag reports_comissions_path, :method => :get, :remote => true, class: "form-inline"  do %>  
-  <div class="form-group">
+<%= form_tag reports_comissions_path, :method => :get, :remote => true, class: "form-inline" do %>  
+  <div class="form-group hidden-print">
     <label class="sr-only" for="exampleInputEmail2">Vendedor</label>
     <%= text_field_tag :autocomplete_vendor, (""),
-                       :class => "search-query form_controll",
+                       :class => "form-control",
                        "data-source" => autocompletes_vendors_path,
                        autofocus: true %>
     <%= hidden_field_tag :vendor_id %>
     
-    <%= select_month Date.current %>
-    <%= submit_tag 'Pesquisar', class: "btn btn-default" %>
+    <%= select_month Date.current, :class => "form-control" %>
+    <%= submit_tag 'Pesquisar', class: "btn btn-primary" %>
     
   </div>
 <% end %>

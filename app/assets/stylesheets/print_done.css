@@ -1,0 +1,28 @@
+
+body, h1, h2, h3, h4, h5, h6{
+  font-family: 'Bree Serif', serif;
+}
+
+
+@media print { 
+  .well {
+    page-break-after: auto; 
+    page-break-inside: avoid;
+    font-size: 10px;
+   }
+   
+   .table-print {
+     page-break-after: auto; 
+     page-break-inside: avoid;     
+   }
+   
+   .exchange-table-print {
+     page-break-before: always; 
+     page-break-inside: avoid;
+   }
+
+   .table td,
+   .table tr {
+     font-size: 10px;
+   }
+}

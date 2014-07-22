@@ -1,29 +1,32 @@
-<%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @order, :html => { :class => 'form-horizontal' },  
+wrapper: :horizontal_form do |f| %>
   <%= f.error_notification %>
-    
-    <%= f.input :client,
-      as: :string, 
-      input_html: { class: 'search-query', autofocus: true, value: @order.client.try(:name) || ""}, 
-      required: true %>
+    <div class="form-controll">
+      <%= f.input :client,
+        as: :string, 
+        input_html: { 
+          class: 'form-controll', 
+          placeholder: "Pesquisar cliente", 
+          autofocus: true, 
+          value: @order.client.try(:name) || ""}, 
+        required: true %>
                   
-    <%= f.input :client_id, as: :hidden %>
-    <%= f.input :vendor, 
-      as: :string, 
-      input_html: { class: 'search-query', value: @order.vendor.try(:name) || ""}, 
-      required: true %>
+      <%= f.input :client_id, as: :hidden %>
+      <%= f.input :vendor, 
+        as: :string, 
+        input_html: { class: 'search-query', placeholder: "Pesquisar Vendedor",  value: @order.vendor.try(:name) || ""}, 
+        required: true %>
       
-    <%= f.input :user_id, as: :hidden %>
-    <%= f.input :date, as: :string, input_html: { class: 'date', value: date_translation(@order.date) } %>
-    <%= f.input :priority,
-      :as => :select,
-      :collection => Orders::Priority.to_a,
-      :selected => Orders::Priority::MEDIUM %>
+      <%= f.input :user_id, as: :hidden %>
+      <%= f.input :date, as: :string, input_html: { class: 'date', value: date_translation(@order.date) } %>
+      <%= f.input :priority,
+        :as => :select,
+        :collection => Orders::Priority.to_a,
+        :selected => Orders::Priority::MEDIUM %>
 
-    <%= f.input :nf, input_html: { class: 'checkbox' }  %>
-    
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                orders_path, :class => 'btn' %>
-  </div>
+      <%= f.input :nf, input_html: { class: 'checkbox' }  %>
+      
+      <%= f.button :submit, "Salvar e lançar itens", :class => 'btn btn-primary btn-lg btn-block' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), orders_path, :class => 'btn btn-default btn-block' %>
+   </div>
 <% end %>

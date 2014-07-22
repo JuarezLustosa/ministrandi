@@ -4,12 +4,13 @@
 <div class="container">  
   <%= form_tag feedstocks_output_items_path, :method => :post, :remote => true, class: "form-inline"  do %>
     <%= text_field_tag :autocomplete_feedstock, (""),
-                       :class => "search-query",
+                       :class => "form-control",
                        "data-source" => autocompletes_feedstocks_path,
-                       placeholder: "Pesquisar Produto"  %>
+                       placeholder: "Pesquisar Produto",
+                       size: 50  %>
     <%= hidden_field_tag :feedstock_id %>
   
-    <%= text_field_tag :quantity, (""), placeholder: "Quantidade", size: 10  %>
+    <%= text_field_tag :quantity, (""), placeholder: "Quantidade", size: 10, :class => "form-control" %>
 
     <%= submit_tag 'Adicionar', class: "btn btn-primary" %>
 <% end %>

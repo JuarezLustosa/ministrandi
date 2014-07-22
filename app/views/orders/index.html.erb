@@ -36,7 +36,7 @@
               data: { confirm: 'Tem certeza que deseja excluir?' },
               :class => 'btn btn-mini btn-danger' %>
 
-            <%= link_to "Imprimr", print_order_path(order) %>  
+            <%= link_to "Imprimr", print_order_path(order, :format => :pdf) %>  
           <% end %>
 
           <% if order.ready? %>
