@@ -68,13 +68,7 @@
   
   <div class="container">
     <%= bootstrap_flash %>
-    <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "sucess" : "error" %>" >
-        <%=msg%>
-      </div>
-    <% end %>
-    <%= yield %>
-    
+    <%= yield %>    
     <%= javascript_include_tag "application" %>
 </body>
 </html>
