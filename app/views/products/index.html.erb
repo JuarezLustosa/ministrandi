@@ -12,7 +12,6 @@
       <th><%= model_class.human_attribute_name(:cod) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:unit) %></th>
-      <th><%= model_class.human_attribute_name(:barcode) %></th>
       <th><%= model_class.human_attribute_name(:retail_price) %></th>
       <th><%= model_class.human_attribute_name(:wholesale) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -24,16 +23,17 @@
         <td><%= product.cod %></td>
         <td><%= product.name %></td>
         <td><%= product.unit %></td>
-        <td><%= product.barcode %></td>
         <td><%= number_to_currency product.retail_price %></td>
         <td><%= number_to_currency product.wholesale %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_product_path(product), :class => 'btn btn-primary fa fa-pencil-square-o btn-sm' %>
-          <%= link_to 'Apagar', product_path(product), 
-            :method => :delete, 
+            edit_product_path(product), 
+            :class => 'btn btn-primary fa fa-pencil-square-o btn-sm' %>
+            
+          <%= link_to 'Apagar', product_path(product),
+            :method => :delete,
             data: { confirm: 'Tem certeza que deseja excluir?' },
-            :class => 'btn btn-danger btn-sm fa fa-trash-o' %>
+            :class => 'btn btn-danger btn-sm fa fa-trash-sm' %>
         </td>
       </tr>
     <% end %>
