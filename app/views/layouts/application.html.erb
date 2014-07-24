@@ -18,18 +18,19 @@
           
           <%= drop_down "Produtos" do %>
             <%= menu_item "Listagem de Produtos", products_path %>
+            <%= menu_item "Criar Grupos", new_products_group_path %>
             <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
             <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
           <% end %>
           
           <%= drop_down "Matéria Prima" do %>
             <%= menu_item "Cadastro", feedstocks_path %>
-            <%= menu_item "Lista de compra", feedstocks_list_critic_stock_path %></li>
-            <%= menu_item "Entrada", feedstocks_entrances_path %></li>
-            <%= menu_item "Saida", feedstocks_outputs_path %></li>
-            <%= menu_item "Fornecedores", suppliers_path %></li>
+            <%= menu_item "Lista de compra", feedstocks_list_critic_stock_path %>
+            <%= menu_item "Entrada", feedstocks_entrances_path %>
+            <%= menu_item "Saida", feedstocks_outputs_path %>
+            <%= menu_item "Fornecedores", suppliers_path %>
             <%= menu_divider %> 
-            <%= menu_item "Impri. Inventário", feedstocks_print_inventory_path %></li>          
+            <%= menu_item "Impri. Inventário", feedstocks_print_inventory_path %>          
           <% end %>
           
           <%= drop_down "Contabilidade" do %>
