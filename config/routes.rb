@@ -62,6 +62,11 @@ Ministrandi::Application.routes.draw do
   resources :addresses
   resources :search_suggestions
   resources :feedstocks
+
+  namespace :products do
+    resources :groups
+  end
+  
   resources :products do
     get :print_industry_price, :on => :collection
   end

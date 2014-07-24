@@ -18,7 +18,8 @@
           
           <%= drop_down "Produtos" do %>
             <%= menu_item "Listagem de Produtos", products_path %>
-            <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path %>
+            <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
+            <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
           <% end %>
           
           <%= drop_down "Matéria Prima" do %>

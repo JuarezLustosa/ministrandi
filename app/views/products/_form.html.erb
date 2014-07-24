@@ -1,6 +1,9 @@
 <%= simple_form_for @product, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
   <%= f.input :name, required: true, input_html: { class: "labellarge" } %>
   <%= f.input :cod, :as => :string, input_html: { class: "labelsmall" } %>
+  <%= f.input :group_id, 
+    :as => :select, 
+    :collection => nested_options(Product::Group) %>  
   <%= f.input :measurement_unit, 
     :as => :select, 
     :collection => Products::MeasurementUnits.to_a %>  

@@ -12,6 +12,7 @@
       <th><%= model_class.human_attribute_name(:cod) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:unit) %></th>
+      <th><%= model_class.human_attribute_name(:group) %></th>
       <th><%= model_class.human_attribute_name(:retail_price) %></th>
       <th><%= model_class.human_attribute_name(:wholesale) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -23,6 +24,7 @@
         <td><%= product.cod %></td>
         <td><%= product.name %></td>
         <td><%= product.unit %></td>
+        <td><%= product.group_name %></td>
         <td><%= number_to_currency product.retail_price %></td>
         <td><%= number_to_currency product.wholesale %></td>
         <td>

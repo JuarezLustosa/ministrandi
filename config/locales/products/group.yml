@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      product/group:
+        one: "Grupo de produtos"
+        other: "Grupos de produtos"
+
+    attributes:
+      product/group:
+        parent: "Grupo Pai"
+        name: "Nome"
+        parent_id: "Pai"
+        parent: "Pai"

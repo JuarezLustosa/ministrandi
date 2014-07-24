@@ -35,8 +35,8 @@ class ProductsController < ApplicationController
   end
   
   def print_industry_price
-    @products = Product.ordered
-    render :print_industry_price, :layout => "report"
+    @fathers_product_groups = Product::Group.roots
+    render :print_industry_price
   end
 
   private
@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, 
     :unit, :barcode, :stock, :stock_minim, :stock_critic, :valid_date, :retail_price, :wholesale, :cod,
-    :measurement_unit)
+    :measurement_unit, :group_id)
   end
 end
