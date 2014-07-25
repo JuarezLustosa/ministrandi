@@ -41,25 +41,26 @@
 
     <tbody>
       <% @order.items.each do |item| %>
-        <tr>
-          <td><%= item.product_cod %></td>
+        <tr class="tr-print">
+          <td class="col-md-1"><%= item.product_cod %></td>
           <td><%= item.product_name %></td>
-          <td><%= item.quantity %></td>
-          <td><%= number_to_currency item.total_price %></td>
+          <td class="col-md-1"><%= item.quantity %></td>
+          <td class="col-md-2"><%= number_to_currency item.total_price %></td>
         </tr>
+        </div>
       <% end %>
     </tbody>
   </table>
 
-  <div class="row text-right">
+  <div class="row text-right" id="total">
     <div class="col-xs-2 col-xs-offset-8">
       <p>
         <strong>
           <% if @order.has_descount?%>
-            Sub Total :  <br>
-            Desconto :  <br> 
+            Sub Total : <br>
+            Desconto : <br>
           <%end%>
-          Total :   <br>
+          Total : <br>
         </strong>
       </p>
     </div>

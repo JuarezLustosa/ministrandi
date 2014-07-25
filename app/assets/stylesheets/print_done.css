@@ -4,7 +4,15 @@ body, h1, h2, h3, h4, h5, h6{
 }
 
 
-@media print { 
+@media print {
+  
+  #total{ font-size: 10px; }
+
+  #total 
+    p { font-size: 10px;}
+  
+  body { padding-top: 5px; }
+  
   .well {
     page-break-after: auto; 
     page-break-inside: avoid;
@@ -20,9 +28,12 @@ body, h1, h2, h3, h4, h5, h6{
      page-break-before: always; 
      page-break-inside: avoid;
    }
-
+   
    .table td,
    .table tr {
-     font-size: 10px;
+     font-size: 8px;
+     page-break-after: always; 
    }
+   
+   tr {page-break-inside: avoid;}
 }
