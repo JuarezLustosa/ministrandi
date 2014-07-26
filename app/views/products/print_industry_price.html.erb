@@ -10,7 +10,7 @@
   <% @fathers_product_groups.each do |father| %>
     <thead>
       <tr class="info">
-        <th colspan="4" style="text-align:center"><%= father.name %></th>
+        <th colspan="4" style="text-align:center;" id="father"><%= father.name %></th>
       </tr>
     <% father.children.each do |children| %>
       <tr class="warning">
