@@ -6,24 +6,18 @@
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:cod) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:med) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
-      <th><%= model_class.human_attribute_name(:min_stock) %></th>
-      <th><%= model_class.human_attribute_name(:critic_stock) %></th>
       <th> Quantidade Apurada</th>
     </tr>
   </thead>
   <tbody>
     <% @feedstocks.each do |feedstock| %>
       <%= color_tr(feedstock) %>
-        <td><%=  feedstock.id %></td>
         <td><%= feedstock.name %></td>
         <td><%= feedstock.med %></td>
         <td><%= feedstock.quantity %></td>
-        <td><%= feedstock.min_stock %></td>
-        <td><%= feedstock.critic_stock %></td>
         <td>   </td>
     <% end %>
   </tbody>

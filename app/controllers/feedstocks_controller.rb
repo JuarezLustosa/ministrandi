@@ -39,7 +39,7 @@ class FeedstocksController < ApplicationController
   
   def print_inventory
     @feedstocks = Feedstock.ordered
-    render :print_inventory, :layout => "report"
+    render :print_inventory
   end
   
   def list_critic_stock
