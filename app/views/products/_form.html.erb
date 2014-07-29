@@ -1,4 +1,6 @@
 <%= simple_form_for @product, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+
+  <%= f.error_notification %>
   <%= f.input :name, required: true, input_html: { class: "labellarge" } %>
   <%= f.input :cod, :as => :string, input_html: { class: "labelsmall" } %>
   <%= f.input :group_id, 
