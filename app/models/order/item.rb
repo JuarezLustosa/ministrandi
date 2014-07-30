@@ -11,7 +11,7 @@ class Order::Item < ActiveRecord::Base
   delegate :stock, :cod, to: :product, allow_nil: true, prefix: true
   
   validates_presence_of :product, :product_id, :unit_price, :quantity
-  validates_uniqueness_of :product, :scope =>  :order_id
+  validates_uniqueness_of :product, :scope =>  :order_id, :message => "já adicionado"
   
   def calculate_percent_of(number) # refatorar
     percent = number / 100

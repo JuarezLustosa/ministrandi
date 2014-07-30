@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require_tree .
 //= require dataTables/jquery.dataTables
+//= require flash.js
 
 
 

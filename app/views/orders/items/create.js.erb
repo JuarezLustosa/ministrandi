@@ -1,8 +1,11 @@
-<% if @item.persisted? %>
+<% if @item.errors.any? %>
+  $.flash("<%= @item.errors.full_messages.to_sentence %>", true );
+<% else %>
   $('#list_items').html("<%= escape_javascript(render :partial => 'orders/items/list_items', :locals =>{ :items => items}) %>");
   $('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_valor') %>");
   $('#total_valor').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
   $('#autocomplete_product').val('').focus()
   $('#unit_price').val('')
   $('#quantity').val('')
+  $.flash("<%=  @item.product_name %> adicionado com sucesso.");
 <% end %>

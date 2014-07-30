@@ -13,7 +13,7 @@ class Orders::ItemsController < ApplicationController
   end
   
   def create
-    @item = Order::Item.create!(
+    @item = Order::Item.create(
               order_id: params[:order_id],
               product_id: params[:product_id] || params[:exchange_product_id],
               quantity: params[:quantity], 

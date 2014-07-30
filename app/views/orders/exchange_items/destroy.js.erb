@@ -1,2 +1,3 @@
 $('#exchange_list_items').html("<%= escape_javascript(render :partial => 'orders/items/exchange_list_items', :locals =>{ :exchange_items => exchange_items}) %>");
 $('#autocomplete_exchange_product').focus()
+$.flash("<%=  @exchange_item.product_name %> removido com sucesso.", true);

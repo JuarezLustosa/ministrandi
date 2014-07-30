@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      order/item:
+        one: "Item do Pedido"
+        other: "Itens do Pedido"
+
+    attributes:
+      order/item:
+        product: "Produto"
+        quantity: "Quantidade"
+        descount: "Desconto"

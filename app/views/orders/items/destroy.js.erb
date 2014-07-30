@@ -2,3 +2,4 @@ $('#list_items').html("<%= escape_javascript(render :partial => 'orders/items/li
 $('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_valor') %>");
 $('#total_valor').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
 $('#autocomplete_product').focus()
+$.flash("<%=  @item.product_name %> removido com sucesso.", true);

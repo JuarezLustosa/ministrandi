@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 </head>
 <body>
   <%= nav_bar :fixed => :top, :brand => "Favo de Mel 2.0", :responsive => true do %>
@@ -67,7 +68,7 @@
           <% end %>
       <% end %>
   <% end %>
-  
+    
   <div class="container">
     <%= bootstrap_flash %>
     <%= yield %>    
