@@ -8,8 +8,8 @@
       <th>Razão Social</th>
       <th><%= model_class.human_attribute_name (:fantasy_name)%></th>
       <th><%= model_class.human_attribute_name (:cnpj)%></th>
-      <th><%= model_class.human_attribute_name (:phone1)%></th>
-      <th><%= model_class.human_attribute_name (:email)%></th>
+      <th>Telefone</th>
+      <th>Endereço</th>
       <th>Cidade</th>
       <th>Ações</th>
     </tr>
@@ -22,13 +22,13 @@
         <td><%= client.fantasy_name %></td>
         <td><%= client.cnpj %></td>
         <td><%= client.phone1 %></td>
-        <td><%= client.email %></td>
+        <td><%= client.address_complete %></td>
         <td><%= client.city_name %></td>
-        <td><%= link_to 'Editar', edit_client_path(client), :class => 'btn btn-mini' %>
+        <td><%= link_to 'Editar', edit_client_path(client), :class => 'btn btn-sm btn-primary' %>
             <%= link_to 'Apagar', client, 
             method: :delete, 
             data: { confirm: 'Tem certeza?' },
-            :class => 'btn btn-mini btn-danger' %>
+            :class => 'btn btn-sm btn-danger' %>
         </td>
       </tr>
     <% end %>
