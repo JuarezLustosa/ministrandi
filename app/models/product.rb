@@ -12,15 +12,16 @@ class Product < ActiveRecord::Base
   validates_uniqueness_of :barcode
   
   scope :ordered, -> { order(:name) }
-  scope :search_by_name, lambda { |term| query = where("name like ?", "#{term}%")}
+  scope :search_by_name_or_cod, lambda { |term| where("name ILIKE ? OR cod ILIKE ?", "#{term}%", "#{term}")}
+  scope :search_by_name_or_cod_in_stock, lambda { |term| joins(:stock).where("name ILIKE ? OR cod ILIKE ?", "#{term}%", "#{term}") }
   
   scope :search_by_name_in_industry, lambda { |term| 
-    query = joins(:stock).where("name like ?", "#{term}%")
+    query = search_by_name_or_cod_in_stock(term)
     query = query.where(:stocks => {:local => StockLocations::MANUFACTURE}) 
   }
   
   scope :search_by_name_in_store, lambda { |term| 
-    query = joins(:stock).where("name like ?", "#{term}%")
+    query = search_by_name_or_cod_in_stock(term)
     query = query.where(:stocks => {:local => StockLocations::STORE}) 
   }
   
