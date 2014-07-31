@@ -1,0 +1,8 @@
+pt-BR:
+  enumerations:
+    orders/payments:
+      money: 'Á vista'
+      check: 'Cheque'
+      billet: 'Boleto'
+      promissory: 'Nota promissora'
+      

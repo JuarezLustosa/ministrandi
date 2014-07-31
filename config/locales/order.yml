@@ -13,7 +13,9 @@ pt-BR:
         state: "Status"
         total: "Total"
         payment: "Forma de Pagamento"
+        payment_day: "Dias para o pagamento"
         priority: "Prioridade"
         date: "Data da venda"
         nf: "Nota fiscal ?"
         city: "Cidade"
+        

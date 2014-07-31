@@ -12,20 +12,27 @@
     </div>
   </div>
   
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-8">    
             <p>
               <small><strong>Razão Social:</strong> <%= @order.client_name %>  <br></small>
               <small><strong>Fantasia:</strong> <%= @order.client_fantasy_name %> <br></small>
               <small><strong>Cidade:</strong> <%= @order.client_city_name %><br></small>
               <small><strong>Endereço:</strong> <%= @order.client_address_complete %></small><br>
-              </p>
-          </div>
+            </p>
+        </div>
+        <div class="col-xs-4">
+          <p>
+            <small><strong>Forma de Pagamento:</strong><br> 
+            <%= @order.payment_humanize %> <%= @order.payment_day_to_s %></small><br>
+            <% if @order.nf %> <small><strong>NF:</strong></small> <% end %>            
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
   <%- model_class = Order -%>
   <h4 class="text-center">Produtos</h3>

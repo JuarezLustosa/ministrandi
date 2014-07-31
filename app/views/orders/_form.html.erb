@@ -12,7 +12,7 @@ wrapper: :horizontal_form do |f| %>
         required: true %>
                   
       <%= f.input :client_id, as: :hidden %>
-      <%= f.input :vendor, 
+      <%= f.input :vendor,
         as: :string, 
         input_html: { class: 'search-query', placeholder: "Pesquisar Vendedor",  value: @order.vendor.try(:name) || ""}, 
         required: true %>
@@ -26,6 +26,12 @@ wrapper: :horizontal_form do |f| %>
 
       <%= f.input :nf, input_html: { class: 'checkbox' }  %>
       
+      <%= f.input :payment,
+        :as => :select,
+        :collection => Orders::Payments.to_a %>
+
+      <%= f.input :payment_day, as: :string, input_html: { } %>      
+        
       <%= f.button :submit, "Salvar e lançar itens", :class => 'btn btn-primary btn-lg btn-block' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")), orders_path, :class => 'btn btn-default btn-block' %>
    </div>
