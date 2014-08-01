@@ -17,7 +17,7 @@ class Order < ActiveRecord::Base
   scope :comission, lambda { |vendor| joins(:vendor).where(:users => {:id => vendor})}
   scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
-  scope :total, -> {joins(:items).sum(:total_price)}
+  scope :total, -> {sum(:total)}
     
   attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state, :descount, :payment, :payment_day
   
