@@ -18,6 +18,7 @@ class Order < ActiveRecord::Base
   scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {sum(:total)}
+  scope :ordered_by_date, -> { order(:date)}
     
   attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state, :descount, :payment, :payment_day
   
