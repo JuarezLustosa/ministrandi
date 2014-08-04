@@ -7,16 +7,24 @@ jQuery ->
         $('#order_vendor').val ui.item.value
         $('#order_user_id').val ui.item.id
 
-jQuery ->
   $('#order_client').autocomplete
     source: "/autocompletes/clients"
     select: (event, ui) ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#order_client').val ui.item.value
-        $('#order_client_id').val ui.item.id
-
-jQuery ->
+        $('#order_client_id').val ui.item.id   
+        set_client_info(ui.item)
+      
+  set_client_info = (client) ->
+    $('.modal-body').html("")
+    address =  $("<p><strong>Endereço:</strong> #{client.address}</p>")
+    fantasy_name = $("<p><strong>Nome Fantasia:</strong> #{client.fantasy_name}</p>")
+    phone = $("<p><strong>Telefone:</strong> #{client.phone}</p>")
+    email = $("<p><strong>Email:</strong> #{client.email}</p>")
+    $('.modal-body').append(fantasy_name, address, phone, email)
+    return  
+  
   $('#order_client').focus();  
   $("#order_date").mask("99/99/9999");
   

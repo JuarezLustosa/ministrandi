@@ -1,38 +1,37 @@
-<%= simple_form_for @order, :html => { :class => 'form-horizontal' },  
-wrapper: :horizontal_form do |f| %>
+<%= simple_form_for @order, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form,
+wrapper_mappings: {
+  check_boxes: :horizontal_radio_and_checkboxes,
+  radio_buttons: :horizontal_radio_and_checkboxes,
+  file: :horizontal_file_input,
+  boolean: :horizontal_boolean } do |f| %>  
+ 
   <%= f.error_notification %>
-    <div class="form-controll">
-      <%= f.input :client,
-        as: :string, 
-        input_html: { 
-          class: 'form-controll', 
-          placeholder: "Pesquisar cliente", 
-          autofocus: true, 
-          value: @order.client.try(:name) || ""}, 
-        required: true %>
-                  
-      <%= f.input :client_id, as: :hidden %>
-      <%= f.input :vendor,
-        as: :string, 
-        input_html: { class: 'search-query', placeholder: "Pesquisar Vendedor",  value: @order.vendor.try(:name) || ""}, 
-        required: true %>
+  
+  <%= f.input :client, wrapper: :horizontal_input_group do %>
+    <%= f.input_field :client, as: :string, 
+      input_html: { placeholder: "Pesquisar cliente", autofocus: true,  value: @order.client.try(:name) || ""},
+      required: true,
+      class: "form-control" %>
+    
+    <span class="input-group-btn">
+      <%= render 'clients/client_modal' %>
+    </span>
+  <% end %>
       
-      <%= f.input :user_id, as: :hidden %>
-      <%= f.input :date, as: :string, input_html: { class: 'date', value: date_translation(@order.date) } %>
-      <%= f.input :priority,
-        :as => :select,
-        :collection => Orders::Priority.to_a,
-        :selected => Orders::Priority::MEDIUM %>
-
-      <%= f.input :nf, input_html: { class: 'checkbox' }  %>
+  <%= f.input :client_id, as: :hidden %>
       
-      <%= f.input :payment,
-        :as => :select,
-        :collection => Orders::Payments.to_a %>
-
-      <%= f.input :payment_day, as: :string, input_html: { } %>      
-        
-      <%= f.button :submit, "Salvar e lançar itens", :class => 'btn btn-primary btn-lg btn-block' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), orders_path, :class => 'btn btn-default btn-block' %>
-   </div>
+  <%= f.input :vendor,
+    as: :string, 
+    input_html: { class: 'search-query', placeholder: "Pesquisar Vendedor",  value: @order.vendor.try(:name) || ""}, 
+    required: true %>
+  
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :date, as: :string, input_html: { class: 'date', value: date_translation(@order.date) } %>
+  <%= f.input :priority, :as => :select, :collection => Orders::Priority.to_a, :selected => Orders::Priority::MEDIUM %>
+  <%= f.input :nf, input_html: { class: 'checkbox' }  %>
+  <%= f.input :payment, :as => :select, :collection => Orders::Payments.to_a %>
+  <%= f.input :payment_day, as: :string, input_html: { } %>      
+    
+  <%= f.button :submit, "Salvar e lançar itens", :class => 'btn btn-primary btn-lg btn-block' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), orders_path, :class => 'btn btn-default btn-block' %>
 <% end %>
