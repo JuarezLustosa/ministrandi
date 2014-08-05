@@ -9,7 +9,7 @@ class AutocompleteProductsPresenter
 
 private
   def find_product
-    @products = Product.search_by_name(@term)
+    @products = Product.search_by_name_or_cod(@term)
     result(@products)
   end
 
