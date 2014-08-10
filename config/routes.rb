@@ -23,6 +23,8 @@ Ministrandi::Application.routes.draw do
   
   namespace :reports do
     resources :comissions, only: :index
+    resources :sales,      only: :index
+    resources :stocks,  only: :index
   end
 
   namespace :autocompletes do

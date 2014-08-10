@@ -1,0 +1,27 @@
+<% if @products.any? %>
+
+<div class="page-header">
+  <h1>Total de produtos</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quant. Vendida</th>
+      <th>Quant. Trocada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= sum_quantity_sale_by_product_in(@month, product.id) %></td>
+        <td><%= sum_quantity_changed_by_product_in(@month, product.id)%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+  <p>Não foi encontrado nenhum registro no mês informado.</p>
+<% end %>
