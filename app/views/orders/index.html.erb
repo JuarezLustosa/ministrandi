@@ -26,7 +26,7 @@
         <td><%= order.human_state_name %></td>
         
         <td>
-          <% unless order.cancel? or order.delivered? %>
+          <% unless order.cancel? or order.delivered? or order.ready? %>
             <%= link_to ' Editar', edit_order_path(order), :class => 'fa fa-edit btn btn-sm btn-primary' %> 
           
             <%= link_to ' Apagar', order, 
