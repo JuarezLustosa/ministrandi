@@ -26,17 +26,19 @@
         <td><%= order.human_state_name %></td>
         
         <td>
-          <% unless order.cancel? or order.delivered? or order.ready? %>
+          <% unless order.cancel? or order.delivered? %>
             <%= link_to ' Editar', edit_order_path(order), :class => 'fa fa-edit btn btn-sm btn-primary' %> 
           
             <%= link_to ' Apagar', order, 
               method: :delete, 
               data: { confirm: 'Tem certeza que deseja excluir?' },
               :class => 'fa fa-trash-o btn btn-sm btn-danger' %>
-
+          <% end %>
+          
+          <% unless order.cancel? or order.delivered? or order.ready? %>
             <%= link_to " Impr", print_order_path(order), class: 'fa fa-print btn btn-default btn-sm' %>  
           <% end %>
-
+          
           <% if order.ready? || order.delivered? %>
             <%= link_to " Impr", print_done_order_path(order), class: 'fa fa-print btn btn-default btn-sm'%>
           <% end %>
