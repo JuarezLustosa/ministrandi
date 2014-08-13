@@ -8,7 +8,6 @@
       <th>Pedido</th>
       <th><%= model_class.human_attribute_name (:client)%></th>
       <th><%= model_class.human_attribute_name (:vendor)%></th>
-      <th><%= model_class.human_attribute_name (:priority)%></th>
       <th><%= model_class.human_attribute_name (:date)%></th>
       <th><%= model_class.human_attribute_name (:total)%></th>
       <th><%= model_class.human_attribute_name (:state)%></th>
@@ -22,25 +21,24 @@
         <td><%= order.id %></td>
         <td><%= order.client_name %></td>
         <td><%= order.vendor_name %></td>
-        <td><%= order.priority_humanize %></td>
         <td><%= l order.date %></td>
         <td><%= number_to_currency order.total %></td>
         <td><%= order.human_state_name %></td>
         
         <td>
-          <% if order.incomplete? or order.open? %>
-            <%= link_to 'Editar', edit_order_path(order), :class => 'btn btn-mini' %> 
+          <% unless order.cancel? or order.delivered? %>
+            <%= link_to ' Editar', edit_order_path(order), :class => 'fa fa-edit btn btn-sm btn-primary' %> 
           
-            <%= link_to 'Apagar', order, 
+            <%= link_to ' Apagar', order, 
               method: :delete, 
               data: { confirm: 'Tem certeza que deseja excluir?' },
-              :class => 'btn btn-sm btn-danger' %>
+              :class => 'fa fa-trash-o btn btn-sm btn-danger' %>
 
-            <%= link_to "Imprimr", print_order_path(order, :format => :pdf) %>  
+            <%= link_to " Impr", print_order_path(order), class: 'fa fa-print btn btn-default btn-sm' %>  
           <% end %>
 
-          <% if order.ready? %>
-            <%= link_to "Imprimir", print_done_order_path(order) %>
+          <% if order.ready? || order.delivered? %>
+            <%= link_to " Impr", print_done_order_path(order), class: 'fa fa-print btn btn-default btn-sm'%>
           <% end %>
         </td>
       </tr>
