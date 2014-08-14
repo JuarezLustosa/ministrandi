@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   has_enumeration_for :priority, :with => Orders::Priority
   has_enumeration_for :payment, :with => Orders::Payments
+  has_enumeration_for :nature, :with => Orders::Natures
   before_save :save_total
   
   has_many :items, :class_name => "Order::Item"
@@ -14,13 +15,14 @@ class Order < ActiveRecord::Base
   scope :attend, -> { with_state(:attending) }
   scope :ready, -> { with_state(:ready) }
 
-  scope :comission, lambda { |vendor| joins(:vendor).where(:users => {:id => vendor})}
+  scope :comission, lambda { |vendor| joins(:vendor).where(:nature => Orders::Natures::SALE).where( :users => {:id => vendor})}
   scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {sum(:total)}
   scope :ordered_by_date, -> { order(:date)}
     
-  attr_accessible :client, :client_id, :vendor, :user_id, :date, :priority, :nf, :state, :descount, :payment, :payment_day
+  attr_accessible :client, :client_id, :vendor, :user_id, :date, :nature,
+                  :priority, :nf, :state, :descount, :payment, :payment_day
   
   delegate :name,  :to => :vendor, allow_nil: true, prefix: true
   delegate :name, :city_name, :fantasy_name, :address_complete, :to => :client, allow_nil: true, prefix: true

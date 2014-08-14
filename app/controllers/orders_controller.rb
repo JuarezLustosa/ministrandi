@@ -69,6 +69,6 @@ class OrdersController < ApplicationController
   helper_method :ready_orders
   
   def order_params
-    params.require(:order).permit(:client_id, :user_id, :date, :priority, :nf, :descount, :payment, :payment_day) if params[:order].present?
+    params.require(:order).permit(:client_id, :user_id, :date, :priority, :nf, :descount, :payment, :payment_day, :nature) if params[:order].present?
   end
 end

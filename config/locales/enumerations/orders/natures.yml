@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    orders/natures:
+      sale: 'VENDA'
+      bonus: 'BONIFICACAO'
