@@ -3,7 +3,11 @@ class Feedstock::Output < ActiveRecord::Base
 
   has_many :items, :class_name => "Feedstock::Output::Item", :dependent => :destroy  
   accepts_nested_attributes_for :items, :allow_destroy => true
-    
+      
+  def finish?
+    status === "FINISHED"
+  end
+  
   def finish
     transaction do
       items.each  do |item|

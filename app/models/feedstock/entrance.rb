@@ -12,6 +12,10 @@ class Feedstock::Entrance < ActiveRecord::Base
   validates_presence_of :supplier
   validates_uniqueness_of :nf_number
   
+  def finish?
+    status === "FINISHED"
+  end
+  
   def finish
     items.each  do |item|
       feedstock = item.feedstock
