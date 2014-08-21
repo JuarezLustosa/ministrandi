@@ -10,16 +10,17 @@
   <% @fathers_product_groups.each do |father| %>
     <thead>
       <tr class="info">
-        <th colspan="4" style="text-align:center;" id="father"><%= father.name %></th>
+        <th colspan="5" style="text-align:center;" id="father"><%= father.name %></th>
       </tr>
     <% father.children.each do |children| %>
       <tr class="warning">
-        <th colspan="4" style="text-align:center"><%= children.name %></th>
+        <th colspan="5" style="text-align:center"><%= children.name %></th>
       </tr>
       <tr>
         <th>Código</th>
         <th>Descrição</th>
         <th>Unidade</th>
+        <th>Cod Barras</th>
         <th>Preço</th>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
           <td><%= product.cod %></td>
           <td><%= product.name %></td>
           <td><%= product.unit %></td>
+          <td><%= product.barcode %></td>
           <td><%= number_to_currency product.price(params[:criteria]) %></td>
         </tr>
      </tbody>
