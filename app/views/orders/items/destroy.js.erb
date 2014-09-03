@@ -1,5 +1,5 @@
 $('#list_items').html("<%= escape_javascript(render :partial => 'orders/items/list_items', :locals =>{ :items => items}) %>");
-$('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_valor') %>");
-$('#total_valor').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
+$('#total_items').html("<%= escape_javascript(render :partial => 'orders/items/total_items') %>");
+$('#total_valor').html("<%= escape_javascript(render :partial => 'orders/items/total_valor') %>");
 $('#autocomplete_product').focus()
 $.flash("<%=  @item.product_name %> removido com sucesso.", true);
