@@ -19,4 +19,12 @@ module ApplicationHelper
       end
     end
   end
+  
+  def admin?
+    current_user.try(:admin?)
+  end
+  
+  def vendor?
+    current_user.try(:vendor?)
+  end
 end

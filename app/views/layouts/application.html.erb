@@ -13,17 +13,11 @@
 <body>
   <%= nav_bar :fixed => :top, :brand => "Favo de Mel 2.0", :responsive => true do %>
       <%= menu_group do %>
+        <% unless vendor? %>
           <%= menu_item "Home", root_path %>
           <%= menu_divider %>
           <%= menu_item "Estoque", stocks_path %>
-          
-          <%= drop_down "Produtos" do %>
-            <%= menu_item "Listagem de Produtos", products_path %>
-            <%= menu_item "Criar Grupos", new_products_group_path %>
-            <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
-            <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
-          <% end %>
-          
+                    
           <%= drop_down "Matéria Prima" do %>
             <%= menu_item "Cadastro", feedstocks_path %>
             <%= menu_item "Lista de compra", feedstocks_list_critic_stock_path %>
@@ -37,14 +31,6 @@
           <%= drop_down "Contabilidade" do %>
             <%= menu_item "Centro de Custo", center_costs_path %>
           <% end %>
-
-          <%= drop_down "Pedidos" do %>
-            <%= menu_item "Lançar Pedidos", new_order_path %>
-            <%= menu_item "Listagem de Pedidos", orders_path %>
-            <%= menu_item "Atendimento", attendances_orders_path %>
-            <%= menu_item "Entregas", list_delivers_orders_path %>
-            <%= menu_item "Clientes", clients_path %>
-          <% end %>
           
           <%= drop_down "Caixa" do %>
             <%= menu_item "Abrir Caixa", new_cashier_path %>
@@ -54,7 +40,23 @@
             <%= menu_item "Vendas por vendedor", reports_comissions_path %>
             <%= menu_item "Monvimentação de estoque", reports_stocks_path %>
           <% end %>
+        
+        <% end %>
           
+          <%= drop_down "Produtos" do %>
+            <%= menu_item "Listagem de Produtos", products_path %>
+            <%= menu_item "Criar Grupos", new_products_group_path %>
+            <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
+            <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
+          <% end %>
+            
+          <%= drop_down "Pedidos" do %>
+            <%= menu_item "Lançar Pedidos", new_order_path %>
+            <%= menu_item "Listagem de Pedidos", orders_path %>
+            <%= menu_item "Atendimento", attendances_orders_path %>
+            <%= menu_item "Entregas", list_delivers_orders_path %>
+            <%= menu_item "Clientes", clients_path %>
+          <% end %>      
       <% end %>
       
       <%= menu_group :pull => :right do %>
