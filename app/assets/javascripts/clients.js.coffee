@@ -33,6 +33,7 @@ jQuery ->
         
 jQuery -> 
   $("#client_cnpj").mask("99.999.999/9999-99");
+  $("#client_cpf").mask("999.999.999-99");
   $("#client_phone1").mask("(99) 9999-9999");
   $("#client_address_attributes_cep").mask("99999-999");
   
