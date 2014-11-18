@@ -1,0 +1,39 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class='text-center'> ITENS </h4>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quant.</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        
+        <% if items.any? %>
+          <tbody>
+            <% items.each do |item| %>
+              <tr>
+                <td><%= item.product_name %></td>
+                <td><%= number_to_currency item.unit_price %></td>
+                <td><%= item.quantity %></td>
+                <td><%= number_to_currency item.total_unit  %></td>
+                <td>
+                  <%= link_to "Apagar",
+                              cashiers_sale_item_path(cashier_sale, item),
+                              :method => :delete,
+                              :remote => true,
+                              :class => 'btn btn-sm btn-danger' %>
+                </td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>

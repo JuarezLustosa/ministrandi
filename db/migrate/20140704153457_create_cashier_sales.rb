@@ -2,7 +2,7 @@ class CreateCashierSales < ActiveRecord::Migration
   def change
     create_table :cashier_sales do |t|
       t.references :cashier, index: true
-      t.integer :payment
+      t.integer :payment, :null => false
       t.decimal :valor, :null => false
       t.decimal :descount
       t.decimal :change

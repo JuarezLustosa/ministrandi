@@ -1,0 +1,6 @@
+$('#list_items').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/list_items', :locals =>{ :items => items}) %>");
+$('#total_valor').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/total_valor') %>");
+$('#sub_total').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/sub_total') %>");
+$('#modal_sub_total').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/sub_total') %>");
+$('#quantity').focus()
+$.flash("<%=  @item.product_name %> removido com sucesso.", true);

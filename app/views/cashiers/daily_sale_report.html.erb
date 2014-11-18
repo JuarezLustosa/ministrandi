@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+	  <h3 class="text-center">Caixa - <%= l  @cashier.created_at %></h3>
+	  <h4 class="text-center"><small> Status  <kbd><%=  @cashier.human_state_name %></kbd> </small></h4>
+    <h5 class="text-center hidden-print"> <%= link_to "Voltar", cashiers_path %></h3>
+	</div>
+</div>
+
+<div class="jumbotron smallJumbo">
+  <div class="row">
+    <div class="col-xs-4 text-left">
+      <h3 class="text-left">Total da Venda:</h3>
+    </div>
+
+    <div class="col-xs-8 text-right">
+      <h3 class="text-rught"><%= number_to_currency @cashier.sum_total_sale %></h3>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron smallJumbo">
+  <div class="row">
+    <div class="col-xs-6 text-left">
+      <h4 class="text-left">Total Venda á Vista:</h4>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h4 class="text-rught"><%= number_to_currency @cashier.sum_total_sale_in_cash %></h4>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron smallJumbo">
+  <div class="row">
+    <div class="col-xs-6 text-left">
+      <h4 class="text-left">Total Venda á Prazo:</h4>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h4 class="text-rught"><%= number_to_currency @cashier.sum_total_sale_in_credit_card %></h4>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron smallJumbo">
+  <div class="row">
+    <div class="col-xs-6 text-left">
+      <h4 class="text-left">Total Entrada:</h4>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h4 class="text-rught"><%= number_to_currency @cashier.sum_total_entrance %></h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron smallJumbo smallJumbo">
+  <div class="row">
+    <div class="col-xs-6 text-left">
+      <h4 class="text-left">Total Saídas:</h4>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h4 class="text-rught"><%= number_to_currency @cashier.sum_total_out %></h4>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-xs-6 text-left">
+      <h3 class="text-left">Total em dinheiro no caixa:</h3>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h3 class="text-rught"><%= number_to_currency @cashier.total_money_in_cashier %></h3>
+    </div>
+  </div>
+</div>
+
+<h4 class="text-center">Vendas</h4>
+  <table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Total da Venda</th>
+      <th>Total a vista</th>
+      <th>Total a prazo</th>
+      <th>Entrada</th>
+      <th>Total Sáida</th>
+      <th>Total em dinheiro</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td></td>
+
+        <td><%= @cashier.sum_total_entrance %></td>
+        <td><%= @cashier.sum_total_out %></td>
+        <td><%= @cashier.total_money_in_cashier %></td>
+      </tr>
+  </tbody>
+</table>

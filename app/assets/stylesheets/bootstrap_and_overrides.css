@@ -20,3 +20,9 @@ h3 { color: #325B7F; }
 @fontAwesomeSvgPath: "/assets/fontawesome-webfont.svg#fontawesomeregular";
 @import "fontawesome";
 
+.top5 { margin-top:5px; }
+.top10 { margin-top:10px; }
+
+.smallJumbo { padding-top:2px; padding-bottom:2px; }
+
+

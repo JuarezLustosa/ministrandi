@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      cashier/sale/item:
+        one: "Item de Venda"
+        other: "Itens de Venda"
+
+    attributes:
+      cashier/sale/item:
+        quantity: "Quantidade"
+        barcode: "Código de barras"
+        product_id: "Produto"
+        unit_price: "Preço unitário"
+        
+  flash:
+    actions:
+      update:
+        notice: "%{resource_name} finalizada com sucesso."

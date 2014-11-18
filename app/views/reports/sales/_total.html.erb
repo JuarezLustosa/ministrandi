@@ -1,0 +1,34 @@
+<% if @sales.any? %>
+
+<div class="page-header">
+  <h1>Total de vendas</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Cidade</th>
+      <th>Data</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.client_name %></td>
+        <td><%= sale.client_city_name %></td>
+        <td><%= l sale.date %></td>
+        <td><%= sale.payment_humanize %></td>
+        <td><%= number_to_currency sale.total %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="well">
+  <p class="lead text-right">Total <%= number_to_currency @sales.total %></p>
+</div>
+<% else %>
+  <p>Não foi encontrado nenhum registro no mês informado.</p>
+<% end %>

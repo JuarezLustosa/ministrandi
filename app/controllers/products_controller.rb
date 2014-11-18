@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
+  respond_to :js
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  
+  def find_by_barcode
+    @product = Product.find_by_barcode(params[:term])
+  end
+  
   def index
     @products = Product.all
     respond_with(@products)

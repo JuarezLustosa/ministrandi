@@ -5,6 +5,6 @@ jQuery ->
         event.preventDefault()
         $(this).val ui.item.label
         $('.search-query').val ui.item.value
-        $('.hidden-user_id').val ui.item.id
+        $('.hidden #user_id').val ui.item.id
   
   $('#money').maskMoney();

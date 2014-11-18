@@ -1,0 +1,12 @@
+<% if @item.errors.any? %>
+  $.flash("<%= @item.errors.full_messages.to_sentence %>", true );
+<% else %>
+  $('#list_items').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/list_items', :locals =>{ :items => items}) %>");
+  $('#total_valor').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/total_valor') %>");
+  $('#sub_total').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/sub_total') %>");
+  $('#modal_sub_total').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/sub_total') %>");
+  $('#autocomplete_product_in_store').val('')
+  $('#unit_price').val('')
+  $('#quantity').val('').focus()
+  $.flash("<%=  @item.product_name %> adicionado com sucesso.");
+<% end %>

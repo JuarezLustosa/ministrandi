@@ -1,20 +1,23 @@
-<%= simple_form_for @cashiers_entrance, :url  => cashiers_entrances_path do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for Cashier::Entrance.new, :url  => cashiers_entrances_path, remote: true do |f| %>
+  <%= f.error_notification %>  
 
   <div class="form-inputs">
-    <%= f.input :money, as: :string %>
+    <%= f.input :money, as: :string, input_html: { autofocus: true } %>
+  </div>
+  
+  <div class="form-inputs">
     <%= f.input :user, 
       as: :string,
       id: :entrance_user, 
       input_html: { class: 'search-query'},
       required: true %>
-      
-    <%= f.input :user_id, as: :hidden %>
+  </div>
+  
+  <div class="form-inputs">
+    <%= f.input :user_id, as: :hidden, input_html: { id: "user_id"} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Abrir Caixa", :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                root_path, :class => 'btn' %>
+    <%= f.button :submit, "Realizar Entrada", :class => 'btn-primary' %>
   </div>
 <% end %>

@@ -1,0 +1,21 @@
+<%= simple_form_for Cashier::Out.new, :url  => cashiers_outs_path, remote: true do |f| %>
+  <%= f.error_notification %>  
+
+  <div class="form-inputs">
+    <%= f.input :money, as: :string, input_html: { autofocus: true } %>
+  </div>
+  
+  <div class="form-inputs">
+    <%= f.input :user, 
+      as: :string,
+      id: :out_user, 
+      input_html: { class: 'search-query'},
+      required: true %>
+  </div>
+  
+  <%= f.input :user_id, as: :hidden, input_html: { id: "user_id"} %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, "Realizar Saída", :class => 'btn-primary' %>
+  </div>
+<% end %>

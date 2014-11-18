@@ -1,23 +1,8 @@
-<%= simple_form_for @cashiers_sale, :url  => cashiers_sales_path do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.simple_fields_for :items do |item| %>
-      <%= item.input :product_id, as: :hidden, input_html: { id: 'product_id' } %>
-      
-      <%= item.input :product,
-        as: :string,
-        input_html: { class: 'search-query', value: ent.object.product.try(:name) || "" }, 
-        required: true %>
-    
-      <%= item.input :quantity, as: :string, required: true, input_html: { id: 'quantity' } %>
-    <% end %>
-    
-    <%= f.input :payement, :as => :select, :collection => Cashiers::Locations.to_a, :selected => Cashiers::Locations::STORE  %>    
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Abrir Caixa", :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                root_path, :class => 'btn' %>
+<%= simple_form_for cashier_sale, :method => :put, :remote => true, :url => cashiers_sale_path(cashier_sale) do |f| %>
+  <div class="form-group">
+    <%= f.input :payment, :as => :select, :collection => Cashiers::Sales::PaymentForm.to_a, :selected => Cashiers::Sales::PaymentForm::CASH %>
+    <%= f.input :money, as: :string %>
+    <%= f.input :descount, as: :string %>
+    <%= f.button :submit, "CALCULAR", :class => 'btn btn-primary btn-lg btn-block' %>
   </div>
 <% end %>

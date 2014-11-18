@@ -15,10 +15,18 @@ Ministrandi::Application.routes.draw do
     end
   end
   
-  resources :cashiers, only: [:create, :new]
+  resources :cashiers do
+    resource :close, controller: 'cashiers/close', only: :update
+    get :daily_sale_report, :on => :member
+  end
   
   namespace :cashiers do
     resources :entrances
+    resources :outs
+    resources :sales do
+      resource :finish, controller: 'sales/finish', only: :update
+      resources :items, controller: 'sales/items'
+    end
   end
   
   namespace :reports do
@@ -36,6 +44,7 @@ Ministrandi::Application.routes.draw do
     resources :clients, only: :index
     resources :products, only: :index
     resources :stock_industries, only: :index
+    resources :stock_stores, only: :index
     resources :addresses, only: :index
   end
   
@@ -71,6 +80,7 @@ Ministrandi::Application.routes.draw do
   
   resources :products do
     get :print_industry_price, :on => :collection
+    get :find_by_barcode, :on => :collection
   end
 
   resources :stocks do
@@ -80,64 +90,5 @@ Ministrandi::Application.routes.draw do
   end
   
   root :to => 'home#index'
-
   devise_for :users
-  # path :update_many
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

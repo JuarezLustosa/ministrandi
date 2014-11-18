@@ -1,0 +1,4 @@
+$('#descount').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/descount', :locals =>{ :cashier_sale => @cashier_sale}) %>");
+$('#total_valor').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/total_valor') %>");
+$("#row-descount").show("fold");
+$( "#row-total").effect( "bounce", "slow" );

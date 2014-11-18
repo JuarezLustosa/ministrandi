@@ -1,0 +1,70 @@
+<button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#finishSale">
+  Finalizar a Venda
+</button>
+
+<div class="modal fade" id="finishSale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content">    
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+        <h3 class="text-center modal-title" id="myModalLabel">Finalizar a Venda</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="modal-body">
+            <%= render 'cashiers/sales/form', modal: true %>
+          </div>
+        </div> 
+                
+        <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class='text-center'>Subtotal</h3>
+                  </div>
+                  <div class="panel-body" id='modal_sub_total'>
+                    <%= render 'cashiers/sales/items/sub_total'%>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="row-descount" style="display :none">
+              <div class="col-md-10">
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class='text-center'>Desconto</h3>
+                  </div>
+                  <div class="panel-body" id="descount">
+                    <%= render 'cashiers/sales/items/descount'%>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row" id="row-total">
+              <div class="col-md-10">
+                <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class='text-center'>Total</h3>
+                  </div>
+                  <div class="panel-body" id="total_valor">
+                    <%= render 'cashiers/sales/items/total_valor'%>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            
+          </div> <!-- row master -->
+        </div>
+      <div class="modal-footer">
+        <%= link_to "Finalizar Venda", cashiers_sale_finish_path(cashier_sale), 
+          :class => 'btn btn-danger btn-block', 
+          :method => :put, 
+          :disable_with => "Aguarde..."
+         %>
+      </div>
+    </div> <!-- modal content -->
+  </div><!-- modal dialog -->
+</div> <!-- modal -->

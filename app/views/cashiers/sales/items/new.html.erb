@@ -1,0 +1,9 @@
+<% if cashier_opened.present? %>
+  <div class="page-header">
+    <h1 class='text-center'>Caixa  Data - <%= l cashier_opened.created_at, :format => :short%></h1>
+  </div>
+  <%= render 'form' %>
+<% else %>
+  <p class='lead text-center'> Caixa fechado</p> 
+  <p class='lead text-center'> Favor abrir antes de realizar uma venda</p>
+<% end %>

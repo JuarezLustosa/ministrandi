@@ -1,0 +1,33 @@
+<%= form_tag cashiers_sale_items_path, :method => :post, :remote => true, id: :cashier_sales_item_form do %>
+  <div class="form-group">
+    <%= text_field_tag :quantity,(""), placeholder: "Quantidade", :class => "form-control" , value: 1  %>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group margin-bottom-sm">
+      <span class="input-group-addon"><i class="fa fa-barcode fa-fw"></i></span>
+      <%= text_field_tag :barcode, (""), placeholder: "Cod Barras",  :class => "form-control" , maxlength: 13, autofocus: true  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group margin-bottom-sm">
+      <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+      <%= text_field_tag :autocomplete_product_in_store, (""), 
+                         :class => "form-control",
+                         "data-source" => autocompletes_stock_industries_path,
+                         size: 50,
+                         placeholder: "Pesquisar o produto" %>
+                       
+      <%= hidden_field_tag :product_id %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="input-group margin-bottom-sm">
+      <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+      <%= text_field_tag :unit_price, (""), placeholder: "Preço", size: 20,  :class => "form-control"  %>
+    </div>
+  </div>
+                                
+<% end %>

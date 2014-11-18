@@ -19,7 +19,7 @@
 function set_close_time (div) {
   setInterval(function() {
       $(div).fadeOut("slow");
-  }, 10000);
+  }, 8000);
   
 }
 

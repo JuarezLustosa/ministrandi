@@ -18,7 +18,7 @@ private
       {
         :id         => product.id,
         :label      => product.name,
-        :wholesale => product.wholesale
+        :wholesale  => product.wholesale
       }
     end
     resultset

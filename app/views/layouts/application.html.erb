@@ -32,8 +32,10 @@
             <%= menu_item "Centro de Custo", center_costs_path %>
           <% end %>
           
-          <%= drop_down "Caixa" do %>
+          <%= drop_down "Loja" do %>
             <%= menu_item "Abrir Caixa", new_cashier_path %>
+            <%= menu_item "Nova Venda", new_cashiers_sale_path %>
+            <%= menu_item "Fechar Caixa", cashiers_path %>
           <% end %>
           
           <%= drop_down "Relatórios" do %>

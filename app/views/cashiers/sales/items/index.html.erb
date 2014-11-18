@@ -1,0 +1,61 @@
+<% if cashier_opened.present? %>
+  <div class="page-header">
+    <h1 class='text-center'>Caixa Data - <%= l cashier_opened.created_at, :format => :short %></h1>
+  </div>
+  <div class="container-fluid">
+  
+    <div class="row">
+      <div class="col-md-8">    
+        <div id="list_items">
+          <%= render 'cashiers/sales/items/list_items' %>  
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= render 'cashiers/sales/items/form_tag'%>
+      </div>
+    
+      <div class="row">
+      
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">    
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h4 class='text-center'>Subtotal</h4>
+          </div>
+          <div class="panel-body" id='sub_total'>
+            <%= render 'cashiers/sales/items/sub_total'%>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-4">
+        <div class="btn-group btn-group-justified">
+          <div class="row">
+            <div class="col-md-12">
+              <%= render 'cashiers/sales/finish', :cashiers_sale => cashier_sale %>
+            </div>
+          </div>
+            
+          <div class="row top5">
+            <div class="col-md-12">
+              <%= render 'cashiers/entrances/modal', :cashier => cashier_sale.cashier %>
+            </div>
+          </div>
+      
+          <div class="row top5">
+            <div class="col-md-12">
+              <%= render 'cashiers/outs/modal', :cashier => cashier_sale.cashier %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% else %>
+  <p class='lead text-center'> Caixa fechado</p> 
+  <p class='lead text-center'> Favor abrir antes de realizar uma venda</p>
+<% end %>

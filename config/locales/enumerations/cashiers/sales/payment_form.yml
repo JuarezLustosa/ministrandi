@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    cashiers/sales/payment_form:
+      cash: 'Dinheiro'
+      credit_card: 'Cartão'

@@ -1,0 +1,8 @@
+<% errors = @cashiers_out.errors %> 
+
+<% if errors.any? %>
+  $.flash("<%= @cashiers_out.errors.full_messages.to_sentence %>", true );
+<% else %>
+  $.flash("Saída realizada com sucesso" );
+  $("#outModal").modal_success();
+<% end %>

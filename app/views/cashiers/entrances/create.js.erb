@@ -1,0 +1,8 @@
+<% errors = @cashiers_entrance.errors %> 
+
+<% if errors.any? %>
+  $.flash("<%= @cashiers_entrance.errors.full_messages.to_sentence %>", true );
+<% else %>
+  $.flash("Entrada realizada com sucesso" );
+  $("#entranceModal").modal_success();
+<% end %>

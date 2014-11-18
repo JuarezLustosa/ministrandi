@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      cashier/sale:
+        one: "Venda"
+        other: "Vendas"
+
+    attributes:
+      cashier/sale:
+        payment: "Forma de Pagamento"
+        descount: "Desconto"
+        change: "Troco"
+        state: "Status"
+        total: "Total"
+        money: "Dinheiro"
+        cashier_id: "Caixa"
