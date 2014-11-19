@@ -9,8 +9,9 @@ class Cashier::Sale < ActiveRecord::Base
   validates_presence_of :cashier, :payment
   
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['product_id'].blank? }
-
-  scope :opened, -> { with_state(:open).where('DATE(created_at) = ?', Date.today) }
+  
+  scope :opened, -> { with_state(:open) }
+  scope :open_today, -> { opened.where('DATE(created_at) = ?', Date.today) }
 
   state_machine initial: :open do
     event :finish do

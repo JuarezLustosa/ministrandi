@@ -31,7 +31,7 @@ class Cashiers::SalesController < ApplicationController
   end
   
   def cashier_sale_opened
-    @cashier_sale_opened = Cashier::Sale.opened.first
+    @cashier_sale_opened = Cashier::Sale.open_today.first
   end
   
   def switch_path_by_cashier_open(cashier_sale)

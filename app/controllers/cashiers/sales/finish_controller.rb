@@ -8,7 +8,7 @@ class Cashiers::Sales::FinishController < ApplicationController
   
   private
   def diferente_location cashier_sale
-    next_sale = Cashier::Sale.opened.first
+    next_sale = Cashier::Sale.open_today.first
     respond_with next_sale, cashier_sale, :location => cashiers_sale_items_path(next_sale.id)
   end
 end
