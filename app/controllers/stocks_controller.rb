@@ -1,5 +1,11 @@
 class StocksController < ApplicationController  
   respond_to :js
+
+  def store_list
+    @stocks = Stock.store_location
+    respond_with @stocks
+  end
+  
   def change
     @stock = Stock.find(params[:stock_id])
     ChangeStock.new(@stock, params[:in].to_i).add! if params[:in]

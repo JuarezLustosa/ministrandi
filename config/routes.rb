@@ -85,6 +85,7 @@ Ministrandi::Application.routes.draw do
 
   resources :stocks do
     collection do
+      get :store_list
       get :change
     end
   end
