@@ -10,7 +10,8 @@ jQuery ->
         $('#barcode').focus()
         $('#cashier_sales_item_form').submit()
 
-
+  
+  $("#quantity").maskMoney(precision: 3)
   $("#cashier_sale_money").maskMoney()
   $("#cashier_sale_descount").maskMoney()
   

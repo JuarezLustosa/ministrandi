@@ -7,6 +7,6 @@
   $('#modal_sub_total').html("<%= escape_javascript(render :partial => 'cashiers/sales/items/sub_total') %>");
   $('#autocomplete_product_in_store').val('')
   $('#unit_price').val('')
-  $('#quantity').val('').focus()
+  $('#quantity').val('1').focus()
   $.flash("<%=  @item.product_name %> adicionado com sucesso.");
 <% end %>
