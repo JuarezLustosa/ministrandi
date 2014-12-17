@@ -69,6 +69,7 @@
             <div class="panel-body">
               <p> <strong> Data: </strong> <%= l sale.created_at, format: :short %> </p>
               <p> <strong> Total:</strong> <%= number_to_currency sale.total %> </p>
+              <p> <strong> Desconto:</strong> <%= number_to_currency sale.descount %> </p>
             </div>
             
             <table class="table table-striped table-bordered" >
