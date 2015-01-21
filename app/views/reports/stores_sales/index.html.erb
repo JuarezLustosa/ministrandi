@@ -1,0 +1,12 @@
+<%= form_tag reports_stores_sales_path, :method => :get, :remote => true, class: "form-inline" do %>  
+  <div class="form-group hidden-print">
+      
+    <%= select_month Date.current, :class => "form-control" %>
+    <%= submit_tag 'Pesquisar', class: "btn btn-primary" %>
+    
+  </div>
+<% end %>
+
+<div id="total">
+  <%= render :partial => 'total'%>
+</div>

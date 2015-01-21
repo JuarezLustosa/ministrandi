@@ -13,6 +13,8 @@ class Cashier < ActiveRecord::Base
   scope :opened, -> { with_state(:open) }
   scope :open_to_day, -> { opened.where('DATE(created_at) = ?', Date.today)}
   scope :last_opened_id, -> { open_to_day.pluck(:id) }
+  scope :by_month, lambda { |month| where('extract(month from created_at) = ?', month) }
+  scope :ordered_by_date, -> {order(:created_at)}
     
   state_machine initial: :open do
     event :close do

@@ -1,0 +1,29 @@
+<% if @cashiers.any? %>
+
+<div class="page-header">
+  <h1>Total de vendas</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Total dia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cashiers.each do |cashier| %>
+      <tr>
+        <td><%= l cashier.created_at %></td>
+        <td><%= number_to_currency cashier.sum_total_sale %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="well">
+  
+</div>
+
+<% else %>
+  <p>Não foi encontrado nenhum registro no mês informado.</p>
+<% end %>
