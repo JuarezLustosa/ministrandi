@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
   attr_accessible :id, :name, 
                   :unit, :barcode, :valid_date, 
                   :retail_price, :wholesale,
-                  :cod, :measurement_unit, :group_id
+                  :cod, :measurement_unit, :group_id,
+                  :wholesale_term
                   
   validates_presence_of :name, :retail_price, :wholesale, :group_id
   validates_uniqueness_of :barcode
