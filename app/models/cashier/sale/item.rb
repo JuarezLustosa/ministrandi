@@ -12,6 +12,10 @@ class Cashier::Sale::Item < ActiveRecord::Base
   
   delegate  :name, :retail_price, :unit, :to => :product, allow_nil: true, prefix: true
   
+  scope :sum_quantity_by_date_in_a_determinated_product, lambda { |month, product_id|
+    joins(:sale).where("EXTRACT(MONTH FROM cashier_sales.created_at) = ?", month).where(:product_id => product_id).sum(:quantity)
+  }
+  
   protected
   
   def touch_sale

@@ -1,13 +1,14 @@
 <% if @products.any? %>
 
 <div class="page-header">
-  <h1>Total de produtos</h1>
+  <h1>Total de produtos vendidos no atacado</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Produto</th>
-      <th>Quant. Vendida</th>
+      <th>Quant. Vendida Atacado</th>
+      <th>Quant. Vendida Loja</th>
       <th>Quant. Trocada</th>
     </tr>
   </thead>
@@ -16,7 +17,7 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= sum_quantity_sale_by_product_in(@month, product.id) %></td>
-        <td><%= %>
+        <td><%= sum_quantity_sale_in_store_by_product(@month, product.id) %>
         <td><%= sum_quantity_changed_by_product_in(@month, product.id)%> </td>
       </tr>
     <% end %>
