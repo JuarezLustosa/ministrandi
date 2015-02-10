@@ -1,6 +1,7 @@
 class AutocompleteStockIndustryPresenter
-  def initialize(term)
+  def initialize(term, criteria)
     @term = term
+    @criteria = criteria
   end
   
   def as_json options={}
@@ -18,9 +19,17 @@ private
       {
         :id         => product.id,
         :label      => product.name,
-        :wholesale => product.wholesale
+        :price      => price(product)
       }
     end
     resultset
+  end
+  
+  def price(product)
+    if  @criteria.present? and @criteria === "Á vista" 
+      product.wholesale
+    else 
+      product.wholesale_term
+    end
   end
 end

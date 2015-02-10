@@ -1,12 +1,12 @@
 jQuery ->
   $('#autocomplete_product').autocomplete
     minLength: 2
-    source: "/autocompletes/stock_industries"
+    source: '/autocompletes/stock_industries?payment_form=' + $('#payment_form').val()
     select: (event, ui) ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#product_id').val ui.item.id
-        $('#unit_price').val ui.item.wholesale
+        $('#unit_price').val ui.item.price
         $('#quantity').focus()
         
 jQuery ->

@@ -15,6 +15,7 @@
       <th><%= model_class.human_attribute_name(:group) %></th>
       <th><%= model_class.human_attribute_name(:retail_price) %></th>
       <th><%= model_class.human_attribute_name(:wholesale) %></th>
+      <th><%= model_class.human_attribute_name(:wholesale_term) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         <td><%= product.group_name %></td>
         <td><%= number_to_currency product.retail_price %></td>
         <td><%= number_to_currency product.wholesale %></td>
+        <td><%= number_to_currency product.wholesale_term %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
             edit_product_path(product), 

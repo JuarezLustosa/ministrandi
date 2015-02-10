@@ -6,6 +6,8 @@
                      autofocus: true,
                      size: 50,
                      placeholder: "Pesquisar o produto" %>
+                     
+  <%= hidden_field_tag :payment_form, @order.payment_humanize %>
   <%= hidden_field_tag :product_id %>
 
   <%= text_field_tag :quantity,(""), placeholder: "Quantidade", size: 10, :class => "form-control"   %>
