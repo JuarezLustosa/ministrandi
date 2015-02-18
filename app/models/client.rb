@@ -19,6 +19,6 @@ class Client < ActiveRecord::Base
   default_scope order(:name)
 
   def date_last_buy
-    orders.last ? I18n.l(orders.last.created_at) : "Não possui registro de compra"
+    orders.last ? I18n.l(orders.last.date) : "Não possui registro de compra"
   end  
 end
