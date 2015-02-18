@@ -34,6 +34,7 @@ Ministrandi::Application.routes.draw do
     resources :sales,         only: :index
     resources :stocks,        only: :index
     resources :stores_sales,  only: :index
+    resources :clients,       only: :index
   end
 
   namespace :autocompletes do

@@ -6,6 +6,7 @@ class Client < ActiveRecord::Base
                   :address_attributes
                   
   has_one :address
+  has_many :orders, :class_name => "Order"
   accepts_nested_attributes_for :address
   
   validates_presence_of :address, :name, :cnpj
@@ -15,5 +16,9 @@ class Client < ActiveRecord::Base
   delegate :city_name, :complete, :to => :address, allow_nil: true, prefix: true
 
   scope :search_by_name, lambda { |term| order(:name).where('name ILIKE ? OR fantasy_name ILIKE ?', "#{term}%", "#{term}%") }
-  
+  default_scope order(:name)
+
+  def date_last_buy
+    orders.last ? I18n.l(orders.last.created_at) : "Não possui registro de compra"
+  end  
 end
