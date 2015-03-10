@@ -12,46 +12,47 @@
 </head>
 <body>
   <%= nav_bar :fixed => :top, :brand => "Favo de Mel 2.0", :responsive => true do %>
-      <%= menu_group do %>  
+      <%= menu_group do %>
         <%= menu_item "Home", root_path %>
-        <%= menu_divider %>
-        <%= menu_item "Estoque", stocks_path %>
+        <% if current_user.present? and current_user.admin? %>
+          <%= menu_divider %>
+          <%= menu_item "Estoque", stocks_path %>
                   
-        <%= drop_down "Matéria Prima" do %>
-          <%= menu_item "Cadastro", feedstocks_path %>
-          <%= menu_item "Lista de compra", feedstocks_list_critic_stock_path %>
-          <%= menu_item "Entrada", feedstocks_entrances_path %>
-          <%= menu_item "Saida", feedstocks_outputs_path %>
-          <%= menu_item "Fornecedores", suppliers_path %>
-          <%= menu_divider %> 
-          <%= menu_item "Impri. Inventário", feedstocks_print_inventory_path %>          
-        <% end %>
+          <%= drop_down "Matéria Prima" do %>
+            <%= menu_item "Cadastro", feedstocks_path %>
+            <%= menu_item "Lista de compra", feedstocks_list_critic_stock_path %>
+            <%= menu_item "Entrada", feedstocks_entrances_path %>
+            <%= menu_item "Saida", feedstocks_outputs_path %>
+            <%= menu_item "Fornecedores", suppliers_path %>
+            <%= menu_divider %> 
+            <%= menu_item "Impri. Inventário", feedstocks_print_inventory_path %>          
+          <% end %>
         
-        <%= drop_down "Contabilidade" do %>
-          <%= menu_item "Centro de Custo", center_costs_path %>
-        <% end %>
+          <%= drop_down "Contabilidade" do %>
+            <%= menu_item "Centro de Custo", center_costs_path %>
+          <% end %>
         
-        <%= drop_down "Loja" do %>
-          <%= menu_item "Abrir Caixa", new_cashier_path %>
-          <%= menu_item "Nova Venda", new_cashiers_sale_path %>
-          <%= menu_item "Fechar Caixa", cashiers_path %>
-          <%= menu_item "Estoque Loja", store_list_stocks_path %>
-        <% end %>
+          <%= drop_down "Loja" do %>
+            <%= menu_item "Abrir Caixa", new_cashier_path %>
+            <%= menu_item "Nova Venda", new_cashiers_sale_path %>
+            <%= menu_item "Fechar Caixa", cashiers_path %>
+            <%= menu_item "Estoque Loja", store_list_stocks_path %>
+          <% end %>
         
-        <%= drop_down "Relatórios" do %>
-          <%= menu_item "Vendas por vendedor", reports_comissions_path %>
-          <%= menu_item "Monvimentação de estoque", reports_stocks_path %>
-          <%= menu_item "Caixa Loja", reports_stores_sales_path %>
-          <%= menu_item "Clientes", reports_clients_path %>
-        <% end %>
+          <%= drop_down "Relatórios" do %>
+            <%= menu_item "Vendas por vendedor", reports_comissions_path %>
+            <%= menu_item "Monvimentação de estoque", reports_stocks_path %>
+            <%= menu_item "Caixa Loja", reports_stores_sales_path %>
+            <%= menu_item "Clientes", reports_clients_path %>
+          <% end %>
         
-        <%= drop_down "Produtos" do %>
-          <%= menu_item "Listagem de Produtos", products_path %>
-          <%= menu_item "Criar Grupos", new_products_group_path %>
-          <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
-          <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
+          <%= drop_down "Produtos" do %>
+            <%= menu_item "Listagem de Produtos", products_path %>
+            <%= menu_item "Criar Grupos", new_products_group_path %>
+            <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
+            <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>
+          <% end %>
         <% end %>
-          
         <%= drop_down "Pedidos" do %>
           <%= menu_item "Lançar Pedidos", new_order_path %>
           <%= menu_item "Listagem de Pedidos", orders_path %>
