@@ -8,7 +8,7 @@
     <div class="span6 text-right">
       <h3 class="text-center">Pedido Número - <%= @order.id %></h1>
       <h4 class="text-center hidden-print"> Status  <kbd><%=  @order.human_state_name %></kbd></h3>
-      <h5 class="text-center hidden-print"> <%= link_to "Voltar", orders_path%></h3>        
+      <h5 class="text-center hidden-print"> <%= link_to "Voltar", order_path(@order)%></h3>        
     </div>
   </div>
   

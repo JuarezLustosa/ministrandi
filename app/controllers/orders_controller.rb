@@ -1,11 +1,18 @@
 class OrdersController < ApplicationController
-  respond_to :js
+  respond_to :js, :json
   before_action :set_order, only: [:show, :edit, :update, :destroy, :print]
-  before_action :set_orders, only: [:index]
+  
   
   def attendances
     @orders = Order.opens
     @orders_attend = Order.attend
+  end
+
+  def index
+    respond_to do |format|
+      format.html
+      format.json { render json: OrdersDatatable.new(view_context) }
+    end
   end
 
   def new
@@ -57,10 +64,6 @@ class OrdersController < ApplicationController
   
   def set_order
     @order = Order.find(params[:id])
-  end
-  
-  def set_orders
-    @orders = Order.all
   end
   
   def ready_orders

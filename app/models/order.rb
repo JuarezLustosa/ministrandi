@@ -20,7 +20,9 @@ class Order < ActiveRecord::Base
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {sum(:total)}
   scope :ordered_by_date, -> { order(:date)}
-    
+  scope :search_by_client_name, 
+    lambda { |client_name| joins(:client).where('name ILIKE ?', "#{client_name}%")}
+ 
   attr_accessible :client, :client_id, :vendor, :user_id, :date, :nature,
                   :priority, :nf, :state, :descount, :payment, :payment_day
   

@@ -29,26 +29,28 @@ jQuery ->
   $("#order_date").mask("99/99/9999");
   
 jQuery ->
-  $('#orders_table').dataTable oLanguage:
-    sEmptyTable: "Nenhum registro encontrado na tabela"
-    sInfo: "Mostrar _START_ até _END_ do _TOTAL_ registros"
-    sInfoEmpty: "Mostrar 0 até 0 de 0 Registros"
-    sInfoFiltered: "(Filtrar de _MAX_ total registros)"
-    sInfoPostFix: ""
-    sInfoThousands: "."
-    sLengthMenu: "Mostrar _MENU_ registros por pagina"
-    sLoadingRecords: "Carregando..."
-    sProcessing: "Processando..."
-    sZeroRecords: "Nenhum registro encontrado"
-    sSearch: "Pesquisar"
-    oPaginate:
-      sNext: "Proximo"
-      sPrevious: "Anterior"
-      sFirst: "Primeiro"
-      sLast: "Ultimo"
-
-    oAria:
-      sSortAscending: ": Ordenar colunas de forma ascendente"
-      sSortDescending: ": Ordenar colunas de forma descendente"
-    
-    
+  $('#orders_table').dataTable
+    oLanguage:
+      sEmptyTable: "Nenhum registro encontrado na tabela"
+      sInfo: "Mostrar _START_ até _END_ do _TOTAL_ registros"
+      sInfoEmpty: "Mostrar 0 até 0 de 0 Registros"
+      sInfoFiltered: "(Filtrar de _MAX_ total registros)"
+      sInfoPostFix: ""
+      sInfoThousands: "."
+      sLengthMenu: "Mostrar _MENU_ registros por pagina"
+      sLoadingRecords: "Carregando..."
+      sProcessing: "Processando..."
+      sZeroRecords: "Nenhum registro encontrado"
+      sSearch: "Pesquisar"
+      oPaginate:
+        sNext: "Proximo"
+        sPrevious: "Anterior"
+        sFirst: "Primeiro"
+        sLast: "Ultimo"
+      oAria:
+        sSortAscending: ": Ordenar colunas de forma ascendente"
+        sSortDescending: ": Ordenar colunas de forma" 
+    bJQueryUI: true
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#orders_table').data('source')
