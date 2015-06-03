@@ -4,7 +4,6 @@
 <table class="table table-striped" id="orders_table" data-source="<%= orders_url(format: "json")%>" >
   <%= render 'orders/tables', :orders => @orders  %>
 </table>
-
 <br>
 
 <%= link_to 'Novo', new_order_path, :class => 'btn btn-primary btn-lg', :role => "button"  %>
