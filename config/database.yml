@@ -6,8 +6,8 @@ development:
   min_messages: warning
   pool: 15
   timeout: 5000
-  username: solucao_social
-  password: solucao_social
+  username: developer
+  password: developer
 
 test: &test
   adapter: postgresql
@@ -17,8 +17,8 @@ test: &test
   min_messages: warning
   pool: 15
   timeout: 5000
-  username: solucao_social
-  password: solucao_social
+  username: developer
+  password: developer
 
 production:
   adapter: postgresql
@@ -28,8 +28,8 @@ production:
   min_messages: warning
   pool: 15
   timeout: 5000
-  username: solucao_social
-  password: solucao_social
+  username: developer
+  password: developer
 
 cucumber:
   <<: *test

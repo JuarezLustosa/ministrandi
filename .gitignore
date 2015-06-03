@@ -52,3 +52,4 @@
 db/schema.rb
 *.dump
 Gemfile.lock
+/config/database.yml
