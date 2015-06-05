@@ -1,0 +1,9 @@
+.gitignore
+db/schema.rb
+*.dump
+*.log
+*.rvmrc*
+tmp
+*.class
+*.tar
+*.zip
