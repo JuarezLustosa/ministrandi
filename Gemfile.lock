@@ -85,6 +85,8 @@ GEM
       railties (>= 3.0.0)
     hike (1.2.3)
     i18n (0.6.11)
+    informant-rails (0.8.0)
+      rails (>= 3.0.0, < 4.3.0)
     jquery-datatables-rails (3.3.0)
       actionpack (>= 3.1)
       jquery-rails
@@ -208,6 +210,7 @@ DEPENDENCIES
   devise-encryptable
   enumerate_it
   factory_girl_rails
+  informant-rails
   jquery-datatables-rails (~> 3.3.0)
   jquery-rails (~> 2.3.0)
   pdfkit
