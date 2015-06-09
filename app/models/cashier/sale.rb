@@ -1,5 +1,5 @@
 class Cashier::Sale < ActiveRecord::Base
-  before_save :save_total
+  before_save :save_total, :save_change
   
   attr_accessible :state, :location, :entrances_attributes, :items_attributes, :payment, :money, :descount, :cashier_id, :total
   
@@ -27,9 +27,21 @@ class Cashier::Sale < ActiveRecord::Base
     items.sum(:total_unit)
   end
 
+  def calculate_change
+    if money > 0
+      money - total
+    else
+      0.0
+    end
+  end
+
   protected
   def self.create!
     create(cashier_id: Cashier.last_opened_id.last, payment: Cashiers::Sales::PaymentForm::CASH)
+  end
+
+  def save_change
+    self.change = calculate_change
   end
   
   def save_total

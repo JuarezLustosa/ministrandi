@@ -1,7 +1,7 @@
 <%= simple_form_for cashier_sale, :method => :put, :remote => true, :url => cashiers_sale_path(cashier_sale) do |f| %>
   <div class="form-group">
     <%= f.input :payment, :as => :select, :collection => Cashiers::Sales::PaymentForm.to_a, :selected => Cashiers::Sales::PaymentForm::CASH %>
-    <%= f.input :money, as: :string %>
+    <%= f.input :money, as: :string, autofocus: true %>
     <%= f.input :descount, as: :string %>
     <%= f.button :submit, "CALCULAR", :class => 'btn btn-primary btn-lg btn-block' %>
   </div>
