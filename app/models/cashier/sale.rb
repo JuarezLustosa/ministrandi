@@ -41,7 +41,7 @@ class Cashier::Sale < ActiveRecord::Base
   end
 
   def save_change
-    self.change = calculate_change
+    self.change = calculate_change unless money.nil?
   end
   
   def save_total
