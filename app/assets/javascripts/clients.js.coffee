@@ -61,3 +61,12 @@ jQuery ->
       sSortAscending: ": Ordenar colunas de forma ascendente"
       sSortDescending: ": Ordenar colunas de forma descendente"
 
+jQuery ->
+  $('#client_vendor').autocomplete
+    source: "/autocompletes/vendors"
+    select: (event, ui) ->
+        event.preventDefault()
+        $(this).val ui.item.label
+        $('#client_vendor').val ui.item.value
+        $('#client_user_id').val ui.item.id
+

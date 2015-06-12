@@ -9,6 +9,7 @@ wrapper_mappings: {
   
   <%= f.input :client, wrapper: :horizontal_input_group do %>
     <%= f.input_field :client, as: :string,
+      placeholder: "Pesquisar Cliente",  value: @order.client_name || "", 
       required: true,
       class: "form-control" %>
     

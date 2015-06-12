@@ -42,6 +42,21 @@ wrapper: :horizontal_form  do |f| %>
       </div>
     </div>
   </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"> 
+      <h4>Observações</h4>
+    </div>
+    <div class="panel-body">
+      <div class="form-inputs">
+        <%= f.input :vendor, as: :string, input_html: 
+          { class: 'search-query', placeholder: "Pesquisar Vendedor",
+           value: @client.vendor_name || ""} %>
+        <%= f.input :user_id, as: :hidden %>
+      </div>
+    </div>
+  </div>
+
     <%= f.button :submit, :class => 'btn btn-primary btn-lg btn-block' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), clients_path, :class => 'btn btn-default btn-block' %>
 <% end %>

@@ -3,10 +3,12 @@ class Client < ActiveRecord::Base
                   :contact, :email, 
                   :phone1, :phone2, :fantasy_name, 
                   :city_inscription, :state_inscription, :person,
-                  :address_attributes
+                  :address_attributes, :vendor, :user_id
                   
   has_one :address
   has_many :orders, :class_name => "Order"
+  belongs_to :vendor, :class_name => "User", :foreign_key => :user_id
+  
   accepts_nested_attributes_for :address
   
   validates_presence_of :address, :name, :cnpj
@@ -14,6 +16,7 @@ class Client < ActiveRecord::Base
   
   delegate :city_name, :to => :address, allow_nil: true
   delegate :city_name, :complete, :to => :address, allow_nil: true, prefix: true
+  delegate :name, :id, :complete, :to => :vendor, allow_nil: true, prefix: true
 
   scope :search_by_name, lambda { |term| order(:name).where('name ILIKE ? OR fantasy_name ILIKE ?', "#{term}%", "#{term}%") }
   default_scope order(:name)

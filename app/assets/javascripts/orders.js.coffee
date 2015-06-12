@@ -13,7 +13,10 @@ jQuery ->
         event.preventDefault()
         $(this).val ui.item.label
         $('#order_client').val ui.item.value
-        $('#order_client_id').val ui.item.id   
+        $('#order_client_id').val ui.item.id
+        $('#order_vendor').val ui.item.vendor_name
+        $('#order_user_id').val ui.item.vendor_id
+  
         set_client_info(ui.item)
       
   set_client_info = (client) ->

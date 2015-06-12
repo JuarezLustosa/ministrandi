@@ -21,7 +21,9 @@ private
         :address        => client.address_complete,
         :fantasy_name   => client.fantasy_name,
         :phone          => client.phone1,
-        :email          => client.email
+        :email          => client.email,
+        :vendor_name    => client.vendor_name,
+        :vendor_id      => client.vendor_id
       }
     end
     resultset
