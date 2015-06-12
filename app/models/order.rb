@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
   scope :opens, -> { with_state(:open) }
   scope :delivered, -> { with_state(:delivered) }
   scope :attend, -> { with_state(:attending) }
-  scope :ready, -> { with_state(:ready) }
+  scope :ready, -> { with_state(:ready).order(:id) }
 
   scope :comission, lambda { |vendor| joins(:vendor).where(:nature => Orders::Natures::SALE).where( :users => {:id => vendor})}
   scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }

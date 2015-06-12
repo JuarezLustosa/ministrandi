@@ -1,5 +1,5 @@
 <% if ready_orders.any? %>
-<table class="table table-striped table-condensed">
+<table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
       <th>Pedido</th>
@@ -18,7 +18,7 @@
         <td><%= order.id %></td>
         <td><%= order.client_name %></td>
         <td><%= l order.date %></td>
-        <td><%= l order.updated_at, format: :short  %></td>
+        <td><%= l order.updated_at, format: :very_short  %></td>
         <td><%= order.client_city_name %></td>
         <td><%= number_to_currency order.total %></td>
 
