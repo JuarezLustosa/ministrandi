@@ -2,6 +2,7 @@
   <div class="form-group hidden-print">
 
     <%= select_month Date.current, :class => "form-control" %>
+    <%= select_year Date.current.year, :class => "form-control" %>
     <%= submit_tag 'Pesquisar', class: "btn btn-primary" %>    
   </div>
 <% end %>

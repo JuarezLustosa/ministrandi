@@ -3,7 +3,8 @@ class Reports::ComissionsController < ApplicationController
 
   def index
     month = params[:date][:month] if params[:date].present?
-    @comissions = Order.not_canceled.comission(params[:vendor_id]).by_month(month).ordered_by_date
+    year = params[:date][:year] if params[:date].present?
+    @comissions = Order.not_canceled.comission(params[:vendor_id]).by_month_year(month, year).ordered_by_date
     respond_with @commissions
   end
 end

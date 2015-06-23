@@ -16,9 +16,9 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= sum_quantity_sale_by_product_in(@month, product.id) %></td>
-        <td><%= sum_quantity_sale_in_store_by_product(@month, product.id) %>
-        <td><%= sum_quantity_changed_by_product_in(@month, product.id)%> </td>
+        <td><%= sum_quantity_sale_by_product_in(@month, @year, product.id) %></td>
+        <td><%= sum_quantity_sale_in_store_by_product(@month, @year, product.id) %>
+        <td><%= sum_quantity_changed_by_product_in(@month, @year, product.id)%> </td>
       </tr>
     <% end %>
   </tbody>

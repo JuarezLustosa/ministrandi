@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
   scope :ready, -> { with_state(:ready).order(:id) }
 
   scope :comission, lambda { |vendor| joins(:vendor).where(:nature => Orders::Natures::SALE).where( :users => {:id => vendor})}
-  scope :by_month, lambda { |month| where('extract(month from date) = ?', month) }
+  scope :by_month_year, lambda { |month, year| where('extract(month from date) = ? AND extract(year from date) = ? ', month, year) }
   scope :not_canceled, -> {where('orders.state NOT IN (?)','cancel')}
   scope :total, -> {sum(:total)}
   scope :ordered_by_date, -> { order(:date)}

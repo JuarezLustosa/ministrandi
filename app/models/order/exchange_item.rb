@@ -9,7 +9,8 @@ class Order::ExchangeItem < ActiveRecord::Base
   delegate :stock, to: :product, allow_nil: true, prefix: true
   validates_uniqueness_of :product, :scope =>  :order_id
   
-  scope :sum_quantity_changed_by_date, lambda { |month, product_id|
-    joins(:order).where("EXTRACT(MONTH FROM date) = ?", month).where(:product_id => product_id).sum(:quantity)
+  scope :sum_quantity_changed_by_date, lambda { |month, year, product_id|
+    joins(:order).where("EXTRACT(MONTH FROM date) = ?  AND EXTRACT(YEAR FROM date) = ? ", month, year)
+    .where(:product_id => product_id).sum(:quantity)
   }
 end
