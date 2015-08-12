@@ -20,3 +20,7 @@
 //= require_tree .
 //= require dataTables/jquery.dataTables
 //= require flash.js
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
+//= require moment/pt-br.js

@@ -2,6 +2,6 @@ class Reports::ClientsController < ApplicationController
   respond_to :js
 
   def index
-    @clients = Client.all
+    @clients = Client.order_by_name
   end
 end

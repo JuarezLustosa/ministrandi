@@ -26,7 +26,8 @@ wrapper_mappings: {
     required: true %>
   
   <%= f.input :user_id, as: :hidden %>
-  <%= f.input :date, as: :string, input_html: { class: 'date', value: today_or_order_date(@order) } %>
+  <%= f.input :date, :as => :datetime_picker, input_html: { data: {date_options: {defaultDate: Date.today }}}  %> 
+              
   <%= f.input :priority, :as => :select, :collection => Orders::Priority.to_a, :selected => Orders::Priority::MEDIUM %>
   <%= f.input :nf, input_html: { class: 'checkbox' }  %>
   <%= f.input :nature, :as => :select, :collection => Orders::Natures.to_a, :selected => Orders::Natures::SALE %>

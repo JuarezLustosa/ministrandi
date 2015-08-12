@@ -26,10 +26,9 @@ jQuery ->
     phone = $("<p><strong>Telefone:</strong> #{client.phone}</p>")
     email = $("<p><strong>Email:</strong> #{client.email}</p>")
     $('.modal-body').append(fantasy_name, address, phone, email)
-    return  
-  
+    return
+    
   $('#order_client').focus();  
-  $("#order_date").mask("99/99/9999");
   
 jQuery ->
   $('#orders_table').dataTable

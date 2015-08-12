@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', "4.0.0"
 
 gem 'pg'
-gem 'jquery-rails', "~> 2.3.0"
+gem 'jquery-rails'
+gem "jquery-ui-rails"
 gem 'devise'
 gem 'devise-encryptable'
 gem 'responders'
@@ -22,6 +23,8 @@ gem 'ancestry'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'will_paginate'
 gem 'informant-rails'
+gem 'momentjs-rails', '>= 2.9.0',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 group :development, :test do
   gem 'rspec'

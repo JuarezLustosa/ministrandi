@@ -5,7 +5,7 @@ wrapper: :horizontal_form  do |f| %>
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Dados Gerais</h4>
+          <h4>Dados Gerais </h4>
         </div>
         <div class="panel-body">
   
@@ -26,6 +26,8 @@ wrapper: :horizontal_form  do |f| %>
             <%= f.input :email, as: :email %>
             <%= f.input :phone1, as: :string %>
             <%= f.input :phone2, as: :string %>
+            <%= f.input :inactive %>
+            <%= f.input :info %>
           </div>
         </div>
       </div>

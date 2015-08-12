@@ -6,6 +6,8 @@
  *= require_tree .
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require dataTables/jquery.dataTables
+ *= require bootstrap-datetimepicker
+ *= require jquery-ui
 */
 
 .ui-autocomplete {
