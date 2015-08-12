@@ -50,6 +50,8 @@ Ministrandi::Application.routes.draw do
     resources :addresses, only: :index
   end
   
+  resources :clients
+
   resources :orders do
     resource :attendance, controller: 'orders/attendance',  only: :update
     resource :attending,  controller: 'orders/attending',   only: :update
