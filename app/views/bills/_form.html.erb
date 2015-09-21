@@ -1,0 +1,32 @@
+<%= simple_form_for @bill, :url => bills_path, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="form-inputs">
+    <%= f.input :category, :as => :select, :collection => Bills::Category.to_a, :selected => Bills::Category::BILLET %>
+
+    <%= f.input :supplier, 
+        as: :string, input_html: {  placeholder: "Pesquise o fornecedor", autofocus: true }, 
+        required: true  %>
+    <%= f.input :supplier_id, as: :hidden %>   
+    <%= f.input :release, :as => :datetime_picker %>
+    <%= f.input :payment_day, :as => :datetime_picker %>
+    <%= f.input :number %> 
+    <%= f.input :barcode %>
+    
+    <%= f.input :bank, :as => :select, :collection => Bills::Banks.to_a, :selected => Bills::Banks::BRASIL %>
+    <%= f.input :valor %>
+    <%= f.input :valor_paid %>
+    <%= f.input :feedstock_entrance_id %>
+    <%= f.input :description %>
+    <%= f.input :center_cost_id, 
+    :as => :select, 
+    :collection => nested_options(CenterCost) %>   
+     
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar Conta", :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn' %>
+  </div>
+<% end %>

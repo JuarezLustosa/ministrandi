@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   respond_to :js, :json
   before_action :set_order, only: [:show, :edit, :update, :destroy, :print]
   
-  
   def attendances
     @orders = Order.opens
     @orders_attend = Order.attend

@@ -77,6 +77,7 @@ Ministrandi::Application.routes.draw do
   resources :addresses
   resources :search_suggestions
   resources :feedstocks
+  resources :bills
 
   namespace :products do
     resources :groups
