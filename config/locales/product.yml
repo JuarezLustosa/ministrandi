@@ -17,4 +17,7 @@ pt-BR:
         barcode: "Código de Barras"
         cost_price: "Preço de Custo"
         group: "Grupo"
+        measurement_unit: "Unidade de Medida"
+        group_id: "Grupo de produto"
+        inactive: "Inativo"
 

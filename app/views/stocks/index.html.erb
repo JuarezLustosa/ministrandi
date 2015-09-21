@@ -4,14 +4,15 @@
     <%= link_to "Adicionar item no estoque", new_stock_path, :class => 'btn btn-primary' %>
   </h1>
 </div>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" id="stocks_table">
   <thead>
     <tr>
       <th>Produto</th>
       <th>Local</th>
       <th>Quant.</th>
       <th>Entrada </th> 
-      <th>Saída</th> 
+      <th>Saída</th>
+      <th>Lançar Estoque</th> 
       <th>Ação</th>
     </tr>
   </thead>
@@ -25,9 +26,12 @@
           <%= hidden_field_tag :stock_id, stock.id %>
           <td><%= text_field_tag :in, nil, class:  'index_input' %></td>
           <td><%= text_field_tag :out, nil, class: 'index_input' %></td>
+          <td>          
+            <%= submit_tag "Lançar", data: { disable_with: "Aguarde..." }, :class => 'btn btn-sm btn-primary'  %>
+          </td>
           <td>
-            <%= submit_tag "Lançar", data: { disable_with: "Please wait..." }, :class => 'btn btn-sm btn-primary'  %>
-      
+            <%= link_to "Editar", edit_stock_path(stock), :class => 'btn btn-primary fa fa-pencil-square-o btn-sm' %>
+
             <%= link_to ' Apagar', stock, 
               method: :delete, 
               data: { confirm: 'Tem certeza que deseja excluir?' },

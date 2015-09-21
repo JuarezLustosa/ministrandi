@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
                   :retail_price, :wholesale,
                   :cod, :measurement_unit, :group_id,
                   :wholesale_term
-                  
+
   validates_presence_of :name, :retail_price, :wholesale, :group_id
   validates_uniqueness_of :barcode
     

@@ -16,7 +16,6 @@
         <%= menu_item "Home", root_path %>
         <% if current_user.present? and current_user.admin? %>
           <%= menu_divider %>
-          <%= menu_item "Estoque", stocks_path %>
                   
           <%= drop_down "Matéria Prima" do %>
             <%= menu_item "Cadastro", feedstocks_path %>
@@ -49,6 +48,8 @@
         
           <%= drop_down "Produtos" do %>
             <%= menu_item "Listagem de Produtos", products_path %>
+            <%= menu_item "Estoque", stocks_path %>
+            <%= menu_item "Nivel estoque", level_stocks_path %>
             <%= menu_item "Criar Grupos", new_products_group_path %>
             <%= menu_item "Imprimir Preços Atacado", print_industry_price_products_path(criteria: "ATACADO") %>
             <%= menu_item "Imprimir Preços Varejo", print_industry_price_products_path(criteria: "VAREJO (Loja)") %>

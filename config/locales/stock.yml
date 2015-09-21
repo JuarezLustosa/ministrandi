@@ -11,3 +11,4 @@ pt-BR:
         product: "Produto"
         quantity: "Quantidade" 
         local: "Localização"
+        min_stock: "Estoque mínimo"

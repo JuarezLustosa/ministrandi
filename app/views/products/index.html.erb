@@ -30,7 +30,7 @@
         <td><%= number_to_currency product.wholesale %></td>
         <td><%= number_to_currency product.wholesale_term %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to "Editar",
             edit_product_path(product), 
             :class => 'btn btn-primary fa fa-pencil-square-o btn-sm' %>
             

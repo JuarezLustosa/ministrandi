@@ -92,6 +92,7 @@ Ministrandi::Application.routes.draw do
     collection do
       get :store_list
       get :change
+      get :level
     end
   end
   
