@@ -23,9 +23,10 @@ jQuery ->
     $('.modal-body').html("")
     address =  $("<p><strong>Endereço:</strong> #{client.address}</p>")
     fantasy_name = $("<p><strong>Nome Fantasia:</strong> #{client.fantasy_name}</p>")
+    city_name = $("<p><strong>Cidade:</strong> #{client.city_name}</p>")
     phone = $("<p><strong>Telefone:</strong> #{client.phone}</p>")
     email = $("<p><strong>Email:</strong> #{client.email}</p>")
-    $('.modal-body').append(fantasy_name, address, phone, email)
+    $('.modal-body').append(fantasy_name, address, city_name, phone, email)
     return
     
   $('#order_client').focus();

@@ -14,7 +14,7 @@ class Client < ActiveRecord::Base
   validates_presence_of :address, :name, :cnpj
   validates_uniqueness_of :cnpj
   
-  delegate :city_name, :to => :address, allow_nil: true
+  delegate :city_name, :neighborhood, :to => :address, allow_nil: true
   delegate :city_name, :complete, :to => :address, allow_nil: true, prefix: true
   delegate :name, :id, :complete, :to => :vendor, allow_nil: true, prefix: true
 

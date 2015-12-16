@@ -18,6 +18,7 @@ private
       {
         :id             => client.id,
         :label          => client.name,
+        :city_name      => client.city_name,
         :address        => client.address_complete,
         :fantasy_name   => client.fantasy_name,
         :phone          => client.phone1,
