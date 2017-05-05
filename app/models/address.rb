@@ -1,5 +1,6 @@
 class Address < ActiveRecord::Base
-  has_enumeration_for :street_type, :with => StreetType, :create_helpers => true, :create_scopes => true
+  has_enumeration_for :street_type, 
+    :with => StreetType, :create_helpers => true, :create_scopes => true
   attr_accessible :id, :name, 
                   :cep, :street_type, :street, 
                   :number, :complement, :neighborhood, :city, :city_id,
@@ -13,7 +14,6 @@ class Address < ActiveRecord::Base
   validates_presence_of :street, :number, :neighborhood, :city, :state, :cep
   
   scope :search_by_street, lambda { |term| order(:street).where("street like ?", "#{term}%") }
-  
   
   def complete
     "#{street_type_humanize}: #{street} #{number} - #{neighborhood}"

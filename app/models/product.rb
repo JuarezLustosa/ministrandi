@@ -15,7 +15,8 @@ class Product < ActiveRecord::Base
     
   scope :ordered, -> { order(:name) }
   scope :search_by_name_or_cod, lambda { |term| where("name ILIKE ? OR cod ILIKE ?", "#{term}%", "#{term}")}
-  scope :search_by_name_or_cod_in_stock, lambda { |term| joins(:stock).where("name ILIKE ? OR cod ILIKE ?", "#{term}%", "#{term}") }
+  scope :search_by_name_or_cod_in_stock, 
+    lambda { |term| joins(:stock).where("name ILIKE ?", "#{term}%") }
   
   scope :search_by_name_in_industry, lambda { |term| 
     query = search_by_name_or_cod_in_stock(term)

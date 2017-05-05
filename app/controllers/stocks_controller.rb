@@ -27,7 +27,7 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(stock_params)
     @stock.save
-    respond_with(@stock)
+    respond_with_diferent_location
   end
 
   def edit
